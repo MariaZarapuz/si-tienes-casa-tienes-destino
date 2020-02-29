@@ -6,3 +6,20 @@
 .btn{
     margin-left: 10px
 }
+
+/* HERO */
+.slider{
+    height: 400px;
+}
+.slide1{
+    background-image: url('https://www.elmueble.com/medio/2019/02/06/salon-anna-ortiz-y-asun-anto-00452175_032629a2_2000x1745.jpg');
+    background-position: center center;
+}
+.slide2{
+    background-image: url('https://www.65ymas.com/uploads/s1/17/11/82/chill-out-terraza-jardin.jpeg');
+    background-position: center center;
+}
+.slide3{
+    background-image: url('https://www.construyehogar.com/wp-content/uploads/2016/02/Casa-de-campo-con-adobe-Fotos-Gonzalo-C%C3%A1ceres-Dancuart-Dise%C3%B1o-Marina-Vella-Arquitectos.jpg');
+    background-position: center center;
+}
