@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       } else if (this.slide === 'slide3') {
         this.slide = 'slide1'
       }
-    }, 8000)
+    }, 5000)
   }
 
 }

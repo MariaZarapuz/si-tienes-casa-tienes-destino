@@ -3,16 +3,27 @@
         <nav class="navbar navbar-light col-12">
             <div class="logo"></div>
             <div class="botones">
-                <button type="button" class="btn btn-outline-secondary">Registrate</button>
+                <button type="button" class="btn btn-outline-secondary">Regístrate</button>
                 <button type="button" class="btn btn-outline-secondary">Inicia sesión</button>
             </div>
+        </nav>
+        <nav class="navbar navbar-light bg-light col-12 filters">
+            <a class="navbar-brand">¿A dónde quieres ir?</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2 form" type="search" placeholder="Ciudad" aria-label="Ciudad">
+                <input class="form-control mr-sm-2" type="search" placeholder="Fecha" aria-label="Fecha">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </form>
         </nav>
     </div>
     <div class="hero row">
         <div class="col-12 slider"
             [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
+            <h2>Si tienes casa tienes DESTINO </h2>
         </div>
+
     </div>
+
     <div class="container">
 
     </div>

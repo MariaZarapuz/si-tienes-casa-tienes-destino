@@ -1,10 +1,20 @@
-/* NAVEGADOR PRINCIPAL */
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+
+/* NAV PRINCIPAL */
 .navbar{
-    background-color: rgb(24, 0, 24);
+    background-color: #220e2a;
     
 }
-.btn{
+.botones .btn{
     margin-left: 10px
+}
+.botones .btn-outline-secondary{
+color: #8bc5ce;
+border-color: #8bc5ce;
+}
+.botones .btn:hover, .btn:active{
+    background-color: #8bc5ce;
+    color: #220e2a;
 }
 
 /* HERO */
@@ -12,14 +22,53 @@
     height: 400px;
 }
 .slide1{
-    background-image: url('https://www.elmueble.com/medio/2019/02/06/salon-anna-ortiz-y-asun-anto-00452175_032629a2_2000x1745.jpg');
-    background-position: center center;
+    background-image: url('https://www.beachhousesvalencia.es/alquiler/fotos/2/15194738960fbb200b99f48cb42593387b30e070c9/1519473924cf9edd82de69f38ce30eb0aa6ecc58c0.jpg');
+    background-position: center 900px;
 }
 .slide2{
-    background-image: url('https://www.65ymas.com/uploads/s1/17/11/82/chill-out-terraza-jardin.jpeg');
+    background-image: url('https://www.derbyhotels.com/blog/wp-content/uploads/2019/06/DHC_LA-TERRAZA-HOTEL-URBAN_V2-3.jpg');
     background-position: center center;
 }
 .slide3{
     background-image: url('https://www.construyehogar.com/wp-content/uploads/2016/02/Casa-de-campo-con-adobe-Fotos-Gonzalo-C%C3%A1ceres-Dancuart-Dise%C3%B1o-Marina-Vella-Arquitectos.jpg');
-    background-position: center center;
+    background-position: center 700px;
 }
+.slider h2{
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Raleway' sans-serif;
+    padding: 20px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+
+}
+
+/* NAV FILTROS */
+.filters a{
+    margin-left: 10px;
+}
+.filters input{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.filters input.form-control:focus{
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    /* border: 1px solid #220e2a */   
+}
+.filters button{
+    margin-top: 10px;
+}
+.filters .btn-outline-secondary{
+color: #220e2a;
+border-color: #220e2a;
+}
+.filters .btn:hover, .btn:active{
+    background-color: #220e2a;
+    color: #8bc5ce;
+}
+
+/* FUNCIONALIDAD */
+
