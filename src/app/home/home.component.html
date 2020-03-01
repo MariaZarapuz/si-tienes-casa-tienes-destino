@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <!-- HEADER -->
     <div class="row">
         <nav class="navbar navbar-light col-12">
             <div class="logo"></div>
@@ -16,15 +17,45 @@
             </form>
         </nav>
     </div>
+    <!-- HERO -->
     <div class="hero row">
         <div class="col-12 slider"
             [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
-            <h2>Si tienes casa tienes DESTINO </h2>
+            <p>Si tienes casa tienes DESTINO </p>
         </div>
 
     </div>
-
+    <!-- BODY -->
     <div class="container">
+        <div class="info row">
+            <div class="col-12">
+                <p class="ppal">¿Por qué usar este método para viajar?</p>
+            </div>
 
+            <div class="square col-12 col-sm-6 col-md-4">
+                <div class="drawing1"></div>
+                <p class="second">Ahorrar dinero</p>
+            </div>
+            <div class="square col-12 col-sm-6 col-md-4">
+                <div class="drawing2"></div>
+                <p class="second">Sientete como en casa estés donde estés</p>
+            </div>
+            <div class="square col-12 col-sm-6 col-md-4">
+                <div class="drawing3"></div>
+                <p class="second">Conoce mundo</p>
+            </div>
+        </div>
+        <div class="join row">
+            <p class="col-12">Únete a nuestra comunidad</p>
+            <div class="boton col-12">
+                <button class="btn btn-outline-secondary" type="submit">ÚNETE</button>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <div class="row">
+        <div class="footer col-12">
+            <p>Copyright &copy; 2020 - <a href="#">Aviso legal</a> - <a href="#">Cookies</a></p>
+        </div>
     </div>
 </div>
