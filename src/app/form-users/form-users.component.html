@@ -1,0 +1,112 @@
+<div class=" container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row ">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer01">Nombre</label>
+        <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Nombre"
+          formControlName="name">
+        <div class="valid-feedback">
+          El campo esta vacio
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationServer02">Apellidos</label>
+        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Apellidos"
+          formControlName="surNames">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+    </div>
+    <div class="form-row ">
+
+      <div class="col-md-4 mb-3">
+        <label for="validationServerUsername">Usuario</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3">@</span>
+          </div>
+          <input type="text" class="form-control is-invalid" id="validationServerUsername"
+            placeholder="Introduce su correo" aria-describedby="inputGroupPrepend3" formControlName="email">
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Contraseña</label>
+        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="contraseña"
+          formControlName="password">
+        <div class="valid-feedback">
+
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServerUsername">Repite Contraseña</label>
+        <input type="text" class="form-control is-invalid" id="validationServerUsername"
+          placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-4 mb-4">
+        <label class="row">Sexo</label>
+        <div class="form-check form-check-inline">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Femenino</label>
+          </div>
+        </div>
+      </div>
+      <div class="invalid-feedback">
+      </div>
+      <div class="col-md-4 mb-4">
+        <label for="validationServer03">Fecha de Nacimiento</label>
+        <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha Nacimiento"
+          formControlName="dateBirth">
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <label for="validationServer04">D.N.I</label>
+        <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="" formControlName="dni">
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+
+      <div class="col-md-4 mb-4">
+        <label for="validationServer05">Telefono</label>
+        <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Telefono"
+          formControlName="phone">
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+      <div class="col-md-8 mb-4">
+        <label for="validationServer05">Direccion</label>
+        <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="calle,numero"
+          formControlName="adress">
+        <div class="invalid-feedback">
+
+        </div>
+      </div>
+
+    </div>
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+
+  </form>
+</div>
