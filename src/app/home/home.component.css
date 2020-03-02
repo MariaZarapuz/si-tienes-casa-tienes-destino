@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
 
-/* NAV PRINCIPAL */
-.navbar{
-    background-color: #220e2a;
-    
-}
-.botones .btn{
-    margin-left: 10px
-}
-.botones .btn-outline-secondary{
-color: #8bc5ce;
-border-color: #8bc5ce;
-}
-.botones .btn:hover, .btn:active{
-    background-color: #8bc5ce;
-    color: #220e2a;
-}
-
 /* NAV FILTROS */
 .filters a{
     margin-left: 10px;
@@ -37,38 +20,64 @@ border-color: #8bc5ce;
     margin-top: 10px;
 }
 .filters .btn-outline-secondary{
-color: white;
-border-color: #220e2a;
-background-color: #220e2a
+    color: white;
+    border-color: #220e2a;
+    background-color: #220e2a
 }
 .filters .btn:hover, .btn:active{
    background-color: #8bc5ce;
-    color: #220e2a;
+   color: #220e2a;
 }
 
 /* HERO */
 .slider{
-    height: 400px;
+    height: 450px;
+}
+.slide1, .slide2, .slide3{
+    background-size: cover;
+    background-position: center center;
+    background-color: #888;
+    background-blend-mode: multiply
+
 }
 .slide1{
-    background-image: url('https://www.beachhousesvalencia.es/alquiler/fotos/2/15194738960fbb200b99f48cb42593387b30e070c9/1519473924cf9edd82de69f38ce30eb0aa6ecc58c0.jpg');
-    background-position: center 900px;
+    background-image: url('https://www.venis.com/wp-content/uploads/2019/07/metropolitan_caliza_nature_casa-de-campo_h.jpg');
 }
 .slide2{
-    background-image: url('https://www.derbyhotels.com/blog/wp-content/uploads/2019/06/DHC_LA-TERRAZA-HOTEL-URBAN_V2-3.jpg');
-    background-position: center center;
+    background-image: url('https://www.canariasgetaway.com/es/venta/fotos/2/15761635103905b8789d0d7055e6f407d3772fa4bc/1576163515e25839448115b85d3e1b03541a611824.jpg');
+    background-position: center 600px;
 }
 .slide3{
-    background-image: url('https://www.construyehogar.com/wp-content/uploads/2016/02/Casa-de-campo-con-adobe-Fotos-Gonzalo-C%C3%A1ceres-Dancuart-Dise%C3%B1o-Marina-Vella-Arquitectos.jpg');
-    background-position: center 700px;
+    background-image: url('https://www.elmueble.com/medio/2017/06/13/em-c-imujika-7515_b994046e.jpg');
 }
 .slider p{
     color: white;
     font-size: 2.5em;
     font-family: 'Raleway' sans-serif;
     padding: 20px;
-    text-shadow: black 0.1em 0.1em 0.2em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.6);
+}
+.join p {
+    margin-top: 150px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5em;
+}
+.join .button{
+    text-align: center;
+}
+.join .btn-outline-secondary{
+    color: white;
+    border-color: #220e2a;
+    background-color: #220e2a
+}
 
+.join .btn:hover, .btn:active{
+    background-color: #8bc5ce;
+    color: #220e2a;
+}
+.join .button button{
+    width: 250px;
 }
 
 
@@ -77,10 +86,10 @@ background-color: #220e2a
     font-family: 'Raleway' sans-serif;
 }
 .info .ppal{
-font-size: 2em;
-font-weight: bold;
-text-align: center;
-margin: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
 }
 .info .second{
     font-size: 1.5em;
@@ -96,54 +105,22 @@ margin: 20px;
 .info .drawing1{
     width: 100%;
     height: 250px;
-    background-image: url('https://lh3.googleusercontent.com/proxy/YIQrtqnAwu4nMGx-kNpXV0GCgO7OOSLxvPXOL-ZNpiwDdiy1NVaRnV66h_J_6qyHPMhf8hiHxj8vnWH7zasc2cvqtSNDNwLnsxrDxb_-m8X5IoW8Iy61svQMP6aLXu67_2luP3ookjLpNqVGA7Y01pybYF5g7zp7hguU8VCC7nwpTN4sxsY1gg7DCNAUE0zCLA');
+    background-image: url('../../assets/images/cerdito.png');
     background-size: 100% 100%;
 }
 .info .drawing2{
     width: 100%;
     height: 250px;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTmjeSIg6wnuXnRr_m3SQgfeBmpopt8-Gy2hK1UPi7Umikc1tRn');
+    background-image: url('../../assets/images/house.png');
     background-size: 100% 100%;
 }
 .info .drawing3{
     width: 100%;
     height: 250px;
-    background-image: url('https://cdn3.dibujos.net/dibujos/pintar/bola-del-mundo-ii.gif');
+    background-image: url('../../assets/images/mundo.png');
     background-size: 100% 100%;
 }
 
 
 /* UNETE */
-.join p {
-    margin-top: 30px;
-    border-top: 1px solid grey;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5em;
-}
-.join .boton{
-    text-align: center;
-}
-.join .btn-outline-secondary{
-color: white;
-border-color: #220e2a;
-background-color: #220e2a
-}
 
-.join .btn:hover, .btn:active{
-    background-color: #8bc5ce;
-    color: #220e2a;
-}
-
-/* FOOTER */
-.footer{
-    margin-top: 30px;
-    background-color: #220e2a;
-    padding-top:10px;
-    color: white;
-}
-.footer a{
-    text-decoration: none;
-    color: white;
-
-}
