@@ -3,6 +3,7 @@
 /* NAV PRINCIPAL */
 .navbar {
   background-color: #220e2a;
+  position: fixed;
 
 }
 
