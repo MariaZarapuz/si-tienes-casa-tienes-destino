@@ -12,11 +12,11 @@ export class FormUsersComponent implements OnInit {
 
   constructor() {
     this.form = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      surNames: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      surNames: new FormControl('', [Validators.required, Validators.minLength(3)]),
       userName: new FormControl('', [Validators.required]),
       dateBirth: new FormControl('', [Validators.required]),
-      sexo: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
       dni: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       adress: new FormControl('', [Validators.required]),
@@ -24,6 +24,10 @@ export class FormUsersComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       checkPassword: new FormControl('', [Validators.required])
     })
+  }
+
+  onSubmit() {
+    console.log(this.form.value)
   }
 
   ngOnInit() {

@@ -5,7 +5,8 @@ import { FormHouseComponent } from './form-house/form-house.component';
 
 
 const routes: Routes = [
-  { path: 'formUser', component: FormUsersComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'user/register', component: FormUsersComponent },
   { path: 'formHouse', component: FormHouseComponent },
 
 

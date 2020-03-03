@@ -7,11 +7,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./form-house.component.css']
 })
 export class FormHouseComponent implements OnInit {
-
+  arrUsers: any[]
   form: FormGroup;
   constructor() {
     this.form = new FormGroup({
       tipo: new FormControl('', [Validators.required]),
+      titulo: new FormControl('', [Validators.required]),
       pais: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required]),
       pisoPuerta: new FormControl('', []),
@@ -27,6 +28,8 @@ export class FormHouseComponent implements OnInit {
 
     })
   }
+
+
 
   ngOnInit() {
   }
