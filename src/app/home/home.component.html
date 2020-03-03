@@ -1,46 +1,46 @@
 <!-- HEADER -->
 <div class="row">
-    <nav class="navbar navbar-light bg-light col-12 filters">
-        <a class="navbar-brand">¿A dónde quieres ir?</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2 form" type="search" placeholder="Ciudad" aria-label="Ciudad">
-            <input class="form-control mr-sm-2" type="date" placeholder="Fecha" aria-label="Fecha">
-            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-        </form>
-    </nav>
+  <nav class="navbar navbar-light bg-light col-12 filters">
+    <a class="navbar-brand">¿A dónde quieres ir?</a>
+    <div class="form-inline">
+      <input class="form-control mr-sm-2 form" type="search" placeholder="Ciudad" aria-label="Ciudad">
+      <input class="form-control mr-sm-2" type="date" placeholder="Fecha" aria-label="Fecha">
+      <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+  </nav>
 </div>
 <!-- HERO -->
 <div class="hero row">
-    <div class="col-12 slider"
-        [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
-        <div class="join row">
-            <p class="col-12">Únete a nuestra comunidad de intercambio de casas</p>
-            <div class="button col-12">
-                <button class="btn btn-outline-secondary" type="submit"> ÚNETE </button>
-            </div>
+  <div class="col-12 slider"
+    [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
+    <div class="join row">
+      <p class="col-12">Únete a nuestra comunidad de intercambio de casas</p>
+      <div class="button col-12">
+        <button class="btn btn-outline-secondary" type="submit"> ÚNETE </button>
+      </div>
 
-        </div>
     </div>
+  </div>
 
 </div>
 <!-- BODY -->
 <div class="container">
-    <div class="info row">
-        <div class="col-12">
-            <p class="ppal">¿Por qué usar este método para viajar?</p>
-        </div>
-
-        <div class="square col-12 col-sm-6 col-md-4">
-            <div class="drawing1"></div>
-            <p class="second">Ahorrar dinero</p>
-        </div>
-        <div class="square col-12 col-sm-6 col-md-4">
-            <div class="drawing2"></div>
-            <p class="second">Sientete como en casa estés donde estés</p>
-        </div>
-        <div class="square col-12 col-sm-6 col-md-4">
-            <div class="drawing3"></div>
-            <p class="second">Conoce mundo</p>
-        </div>
+  <div class="info row">
+    <div class="col-12">
+      <p class="ppal">¿Por qué usar este método para viajar?</p>
     </div>
+
+    <div class="square col-12 col-sm-6 col-md-4">
+      <div class="drawing1"></div>
+      <p class="second">Ahorrar dinero</p>
+    </div>
+    <div class="square col-12 col-sm-6 col-md-4">
+      <div class="drawing2"></div>
+      <p class="second">Sientete como en casa estés donde estés</p>
+    </div>
+    <div class="square col-12 col-sm-6 col-md-4">
+      <div class="drawing3"></div>
+      <p class="second">Conoce mundo</p>
+    </div>
+  </div>
 </div>
