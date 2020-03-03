@@ -1,3 +1,36 @@
-.modal {
-  display: block;
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+
+/* NAV PRINCIPAL */
+.navbar {
+  background-color: #220e2a;
+
+}
+
+.buttons .btn {
+  margin-left: 10px
+}
+
+.buttons .btn-outline-secondary {
+  color: #8bc5ce;
+  border-color: #8bc5ce;
+}
+
+.buttons .btn:hover,
+.btn:active {
+  background-color: #8bc5ce;
+  color: #220e2a;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 30px;
+  background-color: #220e2a;
+  padding-top: 10px;
+  color: white;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+
 }

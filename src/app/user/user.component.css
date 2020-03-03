@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+
+/* IMAGE USER AND HOUSE */
+.block{
+    padding:auto;
+}
+.userimage{
+    background-image: url('../../assets/images/user.jpg');
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+}
+.houseimage{
+    background-image: url('../../assets/images/house.png');
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+
+/* PERSONAL INFORMATION */
+.information li{
+    list-style: none;
+}
