@@ -1,88 +1,126 @@
 <div class="wrapper">
-  <div class="container mt-10">
+  <h2 class="text-center">Registro de vivienda</h2>
+
+  <div class="container col-6 ">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row mt-3">
-        <div class="col-3">
-          <label>Tipo de Vivienda</label>
-          <select class="form-control">
-            <option value="piso">Piso</option>
-            <option value="casa">Casa</option>
-          </select>
-        </div>
-        <div class="col-6">
-          <label>Pais</label>
 
-          <input type="text" class="form-control col-3" placeholder="Pais">
-        </div>
+      <div class="container" *ngIf=false>
+        <p class="col-6 text-center">¿Cual es la direccion de la vivienda?</p>
+        <div class="row">
 
-      </div>
-      <div class="row mt-3">
-        <p class="col-12">¿Cual es la direccion de la vivienda?</p>
-        <div class="col">
-          <label>Direccion</label>
-          <input type="text" class="form-control" placeholder="calle,numero">
-        </div>
-        <div class="col-3">
-          <label>Piso,Puerta</label>
-          <input type="text" class="form-control" placeholder="piso,puerta">
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-3">
-          <label>Codigo Postal</label>
-          <input type="text" class="form-control" placeholder="C.P">
-        </div>
-        <div class="col-3">
-          <label>Poblacion</label>
-          <input type="text" class="form-control" placeholder="Poblacion">
-        </div>
-        <div class="col-3">
-          <label>Provincia</label>
-          <input type="text" class="form-control" placeholder="Provincia">
-        </div>
-
-      </div>
-      <div class="form-row mt-3">
-        <p class="col-12">¿Cuantos dormitorios tiene?</p>
-        <div class="col-2">
-          <input class="form-control" type="number">
-        </div>
-
-      </div>
-      <div class="form-row mt-3">
-        <p class="col-12">¿Cuantas personas podrian alojarse?</p>
-        <div class="col-2 mb-4">
-          <input class="form-control" type="number">
-
-        </div>
-      </div>
-      <div class="form-row mt-3">
-        <p class="col-12">¿De cuantos baños dispone?</p>
-        <div class="col-2 mb-4">
-          <input class="form-control" type="number">
-        </div>
-      </div>
-
-      <div class="form-row mt-3">
-        <p class="col-12">¿En que fechas desearia el intercambio?</p>
-        <div class="col6">
-          <p>Desde:</p>
-          <input type="date">
-          <p>Hasta</p>
-          <input type="date">
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <p class="col-12">Realiza una descripcion de la vivienda</p>
-        <div class="col-5">
-          <textarea class="form-control" id="validationTextarea" placeholder="Descripcion"></textarea>
-          <div class="">
-
+          <div class="col-3">
+            <label>Tipo de Vivienda</label>
+            <select class="form-control">
+              <option value="piso">Piso</option>
+              <option value="casa">Casa</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <label>Pais</label>
+            <input type="text" class="form-control " placeholder="Pais">
           </div>
         </div>
 
+        <div class="row mt-3">
+          <div class="col-6">
+            <label>Direccion</label>
+            <input type="text" class="form-control" placeholder="calle,numero">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-3">
+            <label>Piso,Puerta</label>
+            <input type="text" class="form-control" placeholder="piso,puerta">
+          </div>
+          <div class="col-3">
+            <label>Codigo Postal</label>
+            <input type="text" class="form-control" placeholder="C.P">
+          </div>
+        </div>
+
+
+        <div class="row mt-3">
+          <div class="col-3">
+            <label>Poblacion</label>
+            <input type="text" class="form-control" placeholder="Poblacion">
+          </div>
+          <div class="col-3">
+            <label>Provincia</label>
+            <input type="text" class="form-control" placeholder="Provincia">
+          </div>
+        </div>
       </div>
+
+      <div class="container" *ngIf=true>
+        <p class="col-6 text-center"></p>
+
+        <div class="row">
+          <div class="col-4 mt-3">
+            <p>¿Cuantos dormitorios tiene?</p>
+            <input class="form-control" type="number">
+          </div>
+          <div class="col-4 mt-3">
+            <p class="">¿De cuantas camas dispone?</p>
+            <div class=" mb-4">
+              <input class="form-control" type="number">
+            </div>
+          </div>
+          <div class="col-4 mt-3">
+            <p>¿De cuantos baños dispone?</p>
+            <div class=" mb-4">
+              <input class="form-control" type="number">
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row mt-3">
+          <div class="col-6 mt-3">
+            <p>¿Capacidad?</p>
+
+            <input class="form-control" type="number">
+
+          </div>
+
+          <div class="col-6 mt-3">
+            <p>¿En que fechas desearia el intercambio?</p>
+            <div class="col-6">
+              <p>Desde:</p>
+              <input type="date">
+              <p>Hasta</p>
+              <input type="date">
+            </div>
+            <button (click)="ocultarMostrar()">mostrar</button>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12">
+            <p class="col-12">Realiza una descripcion de la vivienda</p>
+            <div class="col-12">
+              <textarea class="form-control" id="validationTextarea" placeholder="Descripcion"></textarea>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="container" *ngIf="false">
+        <div *ngFor="let servicio of arrServices" class=" mt-5">
+          <div class="col-2">
+            <p>{{servicio}}</p>
+            <input type="checkbox" id="validationTextarea">
+          </div>
+        </div>
+      </div>
+
     </form>
+    <div class="offset-5">
+      <button class="btn btn-danger mt-4">Siguiente</button>
+    </div>
+
   </div>
 </div>

@@ -14,12 +14,7 @@ export class FormUsersComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       surNames: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      userName: new FormControl('', [Validators.required]),
       dateBirth: new FormControl('', [Validators.required]),
-      gender: new FormControl('', [Validators.required]),
-      dni: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-      adress: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       checkPassword: new FormControl('', [Validators.required])

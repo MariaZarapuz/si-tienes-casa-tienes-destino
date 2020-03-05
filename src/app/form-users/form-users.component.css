@@ -4,7 +4,7 @@
 
 .deco {
 
-  position: fixed;
+  position: absolute;
   top: -80vw;
   background-color: #8bc5ce;
   width: 100%;
