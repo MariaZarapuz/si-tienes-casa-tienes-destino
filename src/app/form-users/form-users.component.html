@@ -1,0 +1,75 @@
+<div>
+  <div class="container-fluid">
+    <div class="wrapper">
+      <div class="deco">
+        <div> <i class="fa fa-user-circle"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="titleRegist text-center mb-3">Registro</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-row ">
+        <div class="col-4 ">
+          <label for="validationServer01">Nombre</label>
+          <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="name">
+          <div class="valid-feedback">
+            El campo esta vacio
+          </div>
+        </div>
+
+        <div class="col-4 ">
+          <label for="validationServer02">Apellidos</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
+            formControlName="surNames">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <label for="validationServer03">Fecha de Nacimiento</label>
+          <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha Nacimiento"
+            formControlName="dateBirth">
+          <div class="invalid-feedback">
+
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class=" col-8 offset-2">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="validationServer02">Contraseña</label>
+              <input type="text" class="form-control is-valid" id="validationServer02" placeholder="contraseña"
+                formControlName="password">
+              <div class="valid-feedback">
+
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationServerUsername">Repite Contraseña</label>
+              <input type="text" class="form-control is-invalid" id="validationServerUsername"
+                placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
+              <div class="invalid-feedback">
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 offset-3">
+
+          <input class="btn btn-primary col-12" type="submit" value="Enviar">
+
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>
