@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+
+/* IMAGENES */
+
+.principalImage{
+    background-image: url('https://www.venturarural.com/wp-content/uploads/2018/03/casa-mallorca-10-1339x893.jpeg');
+    height: 300px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #220e2a;
+}
+.firstImage{
+    background-image: url('https://www.solerpalau.com/es-es/blog/wp-content/uploads/2019/03/campanas-cocina.jpg');
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #220e2a;
+}
+.secondImage{
+    background-image: url('https://www.merkamuebleonline.com/3621-large_default/salon-modular-diseno-atemporal-color-findus.jpg');
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #220e2a;
+}
+.thirdImage{
+    background-image: url('https://www.elmueble.com/medio/2018/04/11/00469260_0fca331d.jpg');
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #220e2a;
+}
+.fourthImage{
+    background-image: url('https://tiendalamparas.online/wp-content/uploads/2018/12/l%C3%A1mparas-para-cuarto-de-ba%C3%B1o-1024x682.jpg');
+    height: 150px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #220e2a;
+}
+
+/* CONTAINER LEFT */
+.containerLeft{
+    padding: 30px;
+}
+.containerLeft h2{
+    padding-top: 10px
+}
+.containerLeft h5{
+    padding-top: 20px;
+}
+
+
+
+
+/* CONTATINER RIGHT */
+.containerRight{
+    padding: 30px;
+}

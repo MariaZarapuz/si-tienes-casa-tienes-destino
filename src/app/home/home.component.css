@@ -98,27 +98,27 @@
 }
 .info .square{
     border-right: 1px solid grey;
-}
-.info .square:nth-last-child(){
-    border-right: none;
 } 
 .info .drawing1{
     width: 100%;
-    height: 250px;
-    background-image: url('../../assets/images/cerdito.png');
+    height: 200px;
+    background-image: url('../../assets/images/pigicon.svg');
     background-size: 100% 100%;
+    margin-top: 50px;
 }
 .info .drawing2{
     width: 100%;
-    height: 250px;
-    background-image: url('../../assets/images/house.png');
+    height: 200px;
+    background-image: url('../../assets/images/houseicon.svg');
     background-size: 100% 100%;
+    margin-top: 50px;
 }
 .info .drawing3{
     width: 100%;
     height: 250px;
-    background-image: url('../../assets/images/mundo.png');
+    background-image: url('../../assets/images/mapamundi.svg');
     background-size: 100% 100%;
+    
 }
 
 
