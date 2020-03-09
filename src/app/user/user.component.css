@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+
+
+
+/* PERSONAL INFORMATION */
+
+.information{
+    padding-top: 50px;
+}
+.information h3{
+    padding-bottom: 30px;
+}
+.information .line{
+    margin-top: 10px;
+    padding-left: 50px;
+}
+.information i{
+    color: #220e2a;
+    font-size: 1.5em;
+    width: 25px;
+}
+.information .fa-pen{
+    font-size: 1em;
+    color: #8bc5ce;
+}
+
+
+/* USER AND HOUSE IMAGES */
+.containerLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.houseimage{
+    background-image: url('../../assets/images/house.png');
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.containerLeft p{
+    text-align: center;
+    padding: 50px;
+}
+
+.userimage{
+    background-image: url('../../assets/images/user.jpg');
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+}
