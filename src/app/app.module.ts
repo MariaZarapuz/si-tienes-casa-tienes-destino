@@ -9,6 +9,7 @@ import { FormHouseComponent } from './form-house/form-house.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HouseDetailComponent } from './house-detail/house-detail.component';
     HomeComponent,
     UserComponent,
     HouseDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

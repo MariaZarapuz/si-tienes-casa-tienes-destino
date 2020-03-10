@@ -19,9 +19,11 @@
     font-size: 1.5em;
     width: 25px;
 }
-.information .fa-pen{
+.information .fa-pen, .information .fa-check{
     font-size: 1em;
-    color: #8bc5ce;
+}
+.information input{
+    margin-bottom: 0.6em;
 }
 
 
@@ -32,7 +34,6 @@
     align-items: center;
     padding: 50px;
 }
-
 .houseimage{
     background-image: url('../../assets/images/house.png');
     height: 150px;
@@ -40,12 +41,10 @@
     background-size: cover;
     background-position: center center;
 }
-
 .containerLeft p{
     text-align: center;
     padding: 50px;
 }
-
 .userimage{
     background-image: url('../../assets/images/user.jpg');
     height: 150px;

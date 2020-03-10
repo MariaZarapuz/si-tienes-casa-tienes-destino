@@ -11,7 +11,7 @@ export class AppComponent {
 
   title = 'Front';
   constructor(private router: Router) {
-    this.router.navigate(['home'])
+
   }
 
 }

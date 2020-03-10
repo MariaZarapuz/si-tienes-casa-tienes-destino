@@ -5,58 +5,62 @@
                 <div class="col-12 line">
                     <h3>Hola, nombre</h3>
                 </div>
+                <div class="offset-10 col-2">
+                    <i id="1" class="fas fa-pen" *ngIf="showInputs" (click)="editeInfo($event)"></i>
+                    <i id="2" *ngIf="!showInputs" class=" fas fa-check" (click)="editeInfo($event)"></i>
+                </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fas fa-user"></i></div>
-                        <div class="col-8">
-                            <p> Nombre Apellidos</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Nombre Apellidos</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Nombre Apellidos">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fa fa-birthday-cake"></i></div>
-                        <div class="col-8">
-                            <p> Fecha de nacimiento</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Fecha de nacimiento</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Fecha de nacimiento">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fa fa-venus-mars"></i></div>
-                        <div class="col-8">
-                            <p> Género</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Género</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Género">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fa fa-phone"></i></div>
-                        <div class="col-8">
-                            <p> Teléfono</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Teléfono</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Teléfono">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fa fa-envelope"></i></div>
-                        <div class="col-8">
-                            <p> Email</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Email</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Email">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
                         <div class="col-1"><i class="fa fa-lock"></i></div>
-                        <div class="col-8">
-                            <p> Contraseña</p>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Contraseña</p>
+                            <input *ngIf="!showInputs" type="text" placeholder="Contraseña">
                         </div>
-                        <div class="col-2"><i class="fas fa-pen"></i></div>
                     </div>
                 </div>
             </div>
