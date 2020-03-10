@@ -10,8 +10,13 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
   title = 'Front';
+<<<<<<< HEAD
   // constructor(private router: Router) {
   //   this.router.navigate(['home'])
   // }
+=======
+  constructor() {
+>>>>>>> develop
 
+  }
 }

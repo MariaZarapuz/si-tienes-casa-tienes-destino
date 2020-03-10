@@ -1,20 +1,23 @@
 <div class="container-fluid">
   <!-- HEADER -->
   <div class="row">
-    <nav class="navbar col-12 row">
-
-      <div class=" btn logo col-2" [routerLink]="['/home']"></div>
-      <div class="search col-5">
-        <input class="form-control form" type="search" placeholder="Ciudad" aria-label="Ciudad">
+    <nav class="navbar col-12">
+      <div class="logo col-2" [routerLink]="['/home']">
+        <img src="../assets/images/logo2.png" alt="">
       </div>
-      <div class="buttons col-5">
+      <div class="search col-5 d-none d-xs-none d-md-block">
+        <input class="form-control form" type="search" placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
+      </div>
+      <div class="buttons col-10 col-md-5 ">
         <button type="button" class="btn btn-outline-secondary" [routerLink]="['/user/register']">Regístrate</button>
         <button type="button" class="btn btn-outline-secondary">Inicia sesión</button>
       </div>
 
     </nav>
   </div>
+
   <router-outlet></router-outlet>
+
   <!-- FOOTER -->
   <div class="row">
     <div class="footer col-12">

@@ -1,9 +1,7 @@
-<div>
-  <div class="container-fluid">
-    <div class="wrapper">
-      <div class="deco">
-        <div> <i class="fa fa-user-circle"></i></div>
-      </div>
+<div class="container">
+  <div class="register row">
+    <div class="image col-7">
+      <img src="../../assets/images/formproject.svg" alt="">
     </div>
   </div>
 
@@ -18,63 +16,46 @@
 
           </div>
         </div>
+      </div>
 
-        <div class="col-4 ">
-          <label>Apellidos</label>
-          <input type="text" class="form-control" placeholder="Apellidos" formControlName="surNames">
-          <div class="valid-feedback">
-
-          </div>
-        </div>
-        <div class="col-md-4 ">
-          <label>Fecha de Nacimiento</label>
-          <input type="text" class="form-control " placeholder="Fecha Nacimiento" formControlName="dateBirth">
-          <div class="invalid-feedback">
-
-          </div>
+      <div class="form-group">
+        <!-- <label for="validationServer02">Apellidos</label> -->
+        <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
+          formControlName="surNames">
+        <div class="valid-feedback">
+          Looks good!
         </div>
       </div>
-      <div class="form-row">
-        <div class=" col-12">
-          <div class="row">
-            <div class="col-md-4 mt-4">
-              <label>Email</label>
-              <input type="text" class="form-control" placeholder="email" formControlName="email">
-              <div class="valid-feedback">
 
-              </div>
-            </div>
-            <div class="col-md-4  mt-4">
-              <label>Contraseña</label>
-              <input type="text" class="form-control" placeholder="contraseña" formControlName="password">
-              <div class="valid-feedback">
-                La contraseña debe contener al menos una letra, al menos un número y tener de 6 caracteres a 8
-                caracteres
-              </div>
-            </div>
-            <div class="col-md-4 mt-4">
-              <label>Repite Contraseña</label>
-              <input type="text" class="form-control" placeholder="Verifica contraseña"
-                aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
-              <div class="invalid-feedback">
-
-              </div>
-            </div>
-          </div>
+      <div class="form-group">
+        <!-- <label for="validationServer03">Fecha de nacimiento</label> -->
+        <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha de nacimiento"
+          formControlName="dateBirth">
+        <div class="invalid-feedback">
 
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6 mt-4 offset-3">
-
-          <input class="btn btn-primary col-12" type="submit" value="Enviar">
+      <div class="form-group">
+        <!-- <label for="validationServer02">Contraseña</label> -->
+        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Contraseña"
+          formControlName="password">
+        <div class="valid-feedback">
 
         </div>
       </div>
 
+      <div class="form-group">
+        <!-- <label for="validationServerUsername">Repite la contraseña</label> -->
+        <input type="text" class="form-control is-invalid" id="validationServerUsername"
+          placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
+        <div class="invalid-feedback">
 
-
+        </div>
+      </div>
+      <div>
+        <input type="button" value="">
+      </div>
     </form>
   </div>
 </div>

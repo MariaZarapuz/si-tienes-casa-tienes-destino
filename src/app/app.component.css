@@ -3,11 +3,14 @@
 /* NAV PRINCIPAL */
 .navbar {
   background-color: #220e2a;
-
 }
-
+.logo img{ 
+  height: 80px;
+  width: 110px;
+}
 .buttons .btn {
-  margin-left: 10px
+  margin-left: 10px;
+  float: right;
 }
 
 .buttons .btn-outline-secondary {
@@ -19,7 +22,9 @@
 .btn:active {
   background-color: #8bc5ce;
   color: #220e2a;
-}
+} 
+
+
 
 /* FOOTER */
 .footer {
@@ -32,5 +37,4 @@
 .footer a {
   text-decoration: none;
   color: white;
-
 }
