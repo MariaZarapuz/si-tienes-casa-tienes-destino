@@ -12,45 +12,50 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-row ">
         <div class="col-4 ">
-          <label for="validationServer01">Nombre</label>
+          <label>Nombre</label>
           <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="name">
           <div class="valid-feedback">
-            El campo esta vacio
+
           </div>
         </div>
 
         <div class="col-4 ">
-          <label for="validationServer02">Apellidos</label>
-          <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
-            formControlName="surNames">
+          <label>Apellidos</label>
+          <input type="text" class="form-control" placeholder="Apellidos" formControlName="surNames">
           <div class="valid-feedback">
-            Looks good!
+
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <label for="validationServer03">Fecha de Nacimiento</label>
-          <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha Nacimiento"
-            formControlName="dateBirth">
+        <div class="col-md-4 ">
+          <label>Fecha de Nacimiento</label>
+          <input type="text" class="form-control " placeholder="Fecha Nacimiento" formControlName="dateBirth">
           <div class="invalid-feedback">
 
           </div>
         </div>
       </div>
       <div class="form-row">
-        <div class=" col-8 offset-2">
+        <div class=" col-12">
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="validationServer02">Contraseña</label>
-              <input type="text" class="form-control is-valid" id="validationServer02" placeholder="contraseña"
-                formControlName="password">
+            <div class="col-md-4 mt-4">
+              <label>Email</label>
+              <input type="text" class="form-control" placeholder="email" formControlName="email">
               <div class="valid-feedback">
 
               </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <label for="validationServerUsername">Repite Contraseña</label>
-              <input type="text" class="form-control is-invalid" id="validationServerUsername"
-                placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
+            <div class="col-md-4  mt-4">
+              <label>Contraseña</label>
+              <input type="text" class="form-control" placeholder="contraseña" formControlName="password">
+              <div class="valid-feedback">
+                La contraseña debe contener al menos una letra, al menos un número y tener de 6 caracteres a 8
+                caracteres
+              </div>
+            </div>
+            <div class="col-md-4 mt-4">
+              <label>Repite Contraseña</label>
+              <input type="text" class="form-control" placeholder="Verifica contraseña"
+                aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
               <div class="invalid-feedback">
 
               </div>
@@ -61,7 +66,7 @@
       </div>
 
       <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-6 mt-4 offset-3">
 
           <input class="btn btn-primary col-12" type="submit" value="Enviar">
 
