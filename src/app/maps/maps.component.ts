@@ -7,7 +7,7 @@ declare var google;
   styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit {
-  @ViewChild('googleMap')
+  @ViewChild('googleMap',null)
   gMap: any;
   map: any;
   directionsService: any;

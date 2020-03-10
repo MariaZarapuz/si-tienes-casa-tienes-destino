@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Casa} from '../models/casas.model';
-import {HausesService} from '../hauses.service';
-import {Router} from '@angular/router';
+import { Casa } from '../models/casas.model';
+import { HausesService } from '../hauses.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,14 +15,14 @@ export class SearchHauseComponent implements OnInit {
   arrCasas: Casa[];
 
   constructor(private hausesService: HausesService, private router: Router) {
-    this.arrCasas=[
-      new Casa(1,'','','','','')
+    this.arrCasas = [
+      new Casa(1, '', '', '', '')
     ]
-   }
+  }
 
- async ngOnInit() {
-  this.arrCasas = await this.hausesService.getAll();
-  console.log(this.arrCasas);
+  async ngOnInit() {
+    this.arrCasas = await this.hausesService.getAll();
+    console.log(this.arrCasas);
   }
 
 }
