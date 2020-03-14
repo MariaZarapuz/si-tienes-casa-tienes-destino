@@ -1,13 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Casa } from '../models/casas.model';
+import { HausesService } from '../hauses.service';
+import { Router } from '@angular/router';
+
 declare var google;
 
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.css']
+  selector: 'app-search-hause',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class MapsComponent implements OnInit {
-  @ViewChild('googleMap',null)
+
+export class SearchComponent implements OnInit {
+
+  @ViewChild('googleMap', null)
   gMap: any;
   map: any;
   directionsService: any;
@@ -16,9 +22,20 @@ export class MapsComponent implements OnInit {
   lng: any;
   markers: any[] = [];
 
-  constructor() { }
+  arrCasas: Casa[];
 
-  ngOnInit() {
+  constructor(private hausesService: HausesService, private router: Router) {
+    this.arrCasas = [
+      new Casa(1, '', '', '', '')
+    ]
+
+
+  }
+
+  async ngOnInit() {
+    this.arrCasas = await this.hausesService.getAll();
+    console.log(this.arrCasas);
+
     //Pide activar la geolocalizacion del navegador y pasa las coordenadas
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError)
@@ -28,6 +45,7 @@ export class MapsComponent implements OnInit {
 
     this.autocompletadoGoogle()
   }
+
   //Metodo que se ejecuta cuando estamos posicionados correctamente cuando se habilita la geolocalizacion
   showPosition(position) {
     console.log(position)
@@ -111,15 +129,15 @@ export class MapsComponent implements OnInit {
     switch (error.code) {
 
       case error.PERMISSION_DENIED:
-        console.log('El ususario no quiere ser localizado')
+        console.log('El usuario no quiere ser localizado')
         break
 
       case error.POSITION_UNAVAILABLE:
-        console.log('No se ha podido recuperar la posicion')
+        console.log('No se ha podido recuperar la posición')
         break
 
       case error.TIMEOUT:
-        console.log('Se ha tardado demasiado en recuperar la localizacion')
+        console.log('Se ha tardado demasiado en recuperar la localización')
         break
 
       case error.UNKNOWN_ERROR:
@@ -127,4 +145,5 @@ export class MapsComponent implements OnInit {
         break
     }
   }
+
 }
