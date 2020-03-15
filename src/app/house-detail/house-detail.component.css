@@ -1,58 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
 
-/* IMAGENES */
+/* IMAGES */
+.images{
+    margin-top: 20px;
+}
+.pImg{
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
 
-.principalImage{
-    background-image: url('https://www.venturarural.com/wp-content/uploads/2018/03/casa-mallorca-10-1339x893.jpeg');
-    height: 300px;
+}
+.pImgs{
+    margin: 0;
+    padding: 0;
+    padding-right: 15px;
+}
+
+.principalImage img{
     width: 100%;
-    background-size: 100% 100%;
-    border: 1px solid #220e2a;
+    height: 400px;
+    object-fit: cover;
 }
-.firstImage{
-    background-image: url('https://www.solerpalau.com/es-es/blog/wp-content/uploads/2019/03/campanas-cocina.jpg');
-    height: 150px;
-    width: 100%;
-    background-size: 100% 100%;
-    border: 1px solid #220e2a;
+.secondaryImages{
+    height: 400px;
+    overflow: auto;
 }
-.secondImage{
-    background-image: url('https://www.merkamuebleonline.com/3621-large_default/salon-modular-diseno-atemporal-color-findus.jpg');
-    height: 150px;
-    width: 100%;
-    background-size: 100% 100%;
-    border: 1px solid #220e2a;
-}
-.thirdImage{
-    background-image: url('https://www.elmueble.com/medio/2018/04/11/00469260_0fca331d.jpg');
-    height: 150px;
-    width: 100%;
-    background-size: 100% 100%;
-    border: 1px solid #220e2a;
-}
-.fourthImage{
-    background-image: url('https://tiendalamparas.online/wp-content/uploads/2018/12/l%C3%A1mparas-para-cuarto-de-ba%C3%B1o-1024x682.jpg');
-    height: 150px;
-    width: 100%;
-    background-size: 100% 100%;
-    border: 1px solid #220e2a;
+.images img{
+    width: 100%
 }
 
-/* CONTAINER LEFT */
-.containerLeft{
-    padding: 30px;
+/* CARD */
+.cards{
+    margin: 20px 0px;
 }
-.containerLeft h2{
-    padding-top: 10px
+.title{
+    background-color: rgb(146, 146, 146);
+    padding: 0;
+    margin: 0;
+    
 }
-.containerLeft h5{
-    padding-top: 20px;
+.title li{
+    border-radius: none;
+    padding-left: 5px;
+    margin: 2px;
 }
-
-
-
-
-/* CONTATINER RIGHT */
-.containerRight{
-    padding: 30px;
+.title li a{
+    font-size: 1.2em;
+    color: white;
+    
+}
+.title li:last-child{
+    border-right: none;
 }

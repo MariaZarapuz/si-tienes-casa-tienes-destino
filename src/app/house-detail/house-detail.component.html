@@ -1,49 +1,67 @@
-<div class="row">
-    <div class="col-6 principalImage">
-
-    </div>
-    <div class="col-6">
-        <div class="row">
-            <div class="col-6 firstImage">
-
-            </div>
-            <div class="col-6 secondImage">
-
-            </div>
-            <div class="col-6 thirdImage">
-
-            </div>
-            <div class="col-6 fourthImage">
-
-            </div>
-        </div>
-    </div>
-
-</div>
 <div class="container">
-    <div class="row">
-        <div class="col-7 containerLeft">
-            <h2>Casa</h2>
-            <div class="row">
-                <div class="col-3">Huéspedes</div>
-                <div class="col-3">Dormitorios</div>
-                <div class="col-3">Camas</div>
-                <div class="col-3">Baño</div>
+    <div class="images">
+        <div class="row">
+            <div class="pImg col-9 ">
+                <div class="principalImage">
+                    <div>
+                        <img (click)="changeImage($event)" id="1"
+                            src="https://odis.homeaway.com/odis/listing/a31268c2-cb75-4bd8-b039-4ff3cabcd66c.c10.jpg"
+                            alt="">
+                    </div>
+                </div>
             </div>
-            <div>
-                <h5>Descripción de la casa</h5>
-            </div>
-            <div>
-                <h5>Valoraciones</h5>
-            </div>
-            <div>
-                <h5>Comentarios</h5>
+            <div class="pImgs col-3">
+                <div class="secondaryImages">
+                    <div>
+                        <img (click)="changeImage($event)" id="2"
+                            src="https://cdn.portobellostreet.es/imagenes_muebles/Muebles-Comedor-vintage-Maze.jpg"
+                            alt="">
+                    </div>
+                    <div>
+                        <img (click)="changeImage($event)" id="3"
+                            src="https://www.tmagazine.es/app/uploads/2018/05/cocina_perfecta_03.jpg" alt="">
+                    </div>
+                    <div>
+                        <img (click)="changeImage($event)" id="4"
+                            src="https://www.kvik.es/~/media/images/bath/hero-baths/mano-bath/c1-1334x1000px-spot-campslidemob-textimgslidemob/mano-1330x1000px.jpg?bc=White&as=1&h=832&w=1110&useCustomFunctions=1&centerCrop=1&hash=44ACC81E4303C963C948FAD508D4A5006D66FB01"
+                            alt="">
+                    </div>
+                    <div>
+                        <img (click)="changeImage($event)" id="5"
+                            src="https://www.amarehotels.com/wp-content/uploads/2019/07/01-amare-ibiza-habitaciones-oh-la-la-the-one-hab-1.jpg"
+                            alt="">
+                    </div>
+                    <div>
+                        <img (click)="changeImage($event)" id="6"
+                            src="https://decoracion2.com/imagenes/2019/03/ideas-para-convertir-tu-terraza-en-un-auntentico-oasis-15.jpg"
+                            alt="">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-5 containerRight">
-
-        </div>
-
     </div>
-
+    <div class="cards card text-center">
+        <div class="title card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link" id="1" (click)="changeCard($event)">Descripción</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="2" (click)="changeCard($event)">Valoraciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="3" (click)="changeCard($event)">Comentarios</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body" *ngIf="card1">
+            <h4 class="card-title">Descripción</h4>
+        </div>
+        <div class="card-body" *ngIf="card2">
+            <h4 class="card-title">Valoraciones</h4>
+        </div>
+        <div class="card-body" *ngIf="card3">
+            <h4 class="card-title">Comentarios</h4>
+        </div>
+    </div>
 </div>
