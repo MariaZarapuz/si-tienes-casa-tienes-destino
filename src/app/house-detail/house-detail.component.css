@@ -1,54 +1,66 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
 
 /* IMAGES */
-.images{
-    margin-top: 20px;
-}
-.pImg{
-    margin: 0;
-    padding: 0;
-    padding-left: 15px;
-
-}
-.pImgs{
-    margin: 0;
-    padding: 0;
-    padding-right: 15px;
+.images {
+  margin-top: 20px;
 }
 
-.principalImage img{
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.pImg {
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
+
 }
-.secondaryImages{
-    height: 400px;
-    overflow: auto;
+
+.pImgs {
+  margin: 0;
+  padding: 0;
+  padding-right: 15px;
 }
-.images img{
-    width: 100%
+
+.principalImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.secondaryImages {
+  height: 400px;
+  overflow: auto;
+}
+
+.images img {
+  width: 100%
 }
 
 /* CARD */
-.cards{
-    margin: 20px 0px;
+.cards {
+  margin: 20px 0px;
 }
-.title{
-    background-color: rgb(146, 146, 146);
-    padding: 0;
-    margin: 0;
-    
+
+.title {
+  background-color: rgb(146, 146, 146);
+  padding: 0;
+  margin: 0;
+
 }
-.title li{
-    border-radius: none;
-    padding-left: 5px;
-    margin: 2px;
+
+.title li {
+  border-radius: none;
+  padding-left: 5px;
+  margin: 2px;
 }
-.title li a{
-    font-size: 1.2em;
-    color: white;
-    
+
+.title li a {
+  font-size: 1.2em;
+  color: white;
+
 }
-.title li:last-child{
-    border-right: none;
+
+.title li:last-child {
+  border-right: none;
+}
+
+.pointer {
+  cursor: pointer;
 }

@@ -4,10 +4,12 @@
 .navbar {
   background-color: #220e2a;
 }
-.logo img{ 
+
+.logo img {
   height: 80px;
   width: 110px;
 }
+
 .buttons .btn {
   margin-left: 10px;
   float: right;
@@ -22,7 +24,8 @@
 .btn:active {
   background-color: #8bc5ce;
   color: #220e2a;
-} 
+}
+
 
 
 
@@ -32,6 +35,7 @@
   background-color: #220e2a;
   padding-top: 10px;
   color: white;
+  position: absolute;
 }
 
 .footer a {

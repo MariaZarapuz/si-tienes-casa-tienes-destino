@@ -1,31 +1,45 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-a, p, h4{
-    font-family: 'Montserrat', sans-serif
+a,
+p,
+h4 {
+  font-family: 'Montserrat', sans-serif
 }
+
 /* HOUSES */
 /* 
 .image{
     padding:10px 
 } */
-.house{
-    margin: 25px 0;
-    border-bottom: 1px solid rgb(197, 197, 197)   
-}
-.info a{
-    margin: 10px
-    
-}
-.card-text{
-    padding-top: 10px
+.house {
+  margin: 25px 0;
+  border-bottom: 1px solid rgb(197, 197, 197)
 }
 
-.image img{
-    width:250px
+.info a {
+  margin: 10px
+}
+
+.card-text {
+  padding-top: 10px
+}
+
+.image img {
+  width: 250px
 }
 
 /* MAP */
-.map{
-    width: 100%;
-    height: 500px
+.map {
+  width: 100%;
+  height: 500px
+}
+
+.containMap {
+  position: fixed;
+  right: 0;
+
+}
+
+.loading {
+  display: none;
 }
