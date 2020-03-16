@@ -4,7 +4,7 @@
   <nav class="navbar navbar-light col-12 filters">
     <a class="navbar-brand">¿A dónde quieres ir?</a>
     <form class="form-inline">
-      <input type="text" id="inputPlace">
+
       <button class="btn btn-outline-secondary" (click)="mapa()">Buscar</button>
     </form>
   </nav>
@@ -32,16 +32,5 @@
     </div>
   </div>
 
-  <div class="col-6 containMap ">
-    <div class="mapContain">
-      <!-- div de google maps -->
-      <div #googleMap class="map"></div>
-    </div>
-  </div>
-  <div *ngIf="loading" class="col-6 containMap ">
-    <div class="mapContain">
-      <!-- div de google maps -->
-      <img src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif" alt="">
-    </div>
-  </div>
+  <app-maps></app-maps>
 </div>

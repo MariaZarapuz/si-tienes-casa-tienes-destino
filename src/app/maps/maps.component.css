@@ -1,0 +1,19 @@
+/* MAP */
+.map {
+  width: 100%;
+  height: 500px
+}
+
+.containMap {
+  position: fixed;
+  right: 0;
+
+}
+
+.loading {
+  display: none;
+}
+
+.none {
+  display: none;
+}

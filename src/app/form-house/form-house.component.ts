@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { House } from "../models/house";
+import { ObservablesService } from "../observables.service";
 
 @Component({
   selector: "app-form-house",
@@ -16,7 +17,13 @@ export class FormHouseComponent implements OnInit {
   thirdDiv: boolean;
   arrPrimerFormulario: any[];
   arrSegundoFormulario: any[];
-  constructor(private router: Router) {
+  activo: boolean;
+
+  constructor(
+    private router: Router,
+    private ObservableService: ObservablesService
+  ) {
+    this.activo = true;
     this.firstDiv = true;
     this.secondDiv = false;
     this.thirdDiv = false;
@@ -87,7 +94,13 @@ export class FormHouseComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.ObservableService.addressSb.subscribe(res => {
+      console.log(res);
+
+      this.activo = res.activo;
+    });
+  }
   nextDiv($event) {
     console.log($event.target.id);
     switch ($event.target.id) {
@@ -114,7 +127,7 @@ export class FormHouseComponent implements OnInit {
     console.log($event.target.id);
     switch ($event.target.id) {
       case "-1":
-        this.router.navigate(["/user"]);
+        // this.router.navigate(["/user"]);
         break;
       case "-2":
         this.secondDiv = false;
