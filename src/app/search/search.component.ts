@@ -141,6 +141,8 @@ export class SearchComponent implements OnInit {
       let lng = place.geometry.location.lng();
       // console.log(lat)
       // console.log(lng)
+      console.log(place);
+
       let m = new google.maps.Marker({
         animation: google.maps.Animation.DROP
       });

@@ -11,8 +11,9 @@
           <div class="col-3">
             <label>Tipo de Vivienda</label>
             <select class="form-control" formControlName="type">
-              <option value="piso">Piso</option>
-              <option value="casa">Casa</option>
+              <option value="Apartamento">Apartamento</option>
+              <option value="Chalet">Chalet</option>
+
             </select>
           </div>
           <div class="col-3">
@@ -41,11 +42,11 @@
         <div class="row mt-3">
           <div class="col-2">
             <label>Piso</label>
-            <input type="text" class="form-control" placeholder="piso,puerta" formControlName="floor">
+            <input type="text" class="form-control" placeholder="piso" formControlName="floor">
           </div>
           <div class="col-2">
             <label>Letra</label>
-            <input type="text" class="form-control" placeholder="piso,puerta" formControlName="letter">
+            <input type="text" class="form-control" placeholder="puerta" formControlName="letter">
           </div>
 
           <div class="col-2">
@@ -115,11 +116,10 @@
             <p>¿En que fechas desearia el intercambio?</p>
             <div class="col-6">
               <p>Desde:</p>
-              <input type="date">
+              <input type="date" formControlName="datecheck">
               <p>Hasta</p>
-              <input type="date">
+              <input type="date" formControlName="datecheckOut">
             </div>
-            <button (click)="ocultarMostrar()">mostrar</button>
           </div>
         </div>
 
@@ -134,7 +134,8 @@
           <div class="col-12">
             <button id="-2" class="btn btn-danger mt-4" (click)="behindDiv($event)">Atras</button>
 
-            <button id="2" class="offset-9 btn btn-danger mt-4" (click)="nextDiv($event)"> Siguiente </button>
+            <button id="2" class="offset-9 btn btn-danger mt-4" (click)="nextDiv($event)"
+              [disabled]="validarSegundoForm()"> Siguiente </button>
           </div>
         </div>
         <!-- div Services -->
@@ -146,7 +147,7 @@
 
             <div class="m-5">
               <p>{{servicio}}</p>
-              <input type="checkbox" id="validationTextarea" formControlName={{servicio}}>
+              <input type="checkbox" formControlName={{servicio}}>
             </div>
           </div>
 
@@ -157,6 +158,9 @@
           <button id="3" class="offset-9 btn btn-danger mt-4" (click)="nextDiv($event)">Guardar</button>
         </div>
       </div>
+
+      <input type="text" style="display:none" formControlName="latitud">
+      <input type="text" style="display:none" formControlName="longitud">
 
     </form>
 

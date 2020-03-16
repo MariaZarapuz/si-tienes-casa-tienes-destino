@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { House } from "../models/house";
 
 @Component({
   selector: "app-form-house",
@@ -8,13 +9,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./form-house.component.css"]
 })
 export class FormHouseComponent implements OnInit {
-  arrUsers: any[];
-  form: any;
+  form: FormGroup;
   arrServices: string[];
   firstDiv: boolean;
   secondDiv: boolean;
   thirdDiv: boolean;
   arrPrimerFormulario: any[];
+  arrSegundoFormulario: any[];
   constructor(private router: Router) {
     this.firstDiv = true;
     this.secondDiv = false;
@@ -48,7 +49,8 @@ export class FormHouseComponent implements OnInit {
       baths: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
       images: new FormControl("", [Validators.required]),
-      availability: new FormControl("", [Validators.required]),
+      datecheck: new FormControl("", [Validators.required]),
+      datecheckOut: new FormControl("", [Validators.required]),
       lavadora: new FormControl(""),
       secadora: new FormControl(""),
       aireAcondicionado: new FormControl(""),
@@ -60,7 +62,9 @@ export class FormHouseComponent implements OnInit {
       microhondas: new FormControl(""),
       lavavajillas: new FormControl(""),
       secador: new FormControl(""),
-      tostador: new FormControl("")
+      tostador: new FormControl(""),
+      latitud: new FormControl(""),
+      longitud: new FormControl("")
     });
 
     this.arrPrimerFormulario = [
@@ -71,6 +75,16 @@ export class FormHouseComponent implements OnInit {
       this.form.controls.cp,
       this.form.controls.village
     ];
+
+    this.arrSegundoFormulario = [
+      this.form.controls.capacity,
+      this.form.controls.rooms,
+      this.form.controls.beds,
+      this.form.controls.baths,
+      this.form.controls.description,
+      this.form.controls.datecheck,
+      this.form.controls.datecheckOut
+    ];
   }
 
   ngOnInit() {}
@@ -80,7 +94,7 @@ export class FormHouseComponent implements OnInit {
       case "1":
         this.firstDiv = false;
         this.secondDiv = true;
-        console.log(this.form.country);
+        // console.log(this.form.country);
         break;
       case "2":
         this.secondDiv = false;
@@ -92,7 +106,9 @@ export class FormHouseComponent implements OnInit {
     }
   }
 
-  onSubmit() {}
+  onSubmit() {
+    console.log(this.form.value);
+  }
 
   behindDiv($event) {
     console.log($event.target.id);
@@ -120,7 +136,20 @@ export class FormHouseComponent implements OnInit {
         result = true;
       }
     });
-    console.log(cont);
+    // console.log(cont);
+    return result;
+  }
+
+  validarSegundoForm() {
+    let result = false;
+    let cont = 0;
+    this.arrSegundoFormulario.forEach(control => {
+      cont++;
+      if (!control.valid) {
+        result = true;
+      }
+      // console.log("................", control.valid);
+    });
     return result;
   }
 }
