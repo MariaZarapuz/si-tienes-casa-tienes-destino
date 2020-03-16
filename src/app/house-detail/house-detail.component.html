@@ -12,8 +12,6 @@
         <div class="secondaryImages">
           <div class="pointer" *ngFor="let item of ArrayPhotos">
             <img (click)="changeImage($event)" [src]=item.src id={{item.id}}>
-
-
           </div>
         </div>
       </div>
@@ -34,7 +32,11 @@
       </ul>
     </div>
     <div class="card-body" *ngIf="card1">
-      <h4 class="card-title">Descripción</h4>
+      <h4 class="card-title">Casa/Apartamento</h4>
+      <p>Dirección</p>
+      <a href="">2 <i class="fas fa-bed"></i></a>
+      <a href="">4 <i class="fas fa-users"></i></a>
+      <a href="">2 <i class="fas fa-bath"></i></a>
     </div>
     <div class="card-body" *ngIf="card2">
       <h4 class="card-title">Valoraciones</h4>

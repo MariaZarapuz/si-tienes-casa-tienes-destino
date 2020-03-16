@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
         capacidad: 10,
         foto:
           "https://media.er2.co/es/avila/0000000014043/1600/52ef86c22befb.jpg",
-        descripcion: "asa en primera linea de playa."
+        descripcion: "Casa en primera linea de playa."
       },
       {
         id: 2,
