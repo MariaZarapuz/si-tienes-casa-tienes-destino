@@ -2,7 +2,7 @@
   <div *ngIf="firstDiv">
     <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
   </div>
-  <p>{{activo}}</p>
+
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
