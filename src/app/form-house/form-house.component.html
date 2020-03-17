@@ -1,83 +1,89 @@
 <div class="container">
-
   <div class="row">
+    <!-- imagen -->
     <div class="image d-none d-md-block col-6 mt-5 mt-lg-0">
       <img src="../../assets/images/formhouse.svg" alt="">
     </div>
     <!-- FIRST DIV -->
     <div class="col-12 col-md-6">
       <div class="row">
+        <!-- buscador google maps -->
         <div *ngIf="firstDiv" class="addressSearch" class="col-12 firstDiv">
           <app-maps [modoInput]="false" [modoMap]="true"></app-maps>
         </div>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12" [ngClass]="{ none: activo }">
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12">
+
           <div id="address" *ngIf="firstDiv" class=" firstDiv">
             <div>
-              <h4>¿Cuál es la dirección de la vivienda?</h4>
-              <div class="row address">
-                <div class="col-6">
-                  <select class="form-control" formControlName="type" name="Tipo de vivienda">
-                    <option value="" selected disabled>Tipo de vivienda</option>
-                    <option value="Apartamento">Apartamento</option>
-                    <option value="Chalet">Chalet</option>
-                  </select>
-                </div>
-
-                <div class="col-6">
-                  <input type="text" class="form-control " placeholder="País" formControlName="country">
-                  <div class="error inputValid"
-                    *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
-                    Rellene el campo
+              <!-- <h4>¿Cuál es la dirección de la vivienda?</h4> -->
+              <div *ngIf="activo">
+                <div class="row address">
+                  <div class="col-6">
+                    <select class="form-control" formControlName="type" name="Tipo de vivienda">
+                      <option value="" selected disabled>Tipo de vivienda</option>
+                      <option value="Apartamento">Apartamento</option>
+                      <option value="Chalet">Chalet</option>
+                    </select>
                   </div>
-                </div>
 
-                <div class="col-12">
-                  <input type="text" class="form-control" placeholder="Calle y número" formControlName="address">
-                  <div class=" error inputValid"
-                    *ngIf="form.controls.address.errors?.required && form.controls.address.touched">
-                    Rellene el campo País
-                  </div>
-                </div>
-
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="Piso" formControlName="floor">
-                </div>
-
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="Puerta" formControlName="letter">
-                </div>
-
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="C.P" formControlName="cp">
-                  <div class=" error inputValid" *ngIf="form.controls.cp.errors?.required && form.controls.cp.touched">
-                    Rellene el campo
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <input type="text" class="form-control" placeholder="Poblacion" formControlName="village">
-                  <div class=" error inputValid"
-                    *ngIf="form.controls.village.errors?.required && form.controls.village.touched">
-                    Rellene el campo población
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <input type="text" class="form-control" placeholder="Provincia" formControlName="province">
-                  <div class=" error inputValid"
-                    *ngIf="form.controls.province.errors?.required && form.controls.province.touched">
-                    Rellene el campo provincia
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col-6">
-                      <button id="-1" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+                  <div class="col-6">
+                    <input type="text" class="form-control " placeholder="País" formControlName="country">
+                    <div class="error inputValid"
+                      *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
+                      Rellene el campo
                     </div>
-                    <div class="col-6 d-flex flex-row-reverse">
-                      <button id="1" class="btn nextBtn" [disabled]="validarPrimerForm()"
-                        (click)="nextDiv($event)">Siguiente</button>
+                  </div>
+
+                  <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Calle y número" formControlName="address">
+                    <div class=" error inputValid"
+                      *ngIf="form.controls.address.errors?.required && form.controls.address.touched">
+                      Rellene el campo País
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="Piso" formControlName="floor">
+                  </div>
+
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="Puerta" formControlName="letter">
+                  </div>
+
+                  <div class="col-4">
+                    <input type="text" class="form-control" placeholder="C.P" formControlName="cp">
+                    <div class=" error inputValid"
+                      *ngIf="form.controls.cp.errors?.required && form.controls.cp.touched">
+                      Rellene el campo
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Poblacion" formControlName="village">
+                    <div class=" error inputValid"
+                      *ngIf="form.controls.village.errors?.required && form.controls.village.touched">
+                      Rellene el campo población
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Provincia" formControlName="province">
+                    <div class=" error inputValid"
+                      *ngIf="form.controls.province.errors?.required && form.controls.province.touched">
+                      Rellene el campo provincia
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-6">
+                        <button id="-1" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+                      </div>
+                      <div class="col-6 d-flex flex-row-reverse">
+                        <button id="1" class="btn nextBtn" [disabled]="validarPrimerForm()"
+                          (click)="nextDiv($event)">Siguiente</button>
+                      </div>
                     </div>
                   </div>
                 </div>
