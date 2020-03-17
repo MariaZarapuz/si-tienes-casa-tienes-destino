@@ -1,6 +1,14 @@
 import { ObservablesService } from "./../observables.service";
-import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { Observable } from "rxjs";
+import { debugOutputAstAsTypeScript } from "@angular/compiler";
 
 declare var google;
 
@@ -12,6 +20,7 @@ declare var google;
 export class MapsComponent implements OnInit {
   @Input() modoInput: boolean;
   @Input() modoMap: boolean;
+  @Output() envioDireccion: EventEmitter<any>;
 
   @ViewChild("googleMap", null)
   gMap: any;
@@ -22,9 +31,11 @@ export class MapsComponent implements OnInit {
   lng: any;
   markers: any[] = [];
   loading: boolean;
-  objAdress: {};
+  objAdress: any;
 
-  constructor(private ObservableService: ObservablesService) {}
+  constructor(private ObservableService: ObservablesService) {
+    this.envioDireccion = new EventEmitter();
+  }
 
   ngOnInit() {
     this.loading = true;
@@ -99,28 +110,85 @@ export class MapsComponent implements OnInit {
         // console.log(lat)
         // console.log(lng)
         console.log(place);
-        if (place.address_components.length == 6) {
-          this.objAdress = {
-            direccion: place.name,
-            poblacion: place.address_components[1].long_name,
-            provincia: place.address_components[2].long_name,
-            pais: place.address_components[4].long_name,
-            cp: place.address_components[5].long_name,
-            lat,
-            lng
-          };
-        } else {
-          this.objAdress = {
-            direccion: place.name,
-            poblacion: place.address_components[2].long_name,
-            provincia: place.address_components[3].long_name,
-            pais: place.address_components[5].long_name,
-            cp: place.address_components[6].long_name,
-            lat,
-            lng,
-            activo: false
-          };
+
+        switch (place.address_components.length) {
+          case 4:
+            this.objAdress = {
+              poblacion: place.address_components[0].long_name,
+              provincia: place.address_components[1].long_name,
+              pais: place.address_components[3].long_name,
+              lat,
+              lng,
+              activo: false
+            };
+
+            break;
+
+          case 5:
+            this.objAdress = {
+              direccion: place.name,
+              poblacion: place.address_components[1].long_name,
+              provincia: place.address_components[2].long_name,
+              pais: place.address_components[4].long_name,
+              lat,
+              lng,
+              activo: false
+            };
+
+            break;
+          case 6:
+            this.objAdress = {
+              direccion: place.name,
+              poblacion: place.address_components[1].long_name,
+              provincia: place.address_components[2].long_name,
+              pais: place.address_components[4].long_name,
+              cp: place.address_components[5].long_name,
+              lat,
+              lng,
+              activo: false
+            };
+
+            break;
+          case 7:
+            this.objAdress = {
+              direccion: place.name,
+              poblacion: place.address_components[2].long_name,
+              provincia: place.address_components[3].long_name,
+              pais: place.address_components[5].long_name,
+              cp: place.address_components[6].long_name,
+              lat,
+              lng,
+              activo: false
+            };
+            break;
         }
+        this.envioDireccion.emit(this.objAdress);
+        console.log(this.objAdress.activo);
+
+        // if (place.address_components.length == 6) {
+        //   this.objAdress = {
+        //     direccion: place.name,
+        //     poblacion: place.address_components[1].long_name,
+        //     provincia: place.address_components[2].long_name,
+        //     pais: place.address_components[4].long_name,
+        //     cp: place.address_components[5].long_name,
+        //     lat,
+        //     lng,
+        //     activo: false
+
+        //   };
+        // } else {
+        //   this.objAdress = {
+        //     direccion: place.name,
+        //     poblacion: place.address_components[2].long_name,
+        //     provincia: place.address_components[3].long_name,
+        //     pais: place.address_components[5].long_name,
+        //     cp: place.address_components[6].long_name,
+        //     lat,
+        //     lng,
+        //     activo: false
+        //   };
+        // }
         this.ObservableService.handleAdress(this.objAdress);
 
         let m = new google.maps.Marker({

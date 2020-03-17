@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, NgZone } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { House } from "../models/house";
@@ -22,9 +22,10 @@ export class FormHouseComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private ObservableService: ObservablesService
+    private ObservableService: ObservablesService,
+    private ngZone: NgZone
   ) {
-    this.activo = true;
+    this.activo = false;
     this.firstDiv = true;
     this.secondDiv = false;
     this.thirdDiv = false;
@@ -107,6 +108,16 @@ export class FormHouseComponent implements OnInit {
       this.activo = res.activo;
     });
   }
+  manejarEnvioDireccion($event) {
+    console.log("ENTRA!!!!!!");
+    // Fuerza que la ejecucion se realize de manera asincrona sobre la aplicacion
+    this.ngZone.run(() => {
+      this.activo = true;
+    });
+
+    console.log("ACTIVO", this.activo);
+  }
+
   nextDiv($event) {
     console.log($event.target.id);
     switch ($event.target.id) {

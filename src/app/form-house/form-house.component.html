@@ -1,17 +1,18 @@
 <div class="container">
   <div *ngIf="firstDiv">
-    <app-maps [modoInput]="false" [modoMap]="true"></app-maps>
+    <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
   </div>
+  <p>{{activo}}</p>
+
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="image d-none d-md-block col-6 mt-5 mt-lg-0">
         <img src="../../assets/images/formhouse.svg" alt="">
       </div>
-
       <!-- FIRST DIV -->
       <div id="address" *ngIf="firstDiv" class="col-12 col-md-6 firstDiv">
         <h4>¿Cuál es la dirección de la vivienda?</h4>
-        <div [ngClass]="{ none: activo }">
+        <div *ngIf="activo">
           <div class="row address">
             <div class="col-6">
               <select class="form-control" formControlName="type" name="Tipo de vivienda">
