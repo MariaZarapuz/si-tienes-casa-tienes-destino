@@ -9,20 +9,16 @@ h4 {
 .main{
   padding-left: 10px;
 }
+
 /* HOUSES */
 .nav{
   background-color: white;
   z-index: 20;
 }
-
 .houses {
-  /* margin: 25px 0; */
   padding: 20px 0px;
   border-bottom: 1px solid rgb(197, 197, 197);
 }
-/* .image img {
-  
-} */
 .summary{
   padding-top: 1%;
 }
@@ -40,15 +36,11 @@ h4 {
   color: #220e2a
 }
 .info .description{
-  /* margin-bottom: 0px; */
   color: black
 }
 .card-text {
   padding-top: 10px
 }
-/* .button {
-  padding-top: 23%
-} */
 .button i{
   margin-top: 95%
 }
@@ -59,7 +51,6 @@ h4 {
 .containMap {
   position: fixed;
   right: 0;
-
 }
 .map {
   width: 100%;

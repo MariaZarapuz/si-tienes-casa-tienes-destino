@@ -1,14 +1,14 @@
 <!-- HEADER -->
 
-<div class="row nav">
+<!-- <div class="row nav">
   <nav class="navbar navbar-light col-12 filters">
     <a class="navbar-brand">¿A dónde quieres ir?</a>
     <form class="form-inline">
-      <input type="text" id="inputPlace">
+
       <button class="btn btn-outline-secondary" (click)="mapa()">Buscar</button>
     </form>
   </nav>
-</div>
+</div> -->
 <div class="main">
   <div class="row">
     <div class="col-12 col-lg-6">
@@ -40,9 +40,11 @@
     </div>
     <div class="relative">
       <div class="col-12 col-lg-6 d-none d-lg-block containMap ">
-        <div class="mapContain">
-          <!-- div de google maps -->
-          <div #googleMap class="map"></div>
+        <div class="">
+
+          <div #googleMap class="map">
+            <app-maps></app-maps>
+          </div>
         </div>
       </div>
     </div>
@@ -54,4 +56,7 @@
       </div>
     </div>
   </div>
+</div>
+<div>
+
 </div>

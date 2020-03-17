@@ -1,8 +1,11 @@
 h4,
-label{
+label,
+input{
   font-family: 'Montserrat', sans-serif
 }
-
+h4{
+  margin-bottom: 30px
+}
 /* IMAGE */
 .image img{
   max-width: 100%;
@@ -11,57 +14,65 @@ label{
 
 /* FORM */
 
-/* adress */
-.address, .information, .services{
-  margin-top: 90px;
-}
-.address h4{
-  margin-bottom: 30px
-}
-.address div{
-  margin-bottom: 8px
+.firstDiv, .thirdDiv{
+margin-top: 100px;
 }
 
-/* information */
-.information h4{
-  margin-bottom: 30px;
+/* first div */
+.address div{
+  margin-bottom: 20px
+}
+
+/* second div */
+.secondDiv{
+  margin-top: 80px;
 }
 .information div{
-  margin-bottom:8px; 
+  margin-bottom: 10px;
 }
-.information .date p{
-  padding-top: 10px;
-}
-/* services */
-.services h4{
-  margin-bottom: 30px;
-}
-.services p{
-  margin-top: 10px;
-}
+/* .information .date input{
+ font-size: 0.8em;
+ height: 1.7em;
+} */
+
+/* third div */
 .service{
   margin-left: 10px;
+  margin-bottom: 15px;
 }
 
 
-.btnBack{
+
+
+.backBtn{
+  margin-top: 15px;
   background-color: #220e2a;
   border: 2px solid #220e2a;
   color: white
 }
-.btnBack:hover{
+.backBtn:hover{
   background-color: transparent;
   color: #220e2a;
 }
-.btnNext{
+.nextBtn{
+  margin-top: 15px;
   background-color: #220e2a;
   border: 2px solid #220e2a;
   color: white
 }
-.btnNext:hover{
+.nextBtn:hover{
   background-color: #8bc5ce;
   color: #220e2a;
 }
+.saveBtn{
+  border: 2px solid #220e2a;
+  color: #220e2a;
+  background-color: #8bc5ce
+}
 .inputValid {
   color: red;
+}
+
+.none {
+  display: none;
 }

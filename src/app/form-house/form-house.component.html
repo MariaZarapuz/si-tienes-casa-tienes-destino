@@ -1,14 +1,14 @@
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
-      <div class="image d-none d-md-block col-6">
+      <div class="image d-none d-md-block col-6 mt-5 mt-lg-0">
         <img src="../../assets/images/formhouse.svg" alt="">
       </div>
 
       <!-- FIRST DIV -->
-      <div id="address" *ngIf="firstDiv" class="address col-12 col-md-6">
+      <div id="address" *ngIf="firstDiv" class="col-12 col-md-6 firstDiv">
         <h4>¿Cuál es la dirección de la vivienda?</h4>
-        <div class="row ">
+        <div class="row address">
           <div class="col-6">
             <select class="form-control" formControlName="type" name="Tipo de vivienda">
               <option value="" selected disabled>Tipo de vivienda</option>
@@ -18,30 +18,27 @@
           </div>
 
           <div class="col-6">
-            <input type="text" class="form-control " placeholder="Pais" formControlName="country">
+            <input type="text" class="form-control " placeholder="País" formControlName="country">
             <div class="error inputValid"
               *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
               Rellene el campo
             </div>
           </div>
-        </div>
 
-        <div class="row">
           <div class="col-12">
-            <input type="text" class="form-control" placeholder="calle y número" formControlName="address">
+            <input type="text" class="form-control" placeholder="Calle y número" formControlName="address">
             <div class=" error inputValid"
               *ngIf="form.controls.address.errors?.required && form.controls.address.touched">
               Rellene el campo País
             </div>
           </div>
-        </div>
 
-        <div class="row">
           <div class="col-4">
-            <input type="text" class="form-control" placeholder="piso" formControlName="floor">
+            <input type="text" class="form-control" placeholder="Piso" formControlName="floor">
           </div>
+
           <div class="col-4">
-            <input type="text" class="form-control" placeholder="puerta" formControlName="letter">
+            <input type="text" class="form-control" placeholder="Puerta" formControlName="letter">
           </div>
 
           <div class="col-4">
@@ -50,9 +47,7 @@
               Rellene el campo
             </div>
           </div>
-        </div>
 
-        <div class="row">
           <div class="col-6">
             <input type="text" class="form-control" placeholder="Poblacion" formControlName="village">
             <div class=" error inputValid"
@@ -68,25 +63,26 @@
               Rellene el campo provincia
             </div>
           </div>
-        </div>
 
-        <div class="col-12">
-          <div class="row">
-            <div class="col-6">
-              <button id="-1" class="btn btnBack mt-4" (click)="behindDiv($event)">Atras</button>
-            </div>
-            <div class="nextButton col-6 align-self-end">
-              <button id="1" class="offset-7 btn btnNext mt-4" [disabled]="validarPrimerForm()"
-                (click)="nextDiv($event)">Siguiente</button>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-6">
+                <button id="-1" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+              </div>
+              <div class="col-6 d-flex flex-row-reverse">
+                <button id="1" class="btn nextBtn" [disabled]="validarPrimerForm()"
+                  (click)="nextDiv($event)">Siguiente</button>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
 
       <!-- SECOND DIV -->
-      <div id="decript" *ngIf="secondDiv" class="information col-12 col-md-6">
+      <div id="decript" *ngIf="secondDiv" class="secondDiv col-12 col-md-6">
         <h4>Información sobre la vivienda</h4>
-        <div class="row">
+        <div class="row information">
           <div class="col-12">
             <div class="row">
               <p class="col-10">¿Cuántos dormitorios tiene?</p>
@@ -120,10 +116,18 @@
             <div class="row">
               <div class="date offset-1 col-10">
                 <div class="row">
-                  <p class="col-3">Desde</p>
-                  <input class="col-3" type="date" formControlName="datecheck">
-                  <p class="col-3">Hasta</p>
-                  <input class="col-3" type="date" formControlName="datecheckOut">
+                  <div class="col-12 col-lg-6">
+                    <div class="row">
+                      <label class="col-6">Desde</label>
+                      <input class="col-6 form-control col-form-label-sm" type="date" formControlName="datecheck">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="row">
+                      <label class="col-6">hasta</label>
+                      <input class="col-6 form-control col-form-label-sm" type="date" formControlName="datecheckOut">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,11 +146,10 @@
           <div class="col-12">
             <div class="row">
               <div class="col-6">
-                <button id="-2" class="btn btnBack mt-4" (click)="behindDiv($event)">Atras</button>
+                <button id="-2" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
               </div>
-              <div class="nextButton col-6 align-self-end">
-                <button id="2" class="offset-9 btn btnNext mt-4" (click)="nextDiv($event)"
-                  [disabled]="validarSegundoForm()">
+              <div class="col-6 d-flex flex-row-reverse">
+                <button id="2" class="btn nextBtn" (click)="nextDiv($event)" [disabled]="validarSegundoForm()">
                   Siguiente </button>
               </div>
             </div>
@@ -155,9 +158,9 @@
       </div>
 
       <!-- THIRD DIV -->
-      <div id="services" class="services col-12 col-md-6" *ngIf="thirdDiv">
+      <div id="services" class="thirdDiv col-12 col-md-6" *ngIf="thirdDiv">
         <h4>Indica los servicios que tiene tu casa</h4>
-        <div class="row">
+        <div class="row services">
           <div class="col-12 service" *ngFor="let servicio of arrServices">
             <div class="row">
               <input class="col-1" type="checkbox" formControlName={{servicio}}>
@@ -168,15 +171,15 @@
         <div class="col-12">
           <div class="row">
             <div class="col-6">
-              <button id="-3" class="btn btnBack mt-4" (click)="behindDiv($event)">Atras</button>
+              <button id="-3" class="btn backBtn mt-4" (click)="behindDiv($event)">Atras</button>
             </div>
-            <div class="nextButton col-6 align-self-end">
-              <button id="3" class="offset-9 btn btnNext mt-4" (click)="nextDiv($event)">Guardar</button>
+            <div class="col-6 d-flex flex-row-reverse">
+              <button id="3" class="btn saveBtn" (click)="nextDiv($event)">Guardar</button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+
   </form>
 </div>
