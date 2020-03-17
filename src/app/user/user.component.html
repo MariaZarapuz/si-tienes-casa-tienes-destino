@@ -13,17 +13,27 @@
                     <div class="row">
                         <div class="col-1"><i class="fas fa-user"></i></div>
                         <div class="col-11">
-                            <p *ngIf="showInputs"> Nombre Apellidos</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Nombre Apellidos">
+                            <p *ngIf="showInputs"> Nombre</p>
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Nombre">
                         </div>
                     </div>
                 </div>
                 <div class="col-12 line">
                     <div class="row">
-                        <div class="col-1"><i class="fa fa-birthday-cake"></i></div>
+                        <div class="col-1"></div>
+                        <div class="col-11">
+                            <p *ngIf="showInputs"> Apellidos</p>
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Apellidos">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 line">
+                    <div class="row">
+                        <div class="col-1"><i class="far fa-calendar-alt"></i></div>
                         <div class="col-11">
                             <p *ngIf="showInputs"> Fecha de nacimiento</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Fecha de nacimiento">
+                            <input *ngIf="!showInputs" type="text" class="form-control"
+                                placeholder="Fecha de nacimiento">
                         </div>
                     </div>
                 </div>
@@ -32,7 +42,7 @@
                         <div class="col-1"><i class="fa fa-venus-mars"></i></div>
                         <div class="col-11">
                             <p *ngIf="showInputs"> Género</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Género">
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Género">
                         </div>
                     </div>
                 </div>
@@ -41,7 +51,7 @@
                         <div class="col-1"><i class="fa fa-phone"></i></div>
                         <div class="col-11">
                             <p *ngIf="showInputs"> Teléfono</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Teléfono">
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Teléfono">
                         </div>
                     </div>
                 </div>
@@ -50,7 +60,7 @@
                         <div class="col-1"><i class="fa fa-envelope"></i></div>
                         <div class="col-11">
                             <p *ngIf="showInputs"> Email</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Email">
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Email">
                         </div>
                     </div>
                 </div>
@@ -59,7 +69,7 @@
                         <div class="col-1"><i class="fa fa-lock"></i></div>
                         <div class="col-11">
                             <p *ngIf="showInputs"> Contraseña</p>
-                            <input *ngIf="!showInputs" type="text" placeholder="Contraseña">
+                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Contraseña">
                         </div>
                     </div>
                 </div>

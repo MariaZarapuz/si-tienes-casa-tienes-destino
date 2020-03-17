@@ -38,15 +38,17 @@
 
       </div>
     </div>
-
-    <div class="col-12 col-lg-6 d-none d-lg-block containMap ">
-      <div class="mapContain">
-        <!-- div de google maps -->
-        <div #googleMap class="map"></div>
+    <div class="relative">
+      <div class="col-12 col-lg-6 d-none d-lg-block containMap ">
+        <div class="mapContain">
+          <!-- div de google maps -->
+          <div #googleMap class="map"></div>
+        </div>
       </div>
     </div>
+
     <div *ngIf="loading" class="d-none d-lg-block col-6 containMap ">
-      <div class="mapContain loading">
+      <div class="loading">
         <!-- div de google maps -->
         <img src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif" alt="">
       </div>
