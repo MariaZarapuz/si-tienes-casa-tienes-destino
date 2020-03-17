@@ -29,17 +29,17 @@ export class FormHouseComponent implements OnInit {
     this.secondDiv = false;
     this.thirdDiv = false;
     this.arrServices = [
-      "lavadora",
-      "secadora",
+      "wifi",
       "aireAcondicionado",
       "calefaccion",
+      "secador",
       "teleCable",
+      "lavadora",
+      "secadora",
       "plancha",
       "horno",
-      "wifi",
       "microhondas",
       "lavavajillas",
-      "secador",
       "tostador"
     ];
     this.form = new FormGroup({

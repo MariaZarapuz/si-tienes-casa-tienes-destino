@@ -19,7 +19,7 @@ export class SearchComponent {
         capacidad: 10,
         foto:
           "https://media.er2.co/es/avila/0000000014043/1600/52ef86c22befb.jpg",
-        descripcion: "asa en primera linea de playa."
+        descripcion: "Casa en primera linea de playa."
       },
       {
         id: 2,
@@ -61,7 +61,7 @@ export class SearchComponent {
         banos: 1,
         camas: 5,
         capacidad: 10,
-        descripcion: "asa en primera linea de playa."
+        descripcion: "Casa en primera linea de playa."
       }
     ];
   }

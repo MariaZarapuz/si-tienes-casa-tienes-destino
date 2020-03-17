@@ -6,24 +6,57 @@ h4 {
   font-family: 'Montserrat', sans-serif
 }
 
+.main{
+  padding-left: 10px;
+}
+
 /* HOUSES */
-/* 
-.image{
-    padding:10px 
-} */
-.house {
-  margin: 25px 0;
-  border-bottom: 1px solid rgb(197, 197, 197)
+.nav{
+  background-color: white;
+  z-index: 20;
 }
-
+.houses {
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+.summary{
+  padding-top: 1%;
+}
+.info h4 {
+  margin-bottom: 0px;
+}
+.info p {
+  color: rgb(128, 128, 128)
+}
 .info a {
-  margin: 10px
+  margin-right: 10px;
+  color: #220e2a;
 }
-
+.info i {
+  color: #220e2a
+}
+.info .description{
+  color: black
+}
 .card-text {
   padding-top: 10px
 }
+.button i{
+  margin-top: 95%
+}
 
-.image img {
-  width: 250px
+
+
+/* MAP */
+.containMap {
+  position: fixed;
+  right: 0;
+}
+.map {
+  width: 100%;
+  height: 500px
+}
+.loading {
+ margin-left: 30%;
+ margin-top: 30%
 }

@@ -1,9 +1,75 @@
-.wrapper {
-  margin-top: 30px;
+h4,
+label,
+input{
+  font-family: 'Montserrat', sans-serif
+}
+h4{
+  margin-bottom: 30px
+}
+/* IMAGE */
+.image img{
+  max-width: 100%;
+  padding: 50px
 }
 
-.inputValid {
+/* FORM */
 
+.firstDiv, .thirdDiv{
+margin-top: 100px;
+}
+
+/* first div */
+.address div{
+  margin-bottom: 20px
+}
+
+/* second div */
+.secondDiv{
+  margin-top: 80px;
+}
+.information div{
+  margin-bottom: 10px;
+}
+/* .information .date input{
+ font-size: 0.8em;
+ height: 1.7em;
+} */
+
+/* third div */
+.service{
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+
+.backBtn{
+  margin-top: 15px;
+  background-color: #220e2a;
+  border: 2px solid #220e2a;
+  color: white
+}
+.backBtn:hover{
+  background-color: transparent;
+  color: #220e2a;
+}
+.nextBtn{
+  margin-top: 15px;
+  background-color: #220e2a;
+  border: 2px solid #220e2a;
+  color: white
+}
+.nextBtn:hover{
+  background-color: #8bc5ce;
+  color: #220e2a;
+}
+.saveBtn{
+  border: 2px solid #220e2a;
+  color: #220e2a;
+  background-color: #8bc5ce
+}
+.inputValid {
   color: red;
 }
 
