@@ -18,6 +18,7 @@ export class FormHouseComponent implements OnInit {
   arrPrimerFormulario: any[];
   arrSegundoFormulario: any[];
   activo: boolean;
+  objAddressHouse: any;
 
   constructor(
     private router: Router,
@@ -97,7 +98,12 @@ export class FormHouseComponent implements OnInit {
   ngOnInit() {
     this.ObservableService.addressSb.subscribe(res => {
       console.log(res);
-
+      this.objAddressHouse = res;
+      this.form.controls.country.setValue(this.objAddressHouse.pais);
+      this.form.controls.address.setValue(this.objAddressHouse.direccion);
+      this.form.controls.village.setValue(this.objAddressHouse.poblacion);
+      this.form.controls.province.setValue(this.objAddressHouse.provincia);
+      this.form.controls.cp.setValue(this.objAddressHouse.cp);
       this.activo = res.activo;
     });
   }
@@ -107,7 +113,7 @@ export class FormHouseComponent implements OnInit {
       case "1":
         this.firstDiv = false;
         this.secondDiv = true;
-        // console.log(this.form.country);
+        console.log(this.secondDiv);
         break;
       case "2":
         this.secondDiv = false;
