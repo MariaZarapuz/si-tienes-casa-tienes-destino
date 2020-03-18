@@ -1,6 +1,11 @@
-<div [ngClass]="{none:modoInput}">
+<!-- COMPONENTE FORM-HOUSE -->
+
+<div [ngClass]="{none:modoInput}" class="search">
+  <h4>¿Cuál es la dirección de la vivienda?</h4>
   <input class="form-control" type="text" id="inputPlace" (keypress)="handleEnter($event)">
 </div>
+
+<!-- COMPONENTE SEARCH -->
 <div [ngClass]="{none:modoMap}">
   <div class="col-6 containMap ">
     <div class="mapContain">
