@@ -16,13 +16,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     setInterval(() => {
       if (this.slide === 'slide1') {
-        this.slide = 'slide2'
+        this.slide = 'slide2';
       } else if (this.slide === 'slide2') {
-        this.slide = 'slide3'
+        this.slide = 'slide3';
       } else if (this.slide === 'slide3') {
-        this.slide = 'slide1'
+        this.slide = 'slide1';
       }
-    }, 10000)
+    }, 10000);
   }
 
 }

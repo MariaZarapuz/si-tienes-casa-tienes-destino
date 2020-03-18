@@ -22,11 +22,11 @@ export class UserComponent implements OnInit {
   editeInfo($event) {
     console.log($event.target.id)
     switch ($event.target.id) {
-      case "1":
+      case '1':
         this.showInputs = false;
         this.showParagraph = true;
         break;
-      case "2":
+      case '2':
         this.showInputs = true;
         this.showParagraph = false;
     }
