@@ -1,46 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
-
-
-
-/* PERSONAL INFORMATION */
-
-.information{
-    padding-top: 50px;
-}
-.information h3{
-    padding-bottom: 30px;
-}
-.information .line{
-    margin-top: 10px;
-    padding-left: 50px;
-}
-.information i{
-    color: #220e2a;
-    font-size: 1.5em;
-    width: 25px;
-}
-.information .fa-pen, .information .fa-check{
-    font-size: 1em;
-}
-.information input{
-    margin-bottom: 0.4em;
+a, p, h2, h4, button, input, label{
+  font-family: 'Montserrat', sans-serif
 }
 
-
-/* USER AND HOUSE IMAGES */
+/* USER IMAGE */
 .containerLeft{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+   margin-top: 30px;
 }
-.houseimage{
-    background-image: url('../../assets/images/house.png');
-    height: 150px;
-    width: 150px;
-    background-size: cover;
-    background-position: center center;
-}
+
 .containerLeft p{
     text-align: center;
     padding: 50px;
@@ -52,4 +21,71 @@
     border-radius: 50%;
     background-size: cover;
     background-position: center center;
+}
+
+/* ICONS */
+.icons i{
+    color: #220e2a;
+    font-size: 1.5em;
+    width: 25px;
+    margin-top: 25px;
+    margin-left:10px;
+}
+
+
+.user p{
+    font-size: 1.1em;
+
+}
+
+/* USER INFORMATION */
+.information{
+    padding-top: 15px;
+}
+.information h3{
+    padding-bottom: 30px;
+}
+
+.information .fa-pen, .information .fa-check{
+    font-size: 1em;
+}
+.information p{
+    padding-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 11px;
+}
+.information i{
+    font-size: 1.4em;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    color: #220e2a;
+}
+/* .information input{
+    margin-top: 5px;
+} */
+
+/* HOUSE INFORMATION */
+.houseInfo{
+    padding-top: 20px;
+}
+.houseInfo h5{
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #220e2a;
+}
+.houseInfo p{
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 11px;
+}
+.houseInfo .feature{
+    padding-bottom: 20px;
+}
+
+.houseInfo .services{
+
+    padding-top: 20px;
+}
+.houseInfo input{
+    margin-top: 11px;
 }

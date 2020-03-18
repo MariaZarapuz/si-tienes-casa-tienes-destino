@@ -1,92 +1,291 @@
 <div class="container">
+
     <div class="row">
-        <div class="col-12 col-md-8">
-            <div class="information row">
-                <div class="col-12 line">
-                    <h3>Hola, nombre</h3>
-                </div>
-                <div class="offset-10 col-2">
-                    <i id="1" class="fas fa-pen" *ngIf="showInputs" (click)="editeInfo($event)"></i>
-                    <i id="2" *ngIf="!showInputs" class=" fas fa-check" (click)="editeInfo($event)"></i>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="fas fa-user"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Nombre</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Nombre">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Apellidos</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Apellidos">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="far fa-calendar-alt"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Fecha de nacimiento</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control"
-                                placeholder="Fecha de nacimiento">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="fa fa-venus-mars"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Género</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Género">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="fa fa-phone"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Teléfono</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Teléfono">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="fa fa-envelope"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Email</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Email">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 line">
-                    <div class="row">
-                        <div class="col-1"><i class="fa fa-lock"></i></div>
-                        <div class="col-11">
-                            <p *ngIf="showInputs"> Contraseña</p>
-                            <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Contraseña">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="col-12 col-md-4">
-            <div class="containerLeft">
-                <div class="user ">
+            <div class="containerLeft mt-1 mt-md-5">
+                <div class="">
                     <div class="userimage"></div>
-                    <div class="houseimage"></div>
-                </div>
-                <div class="house">
-
                 </div>
             </div>
         </div>
 
+        <div class="col-12 col-md-8 user">
+            <div class="row">
+                <!-- <div class="col-12 line">
+                            <h3>Hola, nombre</h3>
+                        </div> -->
+                <div class="col-12 col-md-10 icons d-flex justify-content-end">
+
+                    <div>
+                        <i id="1" class="fas fa-pen" *ngIf="showInputs" (click)="editeInfo($event)"></i>
+                        <i id="2" *ngIf="!showInputs" class="fas fa-check" (click)="editeInfo($event)"></i>
+                    </div>
+
+                    <div>
+                        <div>
+                            <i id="1" *ngIf="card2" (click)="changeCard($event)" class="fas fa-user"></i>
+                            <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- user information -->
+                <div class="col-12 information" *ngIf="card1">
+                    <div class="row">
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="fas fa-user "></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Nombre</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Nombre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"> <i class="fas fa-user "></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Apellidos</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Apellidos">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="far fa-calendar-alt "></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Fecha de nacimiento</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control"
+                                        placeholder="Fecha de nacimiento">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="fa fa-venus-mars"></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Género</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Género">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="fa fa-phone"></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Teléfono</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Teléfono">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="fa fa-envelope"></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Email</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 line">
+                            <div class="row">
+                                <div class="col-1 d-none d-sm-block"><i class="fa fa-lock"></i></div>
+                                <div class="col-12 col-sm-9 info">
+                                    <p *ngIf="showInputs"> Contraseña</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control"
+                                        placeholder="Contraseña">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- house information -->
+                <div class="col-12 houseInfo" *ngIf="card2">
+                    <div class="row">
+                        <!-- feature -->
+                        <div class="col-12 col-md-6 feature">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Características de la casa</h5>
+                                </div>
+
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Tipo de vivienda</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Tipo de vivienda">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Dormitorios</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Dormitorios">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Camas</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Camas">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Baños</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Baños">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Capacidad</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Capacidad">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs"> Descripción</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Descripción">
+                                </div>
+
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Fecha de entrada</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Fecha entrada">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Fecha de salida</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Fecha salida">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- direction -->
+                        <div class="col-6 address">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Dirección</h5>
+                                </div>
+
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Pais</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="País">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Calle y número</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Calle y numero">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Piso</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Piso">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Puerta</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Puerta">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs"> Código Postal</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Código postal">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Provincia</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Provincia">
+                                </div>
+                                <div class="col-12 line">
+                                    <p *ngIf="showInputs">Comunidad Autonoma</p>
+                                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                                        placeholder="Comunidad Autónoma">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- services -->
+                        <div class="col-12 services">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Servicios</h5>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Lavadora</p>
+                                        </div>
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Secadora</p>
+                                        </div>
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Aire acondicionado</p>
+                                        </div>
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Calefaccion</p>
+                                        </div>
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Telecable</p>
+                                        </div>
+                                        <div class="col-12 line">
+                                            <input *ngIf="!showInputs" type="ckeckbox"
+                                                class="form-control form-control-sm ">
+                                            <p *ngIf="showInputs">Plancha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Horno</p>
+                                        </div>
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Wifi</p>
+                                        </div>
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Microondas</p>
+                                        </div>
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Lavavajillas</p>
+                                        </div>
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Secador</p>
+                                        </div>
+                                        <div class="col-12 line">
+
+                                            <input *ngIf="!showInputs" type="ckeckbox" class="form-control">
+                                            <p *ngIf="showInputs">Tostador</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
 </div>

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+a, p, i, h2, h4, button, input, label{
+  font-family: 'Montserrat', sans-serif
+}
 
 /* IMAGES */
 .images {

@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Raleway&display=swap');
+a, p, i, h2, h1, h3, h4, button{
+  font-family: 'Montserrat', sans-serif
+}
+
 
 /* NAV FILTROS */
 .filters a{
@@ -45,7 +48,6 @@
 }
 .slide2{
     background-image: url('https://www.canariasgetaway.com/es/venta/fotos/2/15761635103905b8789d0d7055e6f407d3772fa4bc/1576163515e25839448115b85d3e1b03541a611824.jpg');
-    background-position: center 600px;
 }
 .slide3{
     background-image: url('https://www.elmueble.com/medio/2017/06/13/em-c-imujika-7515_b994046e.jpg');
@@ -53,7 +55,6 @@
 .slider p{
     color: white;
     font-size: 2.5em;
-    font-family: 'Raleway' sans-serif;
     padding: 20px;
     text-shadow: 0 1px 1px rgba(0,0,0,.6);
 }
@@ -82,7 +83,12 @@
 
 
 /* FUNCIONALIDAD */
-.info p{
+
+
+
+
+
+/* .info p{
     font-family: 'Raleway' sans-serif;
 }
 .info .ppal{
@@ -119,6 +125,6 @@
     background-image: url('../../assets/images/mapamundi.svg');
     background-size: 100% 100%;
     
-}
+} */
 
 

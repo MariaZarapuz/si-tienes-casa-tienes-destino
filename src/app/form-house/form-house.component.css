@@ -1,8 +1,7 @@
-h4,
-label,
-input{
+a, p, i, h2, h4, button, input, label{
   font-family: 'Montserrat', sans-serif
 }
+
 h4{
   margin-bottom: 30px
 }
@@ -43,7 +42,7 @@ margin-top: 100px;
 
 
 
-
+/* BUTTONS */
 .backBtn{
   margin-top: 15px;
   background-color: #220e2a;
@@ -69,6 +68,10 @@ margin-top: 100px;
   color: #220e2a;
   background-color: #8bc5ce
 }
+
+
+
+/* OTHERS */
 .inputValid {
   color: red;
 }

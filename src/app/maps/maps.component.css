@@ -1,9 +1,10 @@
+a, p, i, h2, h4, button, input, label{
+  font-family: 'Montserrat', sans-serif
+}
+
 /* SEARCH */
 .search{
   padding-top: 100px;
-}
-h4{
-  font-family: 'Montserrat', sans-serif
 }
 
 /* MAP */
