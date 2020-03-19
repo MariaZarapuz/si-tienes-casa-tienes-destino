@@ -101,7 +101,7 @@ export class MapsComponent implements OnInit {
     autoComplete.addListener("place_changed", () => {
       let place = autoComplete.getPlace();
       if (place.geometry === undefined) {
-        this.objAdress = { activo: false };
+        this.objAdress = { activo: true };
         this.ObservableService.handleAdress(this.objAdress);
       } else {
         let lat = place.geometry.location.lat();
@@ -119,7 +119,7 @@ export class MapsComponent implements OnInit {
               pais: place.address_components[3].long_name,
               lat,
               lng,
-              activo: false
+              activo: true
             };
 
             break;
@@ -132,7 +132,7 @@ export class MapsComponent implements OnInit {
               pais: place.address_components[4].long_name,
               lat,
               lng,
-              activo: false
+              activo: true
             };
 
             break;
@@ -145,7 +145,7 @@ export class MapsComponent implements OnInit {
               cp: place.address_components[5].long_name,
               lat,
               lng,
-              activo: false
+              activo: true
             };
 
             break;
@@ -158,37 +158,13 @@ export class MapsComponent implements OnInit {
               cp: place.address_components[6].long_name,
               lat,
               lng,
-              activo: false
+              activo: true
             };
             break;
         }
         this.envioDireccion.emit(this.objAdress);
         console.log(this.objAdress.activo);
 
-        // if (place.address_components.length == 6) {
-        //   this.objAdress = {
-        //     direccion: place.name,
-        //     poblacion: place.address_components[1].long_name,
-        //     provincia: place.address_components[2].long_name,
-        //     pais: place.address_components[4].long_name,
-        //     cp: place.address_components[5].long_name,
-        //     lat,
-        //     lng,
-        //     activo: false
-
-        //   };
-        // } else {
-        //   this.objAdress = {
-        //     direccion: place.name,
-        //     poblacion: place.address_components[2].long_name,
-        //     provincia: place.address_components[3].long_name,
-        //     pais: place.address_components[5].long_name,
-        //     cp: place.address_components[6].long_name,
-        //     lat,
-        //     lng,
-        //     activo: false
-        //   };
-        // }
         this.ObservableService.handleAdress(this.objAdress);
 
         let m = new google.maps.Marker({
