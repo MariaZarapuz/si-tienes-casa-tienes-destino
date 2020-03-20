@@ -12,11 +12,12 @@ import { ObservablesService } from "../observables.service";
 export class FormHouseComponent implements OnInit {
   form: FormGroup;
   arrServices: string[];
+  arrInstallations: string[];
+  arrPrimerFormulario: any[];
+  arrSegundoFormulario: any[];
   firstDiv: boolean;
   secondDiv: boolean;
   thirdDiv: boolean;
-  arrPrimerFormulario: any[];
-  arrSegundoFormulario: any[];
   activo: boolean;
   objAddressHouse: any;
 
@@ -29,6 +30,13 @@ export class FormHouseComponent implements OnInit {
     this.firstDiv = true;
     this.secondDiv = false;
     this.thirdDiv = false;
+    this.arrInstallations = [
+      "ascensor",
+      "parking",
+      "piscina",
+      "terraza",
+      "balcon"
+    ];
     this.arrServices = [
       "wifi",
       "aireAcondicionado",
@@ -39,7 +47,7 @@ export class FormHouseComponent implements OnInit {
       "secadora",
       "plancha",
       "horno",
-      "microhondas",
+      "microondas",
       "lavavajillas",
       "tostador"
     ];
@@ -68,12 +76,18 @@ export class FormHouseComponent implements OnInit {
       plancha: new FormControl(""),
       horno: new FormControl(""),
       wifi: new FormControl(""),
-      microhondas: new FormControl(""),
+      microondas: new FormControl(""),
       lavavajillas: new FormControl(""),
       secador: new FormControl(""),
       tostador: new FormControl(""),
+      ascensor: new FormControl(""),
+      parking: new FormControl(""),
+      piscina: new FormControl(""),
+      terraza: new FormControl(""),
+      balcon: new FormControl(""),
       latitud: new FormControl(""),
       longitud: new FormControl("")
+
     });
 
     this.arrPrimerFormulario = [

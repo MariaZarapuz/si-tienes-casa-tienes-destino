@@ -7,7 +7,7 @@
         <img src="../../assets/images/formhouse.svg" alt="">
       </div>
       <!-- div buscador -->
-      <div *ngIf="firstDiv">
+      <div *ngIf="firstDiv" class="col-12 col-md-6">
         <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
       </div>
       <!-- firstdiv -->
@@ -166,17 +166,28 @@
       </div>
 
       <!-- THIRD DIV -->
+      <!-- services -->
       <div id="services" class="thirdDiv col-12 col-md-6" *ngIf="thirdDiv">
-        <h4>Indica los servicios que tiene tu casa</h4>
+        <h4>Indica los servicios e instalaciones que tiene tu casa</h4>
         <div class="row services">
-          <div class="col-12 service" *ngFor="let servicio of arrServices">
+          <div class="col-12">
+            <h5>Servicios</h5>
+          </div>
+          <div class="col-6 service" *ngFor="let servicio of arrServices">
             <div class="row">
-              <div class="col-6">
-                <input class="col-1" type="checkbox" formControlName={{servicio}}>
-                <p class="col-11">{{servicio}}</p>
-              </div>
-
+              <input class="col-2" type="checkbox" formControlName={{servicio}}>
+              <p class="col-10">{{servicio}}</p>
             </div>
+          </div>
+        </div>
+        <!-- intallations -->
+        <div class="row installations">
+          <div class="col-12">
+            <h5>Instalaciones</h5>
+          </div>
+          <div class="col-6 service" *ngFor="let installation of arrInstallations">
+            <input class="col-1" type="checkbox" formControlName={{installation}}>
+            <p class="col-11">{{installation}}</p>
           </div>
         </div>
         <div class="col-12">

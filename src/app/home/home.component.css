@@ -85,7 +85,10 @@ a, p, i, h2, h1, h3, h4, button{
 /* FUNCIONALIDAD */
 
 
-
+.info img {
+    /* max-width:50%; */
+    max-height: 150px;
+}
 
 
 /* .info p{
