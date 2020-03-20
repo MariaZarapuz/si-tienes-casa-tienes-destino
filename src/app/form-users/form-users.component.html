@@ -7,7 +7,7 @@
       <h2 class="titleRegist">Crea tu cuenta</h2>
       <div class="form-group">
         <!-- <label for="validationServer01">Nombre</label> -->
-        <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="name">
+        <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="nombre">
         <div class="valid-feedback">
           El campo esta vacio
         </div>
@@ -16,7 +16,7 @@
       <div class="form-group">
         <!-- <label for="validationServer02">Apellidos</label> -->
         <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
-          formControlName="surNames">
+          formControlName="apellidos">
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -25,21 +25,26 @@
       <div class="form-group">
         <!-- <label for="validationServer03">Fecha de nacimiento</label> -->
         <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha de nacimiento"
-          formControlName="dateBirth">
-
+          formControlName="fecha_nacimiento">
       </div>
+      <div class="form-group">
+        <!-- <label for="validationServer03">email</label> -->
+        <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="email"
+          formControlName="email">
+      </div>
+      ​
       ​
       <div class="form-group">
         <!-- <label for="validationServer02">Contraseña</label> -->
         <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Contraseña"
-          formControlName="password">
+          formControlName="contraseña">
 
       </div>
       ​
       <div class="form-group">
         <!-- <label for="validationServerUsername">Repite la contraseña</label> -->
         <input type="text" class="form-control is-invalid" id="validationServerUsername"
-          placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
+          placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="repite_contraseña">
       </div>
       <div>
         <input class="" type="submit" value="Enviar">
