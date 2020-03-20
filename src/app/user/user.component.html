@@ -1,12 +1,8 @@
 <div class="container">
-
     <div class="row">
-
         <div class="col-12 col-md-4">
-            <div class="containerLeft mt-1 mt-md-5">
-                <div class="">
-                    <div class="userimage"></div>
-                </div>
+            <div class="containerImg mt-2 mt-md-5">
+                <div class="userimage"></div>
             </div>
         </div>
 
@@ -76,6 +72,9 @@
                                         placeholder="Contraseña">
                                 </div>
                             </div>
+                            <div class="button col-12 col-sm-10 d-flex flex-row-reverse" *ngIf="!showInputs">
+                                <button type="submit" class="btn saveBtn mt-4">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -85,7 +84,7 @@
             <!-- house information -->
             <div class="col-12 houseInfo" *ngIf="card2">
                 <div class="row">
-                    <form class="col-12">
+                    <form class="col-12" [formGroup]="formEditHouse" (ngSubmit)="onSubmitHouse()">
                         <div class="row">
                             <!-- feature -->
                             <div class="col-12 col-md-6 feature">
@@ -188,95 +187,94 @@
                                     <div class="col-12">
                                         <h5>Servicios</h5>
                                     </div>
-                                    <div class="col-12">
+
+                                    <div class="col-6">
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="ascensor">
-                                                    <p class="col-11 firstP">Ascensor</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="parking">
-                                                    <p class="col-11">Parking</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="aireAcondicionado">
-                                                    <p class="col-11">Aire acondicionado</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="calefaccion">
-                                                    <p class="col-11">Calefacción</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="teleCable">
-                                                    <p class="col-11">Televisión con cable</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="plancha">
-                                                    <p class="col-11">Plancha</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="horno">
-                                                    <p class="col-11">Horno</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="wifi">
-                                                    <p class="col-11">Wifi</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="microondas">
-                                                    <p class="col-11">Microondas</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="lavavajillas">
-                                                    <p class="col-11">Lavavajillas</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="secador">
-                                                    <p class="col-11">Secador</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="row">
-                                                    <input class="col-1" type="checkbox" *ngIf="!showInputs"
-                                                        formControlName="tostador">
-                                                    <p class="col-11">Tostador</p>
-                                                </div>
-                                            </div>
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="aireAcondicionado">
+                                            <p class="">Aire acondicionado</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="calefaccion">
+                                            <p class="">Calefacción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="wifi">
+                                            <p class="">Wifi</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="teleCable">
+                                            <p class="">Televisión por cable</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="plancha">
+                                            <p class="">Plancha</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="horno">
+                                            <p class="">Horno</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="microondas">
+                                            <p class="">Microondas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="tostador">
+                                            <p class="">Tostador</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="secador">
+                                            <p class="">Secador</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="lavavajillas">
+                                            <p class="">Lavavajillas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="lavadora">
+                                            <p class="">Lavadora</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <input class="col-1" type="checkbox" *ngIf="!showInputs"
+                                                formControlName="secadora">
+                                            <p class="">Secadora</p>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                             <!-- intallations -->
@@ -289,38 +287,41 @@
                                         <div class="row">
                                             <input class="col-1" type="checkbox" *ngIf="!showInputs"
                                                 formControlName="ascensor">
-                                            <p class="col-11 firstP">Ascensor</p>
+                                            <p class="firstP">Ascensor</p>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="row">
                                             <input class="col-1" type="checkbox" *ngIf="!showInputs"
                                                 formControlName="parking">
-                                            <p class="col-11">Parking</p>
+                                            <p class="">Parking</p>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="row">
                                             <input class="col-1" type="checkbox" *ngIf="!showInputs"
                                                 formControlName="piscina">
-                                            <p class="col-11">Piscina</p>
+                                            <p class="">Piscina</p>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="row">
                                             <input class="col-1" type="checkbox" *ngIf="!showInputs"
                                                 formControlName="terraza">
-                                            <p class="col-11">Terraza</p>
+                                            <p class="">Terraza</p>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="row">
                                             <input class="col-1" type="checkbox" *ngIf="!showInputs"
                                                 formControlName="balcon">
-                                            <p class="col-11">Balcón</p>
+                                            <p class="">Balcón</p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="button col-12 d-flex flex-row-reverse" *ngIf="!showInputs">
+                                <button type="submit" class="btn saveBtn mt-4">Guardar</button>
                             </div>
                         </div>
                     </form>

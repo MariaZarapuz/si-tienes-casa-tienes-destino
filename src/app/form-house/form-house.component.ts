@@ -1,13 +1,13 @@
-import { Component, OnInit, NgZone } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { House } from "../models/house";
-import { ObservablesService } from "../observables.service";
+import { Component, OnInit, NgZone } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { House } from '../models/house';
+import { ObservablesService } from '../observables.service';
 
 @Component({
-  selector: "app-form-house",
-  templateUrl: "./form-house.component.html",
-  styleUrls: ["./form-house.component.css"]
+  selector: 'app-form-house',
+  templateUrl: './form-house.component.html',
+  styleUrls: ['./form-house.component.css']
 })
 export class FormHouseComponent implements OnInit {
   form: FormGroup;
@@ -135,16 +135,16 @@ export class FormHouseComponent implements OnInit {
   nextDiv($event) {
     console.log($event.target.id);
     switch ($event.target.id) {
-      case "1":
+      case '1':
         this.firstDiv = false;
         this.secondDiv = true;
         console.log(this.secondDiv);
         break;
-      case "2":
+      case '2':
         this.secondDiv = false;
         this.thirdDiv = true;
         break;
-      case "3":
+      case '3':
         this.onSubmit();
         break;
     }
@@ -157,14 +157,14 @@ export class FormHouseComponent implements OnInit {
   behindDiv($event) {
     console.log($event.target.id);
     switch ($event.target.id) {
-      case "-1":
+      case '-1':
         // this.router.navigate(["/user"]);
         break;
-      case "-2":
+      case '-2':
         this.secondDiv = false;
         this.firstDiv = true;
         break;
-      case "-3":
+      case '-3':
         this.thirdDiv = false;
         this.secondDiv = true;
         break;
@@ -196,4 +196,5 @@ export class FormHouseComponent implements OnInit {
     });
     return result;
   }
+
 }

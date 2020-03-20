@@ -1,21 +1,23 @@
 <div class="container">
-
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12">
     <div class="row">
-      <!-- imagen -->
-      <div class="image d-none d-md-block col-6 mt-5 mt-lg-0">
-        <img src="../../assets/images/formhouse.svg" alt="">
+      <!-- IMAGE -->
+      <div class="image col-12 col-md-7 col-lg-6 mt-5 mt-lg-4">
+        <img class="mt-md-5" src="../../assets/images/formhouse.svg" alt="">
       </div>
-      <!-- div buscador -->
-      <div *ngIf="firstDiv" class="col-12 col-md-6">
+
+      <!-- SEARCH DIV -->
+      <div *ngIf="firstDiv && !activo" class="col-12 col-md-5 col-lg-6 searchDiv">
+        <h4>¿Cuál es la dirección de la vivienda?</h4>
         <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
       </div>
-      <!-- firstdiv -->
-      <div id="address" *ngIf="firstDiv && activo" class="col-12 col-md-6 firstDiv">
-        <!-- <div *ngIf="activo"> -->
+
+      <!-- FIRST DIV -->
+      <div id="address" *ngIf="firstDiv && activo" class="col-12 col-md-5 col-lg-6 firstDiv">
         <h4>¿Cuál es la dirección de la vivienda?</h4>
         <div class="row address">
-          <div class="col-6">
+
+          <div class="col-12 col-lg-6">
             <select class="form-control" formControlName="type" name="Tipo de vivienda">
               <option value="" selected disabled>Tipo de vivienda</option>
               <option value="Apartamento">Apartamento</option>
@@ -23,7 +25,7 @@
             </select>
           </div>
 
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <input type="text" class="form-control " placeholder="País" formControlName="country">
             <div class="error inputValid"
               *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
@@ -39,15 +41,15 @@
             </div>
           </div>
 
-          <div class="col-4">
+          <div class="col-6 col-sm-4">
             <input type="text" class="form-control" placeholder="Piso" formControlName="floor">
           </div>
 
-          <div class="col-4">
+          <div class="col-6 col-sm-4">
             <input type="text" class="form-control" placeholder="Puerta" formControlName="letter">
           </div>
 
-          <div class="col-4">
+          <div class="col-12 col-sm-4">
             <input type="text" class="form-control" placeholder="C.P" formControlName="cp">
             <div class=" error inputValid" *ngIf="form.controls.cp.errors?.required && form.controls.cp.touched">
               Rellene el campo
@@ -82,58 +84,69 @@
             </div>
           </div>
         </div>
-        <!-- </div> -->
       </div>
 
 
 
       <!-- SECOND DIV -->
-      <div id="decript" *ngIf="secondDiv" class="secondDiv col-12 col-md-6">
+      <div id="decript" *ngIf="secondDiv" class="secondDiv col-12 col-md-5 col-lg-6">
         <h4>Información sobre la vivienda</h4>
         <div class="row information">
           <div class="col-12">
             <div class="row">
               <p class="col-10">¿Cuántos dormitorios tiene?</p>
-              <input class="form-control col-2" type="number" formControlName="rooms">
+              <div class="col-2">
+                <input class="form-control" type="number" formControlName="rooms">
+              </div>
             </div>
           </div>
 
           <div class="col-12">
             <div class="row">
               <p class="col-10">¿De cuántas camas dispone?</p>
-              <input class="col-2 form-control" type="number" formControlName="beds">
+              <div class="col-2">
+                <input class=" form-control" type="number" formControlName="beds">
+              </div>
+
             </div>
           </div>
 
           <div class="col-12">
             <div class="row">
               <p class="col-10">¿De cuántos baños dispone?</p>
-              <input class="col-2 form-control" type="number" formControlName="baths">
+              <div class="col-2">
+                <input class="form-control" type="number" formControlName="baths">
+              </div>
+
             </div>
           </div>
+
           <div class="col-12">
             <div class="row">
               <p class="col-10">¿Capacidad?</p>
-              <input class="col-2 form-control" type="number" formControlName="capacity">
+              <div class="col-2">
+                <input class=" form-control" type="number" formControlName="capacity">
+              </div>
+
             </div>
 
           </div>
 
           <div class="col-12">
-            <p>¿En qué fechas desearías intercambiar tu casa?</p>
             <div class="row">
+              <p class="col-12">¿En qué fechas desearías intercambiar tu casa?</p>
               <div class="date offset-1 col-10">
                 <div class="row">
                   <div class="col-12 col-lg-6">
                     <div class="row">
-                      <label class="col-6">Desde</label>
-                      <input class="col-6 form-control col-form-label-sm" type="date" formControlName="datecheck">
+                      <label class="col-5">Desde</label>
+                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="datecheck">
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="row">
-                      <label class="col-6">hasta</label>
-                      <input class="col-6 form-control col-form-label-sm" type="date" formControlName="datecheckOut">
+                      <label class="col-5">hasta</label>
+                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="datecheckOut">
                     </div>
                   </div>
                 </div>
@@ -141,15 +154,17 @@
             </div>
           </div>
 
-          <div class="col-12">
+          <div class="col-12 ">
             <div class="row">
-              <p class="col-12">Realiza una descripción de la vivienda</p>
-              <div class="col-12">
+              <p class="col-12 ">Realiza una descripción de la vivienda</p>
+              <div class="col-12 descrip">
                 <textarea class="form-control" id="validationTextarea" placeholder=""
                   formControlName="description"></textarea>
               </div>
             </div>
           </div>
+
+
 
           <div class="col-12">
             <div class="row">
@@ -166,9 +181,10 @@
       </div>
 
       <!-- THIRD DIV -->
-      <!-- services -->
-      <div id="services" class="thirdDiv col-12 col-md-6" *ngIf="thirdDiv">
+
+      <div id="services" class="thirdDiv col-12 col-md-5 col-lg-6" *ngIf="thirdDiv">
         <h4>Indica los servicios e instalaciones que tiene tu casa</h4>
+        <!-- services -->
         <div class="row services">
           <div class="col-12">
             <h5>Servicios</h5>
@@ -180,14 +196,18 @@
             </div>
           </div>
         </div>
+
         <!-- intallations -->
         <div class="row installations">
           <div class="col-12">
             <h5>Instalaciones</h5>
           </div>
           <div class="col-6 service" *ngFor="let installation of arrInstallations">
-            <input class="col-1" type="checkbox" formControlName={{installation}}>
-            <p class="col-11">{{installation}}</p>
+            <div class="row">
+              <input class="col-2" type="checkbox" formControlName={{installation}}>
+              <p class="col-10">{{installation}}</p>
+            </div>
+
           </div>
         </div>
         <div class="col-12">
@@ -196,7 +216,7 @@
               <button id="-3" class="btn backBtn mt-4" (click)="behindDiv($event)">Atras</button>
             </div>
             <div class="col-6 d-flex flex-row-reverse">
-              <button id="3" class="btn saveBtn" (click)="nextDiv($event)">Guardar</button>
+              <button id="3" class="btn saveBtn mt-4" (click)="nextDiv($event)">Guardar</button>
             </div>
           </div>
         </div>

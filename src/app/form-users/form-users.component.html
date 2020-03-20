@@ -1,46 +1,56 @@
 <div class="container">
   <div class="register row">
-    <div class="image d-none d-md-block col-6 mt-md-5 mt-lg-0">
-      <img src="../../assets/images/formproject.svg" alt="">
-    </div>
-    <div class="col-12 col-md-6 mt-lg-5 formulary">
+    <!-- IMAGE -->
+    <div class="image d-none d-md-block col-7 col-lg-6 mt-5 mt-lg-4 pr-md-5 pr-lg-0">
       <div class="row">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form col-10">
-          <h3 class="titleRegist">Crea tu cuenta</h3>
-          <div class="form-group">
-            <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="name">
-            <div class="valid-feedback">
-              El campo esta vacío
-            </div>
-          </div>
-          ​
-          <div class="form-group">
-            <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
-              formControlName="surNames">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          ​
-          <div class="form-group">
-            <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Fecha de nacimiento"
-              formControlName="dateBirth">
-          </div>
-          ​
-          <div class="form-group">
-            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Contraseña"
-              formControlName="password">
-          </div>
-          ​
-          <div class="form-group">
-            <input type="text" class="form-control is-invalid" id="validationServerUsername"
-              placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3" formControlName="checkPassword">
-          </div>
-          <div class="button">
-            <input type="submit" value="Enviar" class="btn btn-block">
-          </div>
-        </form>
+        <img class="col-12 col-lg-10" src="../../assets/images/formproject.svg" alt="">
       </div>
     </div>
+
+    <!-- FORMULARY -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formulary col-12 col-md-5 col-lg-6 mt-md-5">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="titleRegist">Crea tu cuenta</h3>
+        </div>
+
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id="validationServer01" placeholder="Nombre" formControlName="nombre">
+          <!-- <div class="valid-feedback">
+          El campo esta vacio
+          </div> -->
+        </div>
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id="validationServer02" placeholder="Apellidos"
+            formControlName="apellidos">
+          <!-- <div class="valid-feedback">
+          Looks good!
+        </div> -->
+        </div>
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id=" validationServer03" placeholder="Fecha de nacimiento"
+            formControlName="fecha_nacimiento">
+        </div>
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id=" validationServer03" placeholder="email" formControlName="email">
+        </div>
+        ​
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id=" validationServer02" placeholder="Contraseña"
+            formControlName="contraseña">
+        </div>
+        ​
+        <div class="form-group col-12 col-lg-10">
+          <input type="text" class="form-control" id="validationServerUsername" placeholder="Verifica contraseña"
+            aria-describedby="inputGroupPrepend3" formControlName="repite_contraseña">
+        </div>
+        <div class="button col-12 col-lg-5">
+          <input type="submit" value="Crear" class="btn btn-block">
+        </div>
+        <div class="button2 col-12 col-lg-5">
+          <a class="btn2" [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

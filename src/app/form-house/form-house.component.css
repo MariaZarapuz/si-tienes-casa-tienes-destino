@@ -1,53 +1,77 @@
-a, p, i, h2, h4, button, input, label{
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
+
+a, p, i, h2, h4, button, input, label, select, option{
   font-family: 'Montserrat', sans-serif
 }
 
-h4{
-  margin-bottom: 30px
-}
+
 /* IMAGE */
 .image img{
   max-width: 100%;
-  padding: 50px
+  /* padding: 50px */
 }
 
 /* FORM */
-
-.firstDiv, .thirdDiv{
-margin-top: 100px;
+.firstDiv, .secondDiv, .thirdDiv {
+  margin-top: 30px;
 }
 
-/* first div */
-.address div{
+/*SEARCH DIV*/
+.searchDiv h4{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* FIRST DIV*/
+.firstDiv h4{
+  margin-bottom: 30px
+}
+.firstDiv .address div{
   margin-bottom: 20px
 }
-
-/* second div */
-.secondDiv{
-  margin-top: 80px;
+.firstDiv select {
+  font-size: 1.1em;
 }
-.information div{
-  margin-bottom: 10px;
+.firstDiv option{
+  font-size: 1em
 }
-/* .information .date input{
- font-size: 0.8em;
- height: 1.7em;
-} */
 
-/* third div */
-.thirdDiv h5{
-  font-weight: bold;
+/* SECOND DIV */
+.secondDiv h4{
+  margin-bottom: 30px
+}
+.secondDiv .information div{
+  margin-bottom: 6px;
+}
+.secondDiv .information .date{
+  margin-top: 10px;
+}
+.secondDiv .information .date label{
+  padding-top: 10px
+}
+.secondDiv .information .descrip{
+  margin-top: 10px;
+}
+
+/* THIRD DIV */
+.thirdDiv .services{
+  margin-top: 15px
+}
+.thirdDiv .services h5{
   margin-top: 15px;
 }
-.service{
-  margin-bottom: 15px;
+.thirdDiv .installations h5{
+  margin-top: 20px;
 }
-
-
+.thirdDiv .service{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
 
 /* BUTTONS */
 .backBtn{
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: #220e2a;
   border: 2px solid #220e2a;
   color: white
@@ -57,7 +81,7 @@ margin-top: 100px;
   color: #220e2a;
 }
 .nextBtn{
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: #220e2a;
   border: 2px solid #220e2a;
   color: white
@@ -67,6 +91,7 @@ margin-top: 100px;
   color: #220e2a;
 }
 .saveBtn{
+  margin-top: 10px;
   border: 2px solid #8bc5ce;
   color: #220e2a;
   background-color: #8bc5ce
@@ -81,4 +106,13 @@ margin-top: 100px;
 
 .none {
   display: none;
+}
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
 }
