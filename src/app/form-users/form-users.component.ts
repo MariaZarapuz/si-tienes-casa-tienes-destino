@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-form-users',
@@ -9,48 +10,50 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormUsersComponent implements OnInit {
   form: FormGroup;
 
-  constructor() {
+  constructor( private usuarioService: UsuariosService) {
     this.form = new FormGroup(
       {
-        name: new FormControl('', [
+        nombre: new FormControl('', [
           Validators.required,
           Validators.minLength(3)
         ]),
-        surNames: new FormControl('', [
+        apellidos: new FormControl('', [
           Validators.required,
           Validators.minLength(3)
         ]),
-        dateBirth: new FormControl('', [Validators.required]),
+        fecha_nacimiento: new FormControl('', [Validators.required]),
         email: new FormControl('', [
           Validators.required,
           Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,6}$/)
         ]),
-        password: new FormControl('', [
+        contraseña: new FormControl('', [
           Validators.required,
           Validators.pattern(
             /^(?=.*[0-9]+.*)(?=.*[A-zA-Z]+.*)[0-9a-zA-Z]{6,10}$/
           )
         ]),
-        checkPassword: new FormControl('', [Validators.required])
+        repite_contraseña: new FormControl('', [Validators.required])
       },
       [this.passwordValidator]
     );
   }
 
-  onSubmit() {
-    console.log(this.form.value);
+async onSubmit() {
+    // console.log(this.form.value);
+    await this.usuarioService.createUsuario(this.form.value);
+
   }
 
   ngOnInit() {}
 
   passwordValidator(form) {
-    const passwordValue = form.controls.password.value;
+    const contraseñaValue = form.controls.contraseña.value;
 
-    const repitePasswordValue = form.controls.checkPassword.value;
-    if (passwordValue === repitePasswordValue) {
+    const repite_contraseñaValue = form.controls.repite_contraseña.value;
+    if (contraseñaValue === repite_contraseñaValue) {
       return null;
     } else {
-      return { passwordvalidator: true };
+      return { contraseñavalidator: true };
     }
   }
 }
