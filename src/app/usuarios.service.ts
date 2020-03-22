@@ -6,13 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuariosService {
 
-   baseUrl: string;
+  baseUrl: string;
 
-  constructor( private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/api/users';
-   }
+  }
 
-   createUsuario(formValue): Promise<any> {
-     return this.httpClient.post (this.baseUrl, formValue).toPromise();
-   }
+
+  loginUsuario(formValue): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/login`, formValue).toPromise();
+  }
+
+  createUsuario(formValue): Promise<any> {
+    return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  }
+
+
 }

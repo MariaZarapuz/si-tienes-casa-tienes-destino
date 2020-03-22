@@ -33,7 +33,8 @@
                                 <div class="col-1 d-none d-sm-block"><i class="fas fa-user "></i></div>
                                 <div class="col-11 col-sm-9 info">
                                     <p *ngIf="showInputs"> Nombre</p>
-                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Nombre">
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Nombre"
+                                        formControlName="nombre">
                                 </div>
                             </div>
 
@@ -42,7 +43,8 @@
                                 <div class="col-1 d-none d-sm-block"> <i class="fas fa-user "></i></div>
                                 <div class="col-11 col-sm-9 info">
                                     <p *ngIf="showInputs"> Apellidos</p>
-                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Apellidos">
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Apellidos"
+                                        formControlName="apellidos">
                                 </div>
                             </div>
 
@@ -52,7 +54,7 @@
                                 <div class="col-11 col-sm-9 info">
                                     <p *ngIf="showInputs"> Fecha de nacimiento</p>
                                     <input *ngIf="!showInputs" type="text" class="form-control"
-                                        placeholder="Fecha de nacimiento">
+                                        placeholder="Fecha de nacimiento" formControlName="fecha_nacimiento">
                                 </div>
                             </div>
 
@@ -60,7 +62,8 @@
                                 <div class="col-1 d-none d-sm-block"><i class="fa fa-envelope"></i></div>
                                 <div class="col-11 col-sm-9 info">
                                     <p *ngIf="showInputs"> Email</p>
-                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Email">
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder=" Email"
+                                        formControlName="email">
                                 </div>
                             </div>
 
@@ -68,8 +71,8 @@
                                 <div class="col-1 d-none d-sm-block"><i class="fa fa-lock"></i></div>
                                 <div class="col-11 col-sm-9 info">
                                     <p *ngIf="showInputs"> Contraseña</p>
-                                    <input *ngIf="!showInputs" type="text" class="form-control"
-                                        placeholder="Contraseña">
+                                    <input *ngIf="!showInputs" type="text" class="form-control" placeholder="Contraseña"
+                                        formControlName="contrasena">
                                 </div>
                             </div>
                             <div class="button col-12 col-sm-10 d-flex flex-row-reverse" *ngIf="!showInputs">
@@ -96,43 +99,43 @@
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Tipo de vivienda</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Tipo de vivienda" formControlName="type">
+                                            placeholder="Tipo de vivienda" formControlName="tipo">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Dormitorios</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Dormitorios" formControlName="rooms">
+                                            placeholder="Dormitorios" formControlName="habitaciones">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Camas</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Camas" formControlName="beds">
+                                            placeholder="Camas" formControlName="camas">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Baños</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Baños" formControlName="baths">
+                                            placeholder="Baños" formControlName="banos">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Capacidad</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Capacidad" formControlName="capacity">
+                                            placeholder="Capacidad" formControlName="capacidad">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs"> Descripción</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Descripción" formControlName="description">
+                                            placeholder="Descripción" formControlName="descripcion">
                                     </div>
 
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Fecha de entrada</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Fecha entrada" formControlName="datecheck">
+                                            placeholder="Fecha entrada" formControlName="fecha_entrada">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Fecha de salida</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Fecha salida" formControlName="datecheckOut">
+                                            placeholder="Fecha salida" formControlName="fecha_salida">
                                     </div>
                                 </div>
                             </div>
@@ -145,37 +148,37 @@
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Pais</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="País" formControlName="country">
+                                            placeholder="País" formControlName="pais">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Calle y número</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Calle y numero" formControlName="address">
+                                            placeholder="Calle y numero" formControlName="direccion">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Piso</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Piso" formControlName="floor">
+                                            placeholder="Piso" formControlName="piso">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Puerta</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Puerta" formControlName="letter">
+                                            placeholder="Puerta" formControlName="puerta">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs"> Código Postal</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Código postal" formControlName="cp">
+                                            placeholder="Código postal" formControlName="codigo_postal">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Provincia</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Provincia" formControlName="province">
+                                            placeholder="Provincia" formControlName="provincia">
                                     </div>
                                     <div class="col-12">
                                         <p *ngIf="showInputs">Población</p>
                                         <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                                            placeholder="Comunidad Autónoma" formControlName="village">
+                                            placeholder="Comunidad Autónoma" formControlName="poblacion">
                                     </div>
                                 </div>
 

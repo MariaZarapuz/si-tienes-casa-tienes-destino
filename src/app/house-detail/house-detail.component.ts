@@ -56,8 +56,8 @@ export class HouseDetailComponent implements OnInit {
   }
 
   changeImage(e) {
-    //console.log(e.toElement.src);
-    this.srcPrincipal = e.toElement.src;
+    console.log(e.target.src);
+    this.srcPrincipal = e.target.src;
   }
 
   changeCard($event) {

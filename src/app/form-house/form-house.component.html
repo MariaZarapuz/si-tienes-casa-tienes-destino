@@ -18,7 +18,7 @@
         <div class="row address">
 
           <div class="col-12 col-lg-6">
-            <select class="form-control" formControlName="type" name="Tipo de vivienda">
+            <select class="form-control" formControlName="tipo" name="Tipo de vivienda">
               <option value="" selected disabled>Tipo de vivienda</option>
               <option value="Apartamento">Apartamento</option>
               <option value="Chalet">Chalet</option>
@@ -26,7 +26,7 @@
           </div>
 
           <div class="col-12 col-lg-6">
-            <input type="text" class="form-control " placeholder="País" formControlName="country">
+            <input type="text" class="form-control" placeholder="País" formControlName="pais">
             <div class="error inputValid"
               *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
               Rellene el campo
@@ -34,7 +34,7 @@
           </div>
 
           <div class="col-12">
-            <input type="text" class="form-control" placeholder="Calle y número" formControlName="address">
+            <input type="text" class="form-control" placeholder="Calle y número" formControlName="direccion">
             <div class=" error inputValid"
               *ngIf="form.controls.address.errors?.required && form.controls.address.touched">
               Rellene el campo País
@@ -42,11 +42,11 @@
           </div>
 
           <div class="col-6 col-sm-4">
-            <input type="text" class="form-control" placeholder="Piso" formControlName="floor">
+            <input type="text" class="form-control" placeholder="Piso" formControlName="piso">
           </div>
 
           <div class="col-6 col-sm-4">
-            <input type="text" class="form-control" placeholder="Puerta" formControlName="letter">
+            <input type="text" class="form-control" placeholder="Puerta" formControlName="puerta">
           </div>
 
           <div class="col-12 col-sm-4">
@@ -57,7 +57,7 @@
           </div>
 
           <div class="col-6">
-            <input type="text" class="form-control" placeholder="Poblacion" formControlName="village">
+            <input type="text" class="form-control" placeholder="Poblacion" formControlName="poblacion">
             <div class=" error inputValid"
               *ngIf="form.controls.village.errors?.required && form.controls.village.touched">
               Rellene el campo población
@@ -65,7 +65,7 @@
           </div>
 
           <div class="col-6">
-            <input type="text" class="form-control" placeholder="Provincia" formControlName="province">
+            <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia">
             <div class=" error inputValid"
               *ngIf="form.controls.province.errors?.required && form.controls.province.touched">
               Rellene el campo provincia
@@ -96,7 +96,7 @@
             <div class="row">
               <p class="col-10">¿Cuántos dormitorios tiene?</p>
               <div class="col-2">
-                <input class="form-control" type="number" formControlName="rooms">
+                <input class="form-control" type="number" formControlName="habitaciones">
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@
             <div class="row">
               <p class="col-10">¿De cuántas camas dispone?</p>
               <div class="col-2">
-                <input class=" form-control" type="number" formControlName="beds">
+                <input class=" form-control" type="number" formControlName="camas">
               </div>
 
             </div>
@@ -115,7 +115,7 @@
             <div class="row">
               <p class="col-10">¿De cuántos baños dispone?</p>
               <div class="col-2">
-                <input class="form-control" type="number" formControlName="baths">
+                <input class="form-control" type="number" formControlName="banos">
               </div>
 
             </div>
@@ -125,7 +125,7 @@
             <div class="row">
               <p class="col-10">¿Capacidad?</p>
               <div class="col-2">
-                <input class=" form-control" type="number" formControlName="capacity">
+                <input class=" form-control" type="number" formControlName="capacidad">
               </div>
 
             </div>
@@ -140,13 +140,13 @@
                   <div class="col-12 col-lg-6">
                     <div class="row">
                       <label class="col-5">Desde</label>
-                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="datecheck">
+                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="fecha_entrada">
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="row">
                       <label class="col-5">hasta</label>
-                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="datecheckOut">
+                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="fecha_salida">
                     </div>
                   </div>
                 </div>
@@ -159,7 +159,7 @@
               <p class="col-12 ">Realiza una descripción de la vivienda</p>
               <div class="col-12 descrip">
                 <textarea class="form-control" id="validationTextarea" placeholder=""
-                  formControlName="description"></textarea>
+                  formControlName="descripcion"></textarea>
               </div>
             </div>
           </div>
