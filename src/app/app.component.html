@@ -9,8 +9,14 @@
         <input class="form-control form" type="search" placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
       </div>
       <div class="buttons col-10 col-md-5 ">
-        <button type="button" class="btn btn-outline-secondary" [routerLink]="['/user/register']">Regístrate</button>
-        <button type="button" class="btn btn-outline-secondary" [routerLink]="['/login']">Inicia sesión</button>
+        <button *ngIf="!usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
+          [routerLink]="['/user/register']">Regístrate</button>
+        <button *ngIf="!usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
+          [routerLink]="['/login']">Inicia
+          sesión</button>
+        <button *ngIf="usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
+          [routerLink]="['/user']">Perfil</button>
+
       </div>
 
     </nav>
