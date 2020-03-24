@@ -9,10 +9,18 @@ import { UsuariosService } from "./usuarios.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
+
   title = "Front";
   show: string;
-  constructor(private usuariosService: UsuariosService) {}
+
+  constructor(private usuariosService: UsuariosService) { }
+
+
   ngOnInit() {
   
+  }
+
+  signOff() {
+    localStorage.clear();
   }
 }
