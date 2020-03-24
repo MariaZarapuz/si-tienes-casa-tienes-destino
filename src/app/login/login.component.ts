@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariosService } from "../usuarios.service";
 import { Router } from "@angular/router";
 
@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
+
   formulario: FormGroup;
 
   constructor(
@@ -16,8 +17,12 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      email: new FormControl(""),
-      contraseña: new FormControl("")
+      email: new FormControl("", [
+        Validators.required
+      ]),
+      contraseña: new FormControl("", [
+        Validators.required
+      ])
     });
   }
 
@@ -33,9 +38,10 @@ export class LoginComponent implements OnInit {
       response = response["success"];
       this.usuariosService.postLocalStore("token", response);
       this.usuariosService.updateToken(response);
+      this.router.navigate(["/home"]);
     } catch (err) {
-      console.log(err);
+      err = ('El usuario y/o la contraseña son incorrectos');
+      console.log(err)
     }
-    this.router.navigate(["/home"]);
   }
 }
