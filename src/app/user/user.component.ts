@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   card2: boolean;
   formEditUser: FormGroup;
   formEditHouse: FormGroup;
+  user: any;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -72,8 +73,8 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const response = await this.usuarioService.getUserId();
-    console.log(response);
+    this.user = await this.usuarioService.getUserId();
+    console.log(this.user);
   }
 
   onSubmit() {}
