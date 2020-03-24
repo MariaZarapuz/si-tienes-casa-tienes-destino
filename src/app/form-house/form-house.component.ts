@@ -70,7 +70,6 @@ export class FormHouseComponent implements OnInit {
       camas: new FormControl("", [Validators.required]),
       banos: new FormControl("", [Validators.required]),
       descripcion: new FormControl("", [Validators.required]),
-      images: new FormControl("", [Validators.required]),
       fecha_entrada: new FormControl("", [Validators.required]),
       fecha_salida: new FormControl("", [Validators.required]),
       lavadora: new FormControl(""),
@@ -175,7 +174,7 @@ export class FormHouseComponent implements OnInit {
       });
 
     // const response = await this.houseService.addHouse(this.form.value);
-    //   this.router.navigate(["/user"]);
+    this.router.navigate(["/user"]);
   }
 
   onChange($event) {

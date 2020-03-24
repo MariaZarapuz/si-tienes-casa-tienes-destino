@@ -33,6 +33,12 @@ export class FormUsersComponent implements OnInit {
             /^(?=.*[0-9]+.*)(?=.*[A-zA-Z]+.*)[0-9a-zA-Z]{6,10}$/
           )
         ]),
+        repite_contraseña: new FormControl('', [
+          Validators.required,
+          Validators.pattern(
+            /^(?=.*[0-9]+.*)(?=.*[A-zA-Z]+.*)[0-9a-zA-Z]{6,10}$/
+          )
+        ])
       },
       [this.passwordValidator]
     );

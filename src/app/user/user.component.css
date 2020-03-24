@@ -35,10 +35,7 @@ a, p, h2, h4, button, input, label{
 
 /* USER INFORMATION */
 .information{
-    padding-top: 15px;
-}
-.information h3{
-    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .information .fa-pen, .information .fa-check{
@@ -55,25 +52,45 @@ a, p, h2, h4, button, input, label{
     margin-bottom: 20px;
     color: #220e2a;
 }
-.button .btn{
+.information .message{
+    margin-bottom: 30px;
+    margin-top:30px
+}
+.information .message a{
+    font-size: 0.9em;
+}
+.information .btnLink{
+    margin-top: 10px;
+    background-color: #220e2a;
+  border: 2px solid #220e2a;
+
+}
+.information .btnLink:hover{
+  background-color: transparent;
+
+  border: 2px solid #220e2a;
+}
+.information .btnLink a{
+    color: white
+}
+.information .btnLink:hover a{
+    color: #220e2a;
+}
+
+.button .btnSave{
   margin-top: 10px;
   background-color: #8bc5ce;
   border: 2px solid #8bc5ce;
   color: white
 }
-.button .btn:hover{
+.button .btnSave:hover{
   background-color: #220e2a;
   color: #8bc5ce;
   border: 2px solid #220e2a;
 }
-/* .information input{
-    margin-top: 5px;
-} */
 
 /* HOUSE INFORMATION */
-/* .houseInfo{
-    padding-top: 20px;
-} */
+
 .houseInfo h5{
     font-weight: bold;
     /* margin-bottom: 15px; */
@@ -106,9 +123,7 @@ a, p, h2, h4, button, input, label{
     margin-top: 20px;
     margin-bottom: 5px;
 }
-.houseInfo .installations .firstP{
-    padding-top: 10px;
-}
+
 .houseInfo input{
     margin-top: 11px;
 }
