@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { House } from "../models/house";
 import { ObservablesService } from "../observables.service";
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 
 @Component({
   selector: "app-form-house",
@@ -21,12 +22,14 @@ export class FormHouseComponent implements OnInit {
   thirdDiv: boolean;
   activo: boolean;
   objAddressHouse: any;
+  files: any;
 
   constructor(
     private router: Router,
     private ObservableService: ObservablesService,
     private ngZone: NgZone,
-    private houseService: HouseService
+    private houseService: HouseService,
+    private http: HttpClient
   ) {
     this.activo = false;
     this.firstDiv = true;
@@ -88,7 +91,8 @@ export class FormHouseComponent implements OnInit {
       terraza: new FormControl(""),
       balcon: new FormControl(""),
       latitud: new FormControl(""),
-      longitud: new FormControl("")
+      longitud: new FormControl(""),
+      file: new FormControl("")
     });
 
     this.arrPrimerFormulario = [
@@ -153,8 +157,29 @@ export class FormHouseComponent implements OnInit {
 
   async onSubmit() {
     // console.log(this.form.value);
-    const response = await this.houseService.addHouse(this.form.value);
-    this.router.navigate(["/user"]);
+    const fd = new FormData();
+    fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
+    Object.keys(this.form.value).forEach(key => {
+      fd.append(key, this.form.value[key]);
+    });
+    const header = new HttpHeaders();
+    header.append('Content-Type', 'multipart/form-data');
+    const req = new HttpRequest('POST', 'http://localhost:3000/api/houses', fd, {
+      headers: header
+    });
+    this.http
+      .request(req)
+      .toPromise()
+      .then(result => {
+        console.log(result);
+      });
+
+    // const response = await this.houseService.addHouse(this.form.value);
+    //   this.router.navigate(["/user"]);
+  }
+
+  onChange($event) {
+    this.files = $event.target.files;
   }
 
   behindDiv($event) {
