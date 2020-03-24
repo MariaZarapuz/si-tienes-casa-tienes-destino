@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   show: string;
   constructor(private usuariosService: UsuariosService) {}
   ngOnInit() {
-    this.show = this.usuariosService.getLocalStore("token");
-    console.log(this.show);
+  
   }
 }

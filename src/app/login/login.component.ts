@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       console.log(response);
       response = response["success"];
       this.usuariosService.postLocalStore("token", response);
-      this.usuariosService.updateToken(response);
+
     } catch (err) {
       console.log(err);
     }
