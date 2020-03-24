@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosService } from '../usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-users',
@@ -10,7 +11,7 @@ import { UsuariosService } from '../usuarios.service';
 export class FormUsersComponent implements OnInit {
   form: FormGroup;
 
-  constructor( private usuarioService: UsuariosService) {
+  constructor(private usuarioService: UsuariosService, private router: Router) {
     this.form = new FormGroup(
       {
         nombre: new FormControl('', [
@@ -38,13 +39,13 @@ export class FormUsersComponent implements OnInit {
     );
   }
 
-async onSubmit() {
+  async onSubmit() {
     // console.log(this.form.value);
     await this.usuarioService.createUsuario(this.form.value);
-
+    this.router.navigate(['/login'])
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   passwordValidator(form) {
     const contraseñaValue = form.controls.contraseña.value;
