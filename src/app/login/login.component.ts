@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup;
+  mostrarError: boolean;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
         Validators.required
       ])
     });
+    this.mostrarError = false;
   }
 
   ngOnInit() { }
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
       this.usuariosService.updateToken(response);
       this.router.navigate(["/home"]);
     } catch (err) {
-      err = ('El usuario y/o la contraseña son incorrectos');
+      this.mostrarError = true;
+      /* err = ('El usuario y/o la contraseña son incorrectos'); */
       console.log(err)
     }
   }

@@ -10,15 +10,12 @@ import { UsuariosService } from "./usuarios.service";
 })
 export class AppComponent implements OnInit {
 
-  title = "Front";
-  show: string;
 
   constructor(private usuariosService: UsuariosService) { }
 
 
   ngOnInit() {
-    this.show = this.usuariosService.getLocalStore("token");
-    console.log(this.show);
+
   }
 
   signOff() {
