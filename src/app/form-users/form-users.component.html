@@ -8,7 +8,8 @@
     </div>
 
     <!-- FORMULARY -->
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formulary col-12 col-md-5 col-lg-6 mt-md-5">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"
+      class="formulary col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 col-lg-6 mt-md-5 mb-4">
       <div class="row">
         <div class="col-12">
           <h3 class="titleRegist">Crea tu cuenta</h3>
@@ -40,13 +41,18 @@
         </div>
         ​
         <div class="form-group col-12 col-lg-10">
+<<<<<<< HEAD
           <input type="password" class="form-control" id="validationServerUsername" formControlName='repite_contraseña'
             placeholder="Verifica contraseña" aria-describedby="inputGroupPrepend3">
+=======
+          <input type="password" class="form-control" id="validationServerUsername" placeholder="Verifica contraseña"
+            formControlName="repite_contraseña" aria-describedby="inputGroupPrepend3">
+>>>>>>> develop
         </div>
-        <div class="button col-12 col-lg-5">
+        <div class="button col-12 col-lg-6">
           <input type="submit" value="Crear" class="btn btn-block">
         </div>
-        <div class="button2 col-12 col-lg-5">
+        <div class="button2 col-12 col-lg-6">
           <a class="btn2" [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
         </div>
       </div>

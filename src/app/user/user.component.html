@@ -74,192 +74,193 @@
         </div>
       </div>
 
+    </div>
 
-      <!-- house information -->
-      <div class="col-12 houseInfo" *ngIf="card2">
-        <div class="row">
-          <form class="col-12" [formGroup]="formEditHouse" (ngSubmit)="onSubmitHouse()">
-            <div class="row">
-              <!-- feature -->
-              <div class="col-12 col-md-6 feature">
-                <div class="row">
-                  <div class="col-12">
-                    <h5>Características de la casa</h5>
-                  </div>
-
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Tipo de vivienda</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Tipo de vivienda" formControlName="tipo">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Dormitorios</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Dormitorios" formControlName="habitaciones">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Camas</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Camas"
-                      formControlName="camas">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Baños</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Baños"
-                      formControlName="banos">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Capacidad</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Capacidad"
-                      formControlName="capacidad">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs"> Descripción</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Descripción" formControlName="descripcion">
-                  </div>
-
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Fecha de entrada</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Fecha entrada" formControlName="fecha_entrada">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Fecha de salida</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Fecha salida" formControlName="fecha_salida">
-                  </div>
-                </div>
-              </div>
-              <!-- direction -->
-              <div class="col-6 address">
-                <div class="row">
-                  <div class="col-12">
-                    <h5>Dirección</h5>
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Pais</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="País"
-                      formControlName="pais">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Calle y número</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Calle y numero" formControlName="direccion">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Piso</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Piso"
-                      formControlName="piso">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Puerta</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Puerta"
-                      formControlName="puerta">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs"> Código Postal</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Código postal" formControlName="codigo_postal">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Provincia</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Provincia"
-                      formControlName="provincia">
-                  </div>
-                  <div class="col-12">
-                    <p *ngIf="showInputs">Población</p>
-                    <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                      placeholder="Comunidad Autónoma" formControlName="poblacion">
-                  </div>
+    <!-- house information -->
+    <div class="col-12 houseInfo" *ngIf="card2">
+      <div class="row">
+        <form class="col-12" [formGroup]="formEditHouse" (ngSubmit)="onSubmitHouse()">
+          <div class="row">
+            <!-- feature -->
+            <div class="col-12 col-md-6 feature">
+              <div class="row">
+                <div class="col-12">
+                  <h5>Características de la casa</h5>
                 </div>
 
+                <div class="col-12">
+                  <p *ngIf="showInputs">Tipo de vivienda</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                    placeholder="Tipo de vivienda" formControlName="tipo">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Dormitorios</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Dormitorios"
+                    formControlName="habitaciones">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Camas</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Camas"
+                    formControlName="camas">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Baños</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Baños"
+                    formControlName="banos">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Capacidad</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Capacidad"
+                    formControlName="capacidad">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs"> Descripción</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Descripción"
+                    formControlName="descripcion">
+                </div>
+
+                <div class="col-12">
+                  <p *ngIf="showInputs">Fecha de entrada</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                    placeholder="Fecha entrada" formControlName="fecha_entrada">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Fecha de salida</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Fecha salida"
+                    formControlName="fecha_salida">
+                </div>
+              </div>
+            </div>
+            <!-- direction -->
+            <div class="col-6 address">
+              <div class="row">
+                <div class="col-12">
+                  <h5>Dirección</h5>
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Pais</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="País"
+                    formControlName="pais">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Calle y número</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                    placeholder="Calle y numero" formControlName="direccion">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Piso</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Piso"
+                    formControlName="piso">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Puerta</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Puerta"
+                    formControlName="puerta">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs"> Código Postal</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                    placeholder="Código postal" formControlName="codigo_postal">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Provincia</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm" placeholder="Provincia"
+                    formControlName="provincia">
+                </div>
+                <div class="col-12">
+                  <p *ngIf="showInputs">Población</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
+                    placeholder="Comunidad Autónoma" formControlName="poblacion">
+                </div>
               </div>
 
-              <!-- services -->
-              <div class="col-12 services">
-                <div class="row">
-                  <div class="col-12">
-                    <h5>Servicios</h5>
-                  </div>
+            </div>
 
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="aireAcondicionado">
-                      <p class="">Aire acondicionado</p>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="calefaccion">
-                      <p class="">Calefacción</p>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="wifi">
-                      <p class="">Wifi</p>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="teleCable">
-                      <p class="">Televisión por cable</p>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="plancha">
-                      <p class="">Plancha</p>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="horno">
-                      <p class="">Horno</p>
-                    </div>
-                  </div>
+            <!-- services -->
+            <div class="col-12 services">
+              <div class="row">
+                <div class="col-12">
+                  <h5>Servicios</h5>
+                </div>
 
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="microondas">
-                      <p class="">Microondas</p>
-                    </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="aireAcondicionado">
+                    <p class="">Aire acondicionado</p>
                   </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="tostador">
-                      <p class="">Tostador</p>
-                    </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="calefaccion">
+                    <p class="">Calefacción</p>
                   </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secador">
-                      <p class="">Secador</p>
-                    </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="wifi">
+                    <p class="">Wifi</p>
                   </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavavajillas">
-                      <p class="">Lavavajillas</p>
-                    </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="teleCable">
+                    <p class="">Televisión por cable</p>
                   </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavadora">
-                      <p class="">Lavadora</p>
-                    </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="plancha">
+                    <p class="">Plancha</p>
                   </div>
-                  <div class="col-6">
-                    <div class="row">
-                      <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secadora">
-                      <p class="">Secadora</p>
-                    </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="horno">
+                    <p class="">Horno</p>
                   </div>
                 </div>
 
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="microondas">
+                    <p class="">Microondas</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="tostador">
+                    <p class="">Tostador</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secador">
+                    <p class="">Secador</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavavajillas">
+                    <p class="">Lavavajillas</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavadora">
+                    <p class="">Lavadora</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secadora">
+                    <p class="">Secadora</p>
+                  </div>
+                </div>
               </div>
 
-              <!-- intallations -->
+            </div>
+
+            <<<<<<< HEAD <!-- intallations -->
               <div class="col-12 installations">
                 <div class="row">
                   <div class="col-12">
@@ -300,12 +301,14 @@
               <div class="button col-12 d-flex flex-row-reverse" *ngIf="!showInputs">
                 <button type="submit" class="btn saveBtn mt-4">Guardar</button>
               </div>
-            </div>
-          </form>
+              =======
+              >>>>>>> develop
+          </div>
+        </form>
 
 
-        </div>
       </div>
+      <<<<<<< HEAD </div>=======>>>>>>> develop
     </div>
   </div>
 </div>
