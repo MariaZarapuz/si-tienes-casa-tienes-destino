@@ -23,6 +23,7 @@ export class UsuariosService {
   loginUsuario(formValue): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/login`, formValue).toPromise();
   }
+
   updateToken(token): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/saveToken`, token).toPromise();
   }
