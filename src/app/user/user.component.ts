@@ -74,10 +74,21 @@ export class UserComponent implements OnInit {
 
   async ngOnInit() {
     this.user = await this.usuarioService.getUserId();
+    this.user = this.user[0];
     console.log(this.user);
   }
 
-  onSubmit() {}
+  async onSubmit() {
+    console.log(this.formEditUser.value);
+
+    await this.usuarioService.updateUser(this.formEditUser.value);
+
+    this.user = await this.usuarioService.getUserId();
+    this.user = this.user[0];
+    this.showInputs = true;
+    this.showParagraph = false;
+    console.log(this.user);
+  }
 
   onSubmitHouse() {}
 

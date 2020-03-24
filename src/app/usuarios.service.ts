@@ -27,6 +27,16 @@ export class UsuariosService {
   createUsuario(formValue): Promise<any> {
     return this.httpClient.post(this.baseUrl, formValue).toPromise();
   }
+  updateUser(formValue): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "user-token": localStorage.getItem("token")
+      })
+    };
+    return this.httpClient
+      .put(`${this.baseUrl}/updateProfile`, formValue, httpOptions)
+      .toPromise();
+  }
 
   postLocalStore(clave, data) {
     localStorage.setItem(clave, data);
