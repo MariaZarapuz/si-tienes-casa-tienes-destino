@@ -12,11 +12,14 @@ margin-top: 40px;
 
 /* FORMULARY */
 .formulary{
-    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .formulary p{
     margin-top: 10px;
     font-size: 0.9em;
+}
+.formulary .red{
+  color: red;
 }
 .button .btn{
   margin-top: 10px;
