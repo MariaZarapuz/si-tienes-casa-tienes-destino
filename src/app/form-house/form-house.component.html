@@ -27,8 +27,7 @@
 
           <div class="col-12 col-lg-6">
             <input type="text" class="form-control" placeholder="País" formControlName="pais">
-            <div class="error inputValid"
-              *ngIf="form.controls.country.errors?.required && form.controls.country.touched">
+            <div class="error inputValid" *ngIf="form.controls.pais.errors?.required && form.controls.pais.touched">
               Rellene el campo
             </div>
           </div>
@@ -36,7 +35,7 @@
           <div class="col-12">
             <input type="text" class="form-control" placeholder="Calle y número" formControlName="direccion">
             <div class=" error inputValid"
-              *ngIf="form.controls.address.errors?.required && form.controls.address.touched">
+              *ngIf="form.controls.direccion.errors?.required && form.controls.direccion.touched">
               Rellene el campo País
             </div>
           </div>
@@ -59,7 +58,7 @@
           <div class="col-6">
             <input type="text" class="form-control" placeholder="Poblacion" formControlName="poblacion">
             <div class=" error inputValid"
-              *ngIf="form.controls.village.errors?.required && form.controls.village.touched">
+              *ngIf="form.controls.poblacion.errors?.required && form.controls.poblacion.touched">
               Rellene el campo población
             </div>
           </div>
@@ -67,7 +66,7 @@
           <div class="col-6">
             <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia">
             <div class=" error inputValid"
-              *ngIf="form.controls.province.errors?.required && form.controls.province.touched">
+              *ngIf="form.controls.provincia.errors?.required && form.controls.provincia.touched">
               Rellene el campo provincia
             </div>
           </div>

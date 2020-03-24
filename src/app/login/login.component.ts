@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
       let response = await this.usuariosService.loginUsuario(
         this.formulario.value
       );
+      console.log(response);
       response = response["success"];
       this.usuariosService.postLocalStore("token", response);
+      this.usuariosService.updateToken(response);
     } catch (err) {
       console.log(err);
     }

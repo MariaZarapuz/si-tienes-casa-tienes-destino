@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { async } from "@angular/core/testing";
+import { UsuariosService } from "./../usuarios.service";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
-
   showInputs: boolean;
   showParagraph: boolean;
   card1: boolean;
@@ -15,18 +17,21 @@ export class UserComponent implements OnInit {
   formEditUser: FormGroup;
   formEditHouse: FormGroup;
 
-  constructor() {
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private usuarioService: UsuariosService
+  ) {
     this.showInputs = true;
     this.showParagraph = false;
     this.card1 = true;
     this.card2 = false;
     this.formEditUser = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellidos: new FormControl('', [Validators.required]),
-      fecha_nacimiento: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      contraseña: new FormControl('', [Validators.required])
-    })
+      nombre: new FormControl("", [Validators.required]),
+      apellidos: new FormControl("", [Validators.required]),
+      fecha_nacimiento: new FormControl("", [Validators.required]),
+      email: new FormControl("", [Validators.required]),
+      contraseña: new FormControl("", [Validators.required])
+    });
     this.formEditHouse = new FormGroup({
       tipo: new FormControl("", [Validators.required]),
       pais: new FormControl("", [Validators.required]),
@@ -63,32 +68,30 @@ export class UserComponent implements OnInit {
       balcon: new FormControl(""),
       latitud: new FormControl(""),
       longitud: new FormControl("")
-    })
-  };
-
-  ngOnInit() {
-  };
-
-
-  onSubmit() {
-  };
-
-  onSubmitHouse() {
-
+    });
   }
 
+  async ngOnInit() {
+    const response = await this.usuarioService.getUserId();
+    console.log(response);
+  }
+
+  onSubmit() {}
+
+  onSubmitHouse() {}
+
   editeInfo($event) {
-    console.log($event.target.id)
+    console.log($event.target.id);
     switch ($event.target.id) {
-      case '1':
+      case "1":
         this.showInputs = false;
         this.showParagraph = true;
         break;
-      case '2':
+      case "2":
         this.showInputs = true;
         this.showParagraph = false;
     }
-  };
+  }
 
   changeCard($event) {
     console.log($event.target.id);
@@ -102,6 +105,5 @@ export class UserComponent implements OnInit {
         this.card2 = true;
         break;
     }
-  };
+  }
 }
-

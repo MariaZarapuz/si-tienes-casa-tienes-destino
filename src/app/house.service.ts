@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { House } from "./models/house";
 
@@ -6,9 +7,16 @@ import { House } from "./models/house";
 })
 export class HouseService {
   arrHouse: House[];
-  constructor() {
+  baseUrl: string;
+  constructor(private httpClient: HttpClient) {
     this.arrHouse = new Array();
+    this.baseUrl = "http://localhost:3000/api/houses";
+  }
+  getAll() {
+    return this.httpClient.get(this.baseUrl).toPromise();
   }
 
-  addPost() {}
+  addHouse(formValue) {
+    return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  }
 }
