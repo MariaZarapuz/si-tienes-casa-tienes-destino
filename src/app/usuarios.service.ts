@@ -27,7 +27,6 @@ export class UsuariosService {
     };
     return this.httpClient.get(this.baseUrl, httpOptions).toPromise();
   }
-
   updateUser(formValue): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({

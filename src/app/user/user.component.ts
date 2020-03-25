@@ -2,7 +2,7 @@ import { async } from "@angular/core/testing";
 import { UsuariosService } from "./../usuarios.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user",
@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   user: any;
 
   constructor(
-    private activatedRouter: ActivatedRoute,
+    private router: Router,
     private usuarioService: UsuariosService
   ) {
     this.showInputs = true;
@@ -90,7 +90,6 @@ export class UserComponent implements OnInit {
 
   async onSubmit() {
     // console.log(this.formEditUser.value);
-
     await this.usuarioService.updateUser(this.formEditUser.value);
 
     this.user = await this.usuarioService.getToken();
@@ -116,6 +115,10 @@ export class UserComponent implements OnInit {
         this.showParagraph = false;
     }
   }
+  showProfile() {
+
+  }
+
 
   changeCard($event) {
     console.log($event.target.id);
@@ -134,6 +137,7 @@ export class UserComponent implements OnInit {
   async deleteUser() {
     await this.usuarioService.deleteByToken()
     localStorage.clear()
+    this.router.navigate(['/home'])
   }
 
 
