@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.mostrarError = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async onSubmit() {
     /* console.log(this.formulario.value) */

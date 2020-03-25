@@ -11,7 +11,15 @@ export class UsuariosService {
     this.baseUrl = "http://localhost:3000/api/users";
   }
 
-  getUserId(): Promise<any> {
+
+  // FORM USERS
+
+  createUsuario(formValue): Promise<any> {
+    return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  }
+
+  // USER
+  getToken(): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "user-token": localStorage.getItem("token")
@@ -20,28 +28,36 @@ export class UsuariosService {
     return this.httpClient.get(this.baseUrl, httpOptions).toPromise();
   }
 
-  loginUsuario(formValue): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/login`, formValue).toPromise();
-  }
-
-  createUsuario(formValue): Promise<any> {
-    return this.httpClient.post(this.baseUrl, formValue).toPromise();
-  }
   updateUser(formValue): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "user-token": localStorage.getItem("token")
       })
     };
-    return this.httpClient
-      .put(`${this.baseUrl}/updateProfile`, formValue, httpOptions)
-      .toPromise();
+    return this.httpClient.put(`${this.baseUrl}/updateProfile`, formValue, httpOptions).toPromise();
+  }
+
+  deleteByToken(): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "user-token": localStorage.getItem("token")
+      })
+    };
+    return this.httpClient.delete(this.baseUrl, httpOptions).toPromise();
+  }
+
+
+  // LOGIN
+  loginUsuario(formValue): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/login`, formValue).toPromise();
   }
 
   postLocalStore(clave, data) {
     localStorage.setItem(clave, data);
   }
 
+
+  // APP
   getLocalStore(clave) {
     return localStorage.getItem(clave);
   }

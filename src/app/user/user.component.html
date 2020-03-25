@@ -22,6 +22,11 @@
               <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
             </div>
           </div>
+          <div>
+            <div>
+              <i class="fas fa-trash-alt" (click)="deleteUser()"></i>
+            </div>
+          </div>
 
         </div>
         <!-- user information -->
@@ -32,9 +37,8 @@
               <div class="row">
                 <div class="col-1 d-none d-sm-block"><i class="fas fa-user "></i></div>
                 <div class="col-11 col-sm-9 info">
-                  <p *ngIf="showInputs">{{user.nombre}}</p>
-                  <input *ngIf="!showInputs" type="text" class="form-control" value="{{user.nombre}}"
-                    formControlName="nombre">
+                  <p *ngIf="showInputs"> {{user?.nombre}} </p>
+                  <input *ngIf="!showInputs" type="text" class="form-control" formControlName="nombre">
                 </div>
               </div>
 
@@ -42,9 +46,8 @@
               <div class="row">
                 <div class="col-1 d-none d-sm-block"> <i class="fas fa-user "></i></div>
                 <div class="col-11 col-sm-9 info">
-                  <p *ngIf="showInputs">{{user.apellidos}}</p>
-                  <input *ngIf="!showInputs" type="text" class="form-control" value="{{user.apellidos}}"
-                    formControlName="apellidos">
+                  <p *ngIf="showInputs">{{user?.apellidos}}</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control" formControlName="apellidos">
                 </div>
               </div>
 
@@ -52,19 +55,22 @@
               <div class="row">
                 <div class="col-1 d-none d-sm-block"><i class="far fa-calendar-alt "></i></div>
                 <div class="col-11 col-sm-9 info">
-                  <p *ngIf="showInputs">{{user.fecha_nacimiento}}</p>
-                  <input *ngIf="!showInputs" type="date" class="form-control" value="{{user.fecha_nacimiento}}"
-                    formControlName="fecha_nacimiento">
+                  <p *ngIf="showInputs">{{user?.fecha_nacimiento}}</p>
+                  <input *ngIf="!showInputs" type="date" class="form-control" formControlName="fecha_nacimiento">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-1 d-none d-sm-block"><i class="fa fa-envelope"></i></div>
                 <div class="col-11 col-sm-9 info">
-                  <p *ngIf="showInputs"> {{user.email}}</p>
-                  <input *ngIf="!showInputs" type="text" class="form-control" value="{{user.email}}"
-                    formControlName="email">
+                  <p *ngIf="showInputs"> {{user?.email}}</p>
+                  <input *ngIf="!showInputs" type="text" class="form-control" formControlName="email">
                 </div>
+              </div>
+              <div class="message">
+                <button class="btnLink btn" [routerLink]="['/house/register']"><a>¿Aún no has registrado tu
+                    casa?</a>
+                </button>
               </div>
               <div class="button col-12 col-sm-10 d-flex flex-row-reverse" *ngIf="!showInputs">
                 <button type="submit" class="btn saveBtn mt-4">Guardar</button>

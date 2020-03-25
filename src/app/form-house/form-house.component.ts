@@ -142,7 +142,7 @@ export class FormHouseComponent implements OnInit {
       case "1":
         this.firstDiv = false;
         this.secondDiv = true;
-        console.log(this.secondDiv);
+        // console.log(this.secondDiv);
         break;
       case "2":
         this.secondDiv = false;
@@ -171,10 +171,9 @@ export class FormHouseComponent implements OnInit {
       .toPromise()
       .then(result => {
         console.log(result);
+        //this.router.navigate(["/user"])
       });
 
-    // const response = await this.houseService.addHouse(this.form.value);
-    this.router.navigate(["/user"]);
   }
 
   onChange($event) {

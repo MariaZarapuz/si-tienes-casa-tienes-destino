@@ -72,25 +72,37 @@ export class UserComponent implements OnInit {
     });
   }
 
+
   async ngOnInit() {
-    this.user = await this.usuarioService.getUserId();
+    this.user = await this.usuarioService.getToken();
     this.user = this.user[0];
+    this.formEditUser = new FormGroup({
+      nombre: new FormControl(this.user.nombre, [Validators.required]),
+      apellidos: new FormControl(this.user.apellidos, [Validators.required]),
+      fecha_nacimiento: new FormControl(this.user.fecha_nacimiento, [Validators.required]),
+      email: new FormControl(this.user.email, [Validators.required]),
+      contraseña: new FormControl(this.user.contraseña, [Validators.required])
+    });
+
     console.log(this.user);
   }
 
+
   async onSubmit() {
-    console.log(this.formEditUser.value);
+    // console.log(this.formEditUser.value);
 
     await this.usuarioService.updateUser(this.formEditUser.value);
 
-    this.user = await this.usuarioService.getUserId();
+    this.user = await this.usuarioService.getToken();
     this.user = this.user[0];
     this.showInputs = true;
     this.showParagraph = false;
-    console.log(this.user);
+    // console.log(this.user);
   }
 
-  onSubmitHouse() {}
+
+  onSubmitHouse() { }
+
 
   editeInfo($event) {
     console.log($event.target.id);
@@ -118,4 +130,11 @@ export class UserComponent implements OnInit {
         break;
     }
   }
+
+  async deleteUser() {
+    await this.usuarioService.deleteByToken()
+    localStorage.clear()
+  }
+
+
 }
