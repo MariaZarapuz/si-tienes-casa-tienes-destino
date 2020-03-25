@@ -75,6 +75,15 @@ export class UserComponent implements OnInit {
   async ngOnInit() {
     this.user = await this.usuarioService.getUserId();
     this.user = this.user[0];
+    this.formEditUser = new FormGroup({
+      nombre: new FormControl(this.user.nombre, [Validators.required]),
+      apellidos: new FormControl(this.user.apellidos, [Validators.required]),
+      fecha_nacimiento: new FormControl(this.user.fecha_nacimiento, [
+        Validators.required
+      ]),
+      email: new FormControl(this.user.email, [Validators.required]),
+      contraseña: new FormControl("", [Validators.required])
+    });
     console.log(this.user);
   }
 
