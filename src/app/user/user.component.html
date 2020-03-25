@@ -37,7 +37,7 @@
               <div class="row">
                 <div class="col-1 d-none d-sm-block"><i class="fas fa-user "></i></div>
                 <div class="col-11 col-sm-9 info">
-                  <p *ngIf="showInputs"> {{user?.nombre}} </p>
+                  <p *ngIf="showInputs">{{user?.nombre}}</p>
                   <input *ngIf="!showInputs" type="text" class="form-control" formControlName="nombre">
                 </div>
               </div>

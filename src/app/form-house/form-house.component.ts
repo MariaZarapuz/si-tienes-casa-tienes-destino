@@ -161,18 +161,21 @@ export class FormHouseComponent implements OnInit {
     Object.keys(this.form.value).forEach(key => {
       fd.append(key, this.form.value[key]);
     });
-    const header = new HttpHeaders();
-    header.append('Content-Type', 'multipart/form-data');
+    const headers = new HttpHeaders({
+      'user-token': localStorage.getItem('token'),
+    });
     const req = new HttpRequest('POST', 'http://localhost:3000/api/houses', fd, {
-      headers: header
+      headers: headers
     });
     this.http
       .request(req)
       .toPromise()
       .then(result => {
         console.log(result);
-        //this.router.navigate(["/user"])
+        this.router.navigate(["/user"]);
       });
+
+    // const response = await this.houseService.addHouse(this.form.value);
 
   }
 
