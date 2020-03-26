@@ -19,8 +19,8 @@ export class HouseService {
     return this.httpClient.get(this.baseUrl).toPromise();
   }
 
-  getById(userId): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/${userId}`).toPromise();
+  getByFk(fkHouse): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/${fkHouse}`).toPromise()
   }
 
   addHouse(formValue) {
@@ -30,15 +30,8 @@ export class HouseService {
 
 
   deleteHousebyId(idHouse): Promise<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      body: {
-        studentId: idHouse
-      }
-    };
-    return this.httpClient.delete(`${this.baseUrl}/:id`, httpOptions).toPromise();
+    console.log('Hola')
+    return this.httpClient.delete(`${this.baseUrl}/${idHouse}`).toPromise()
 
   }
 
