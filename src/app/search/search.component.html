@@ -10,13 +10,13 @@
 <div class="main">
   <div class="row">
     <!-- HOUSES -->
+
     <div class="col-12 col-lg-6">
       <div *ngFor="let item of listHouses" class="col-12 col-lg-12 houses">
         <div class="row">
 
           <div class="col-12 col-md-4 image">
             <img [src]=item?.imagen1 class="card-img-top" alt="house image">
-            <p>{{item.imagen1}}</p>
           </div>
 
 
@@ -30,7 +30,7 @@
                   <a href="">{{item.capacidad}} <i class="fas fa-users"></i></a>
                   <a href="">{{item.banos}} <i class="fas fa-bath"></i></a>
                 </div>
-                <p class="description">{{item.descripcion}} </p>
+                <p class="description">{{item.descripcion |puntos}} </p>
               </div>
 
               <div class="button col-3" [routerLink]="['/house-detail']">

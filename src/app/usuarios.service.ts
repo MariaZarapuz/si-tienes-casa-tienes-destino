@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UsuariosService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = "http://localhost:3000/api/users";
+    this.baseUrl = 'http://localhost:3000/api/users';
   }
 
 
@@ -22,7 +22,7 @@ export class UsuariosService {
   getToken(): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        "user-token": localStorage.getItem("token")
+        'user-token': localStorage.getItem('token')
       })
     };
     return this.httpClient.get(this.baseUrl, httpOptions).toPromise();
@@ -31,7 +31,7 @@ export class UsuariosService {
   updateUser(formValue): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        "user-token": localStorage.getItem("token")
+        'user-token': localStorage.getItem('token')
       })
     };
     return this.httpClient.put(`${this.baseUrl}/updateProfile`, formValue, httpOptions).toPromise();
@@ -40,7 +40,7 @@ export class UsuariosService {
   deleteByToken(): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        "user-token": localStorage.getItem("token")
+        'user-token': localStorage.getItem('token')
       })
     };
     return this.httpClient.delete(this.baseUrl, httpOptions).toPromise();

@@ -16,8 +16,4 @@ export class ObservablesService {
   handleAdress(obj) {
     this.addressSb.next(obj);
   }
-
-  handleFilter(filterValue) {
-    this.filterSb.next(filterValue);
-  }
 }
