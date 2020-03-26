@@ -1,15 +1,14 @@
 <div class="container">
+  <!-- SEARCH DIV -->
+  <div *ngIf="firstDiv && !activo" class="col-12 col-md-5 col-lg-6 searchDiv">
+    <h4>¿Cuál es la dirección de la vivienda?</h4>
+    <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
+  </div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12">
     <div class="row">
       <!-- IMAGE -->
       <div class="image col-12 col-md-7 col-lg-6 mt-5 mt-lg-4">
         <img class="mt-md-5" src="../../assets/images/formhouse.svg" alt="">
-      </div>
-
-      <!-- SEARCH DIV -->
-      <div *ngIf="firstDiv && !activo" class="col-12 col-md-5 col-lg-6 searchDiv">
-        <h4>¿Cuál es la dirección de la vivienda?</h4>
-        <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
       </div>
 
       <!-- FIRST DIV -->
