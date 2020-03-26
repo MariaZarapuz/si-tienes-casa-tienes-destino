@@ -95,8 +95,8 @@ export class UserComponent implements OnInit {
       email: new FormControl(this.user.email, [Validators.required]),
       contraseña: new FormControl(this.user.contraseña, [Validators.required]),
     });
-    this.house = await this.houseService.getByFk(this.user.id)
-    this.idHouse = this.house.id
+    this.house = await this.houseService.getByFk(this.user.id);
+    this.idHouse = this.house.Id;
     this.formEditHouse = new FormGroup({
       tipo: new FormControl(this.house.tipo, [Validators.required]),
       pais: new FormControl(this.house.pais, [Validators.required]),
@@ -157,7 +157,7 @@ export class UserComponent implements OnInit {
 
 
   editeInfo($event) {
-    //console.log($event.target.id);
+    // console.log($event.target.id);
     switch ($event.target.id) {
       case '1':
         this.showInputs = false;
@@ -204,10 +204,10 @@ export class UserComponent implements OnInit {
   }
 
   async deleteHouse(pIdHouse) {
-    pIdHouse = this.idHouse
-    console.log(pIdHouse)
-    await this.houseService.deleteHousebyId(pIdHouse)
-    this.router.navigate(['/user'])
+    pIdHouse = this.idHouse;
+    console.log(pIdHouse);
+    await this.houseService.deleteHousebyId(pIdHouse);
+    this.router.navigate(['/user']);
   }
 
 

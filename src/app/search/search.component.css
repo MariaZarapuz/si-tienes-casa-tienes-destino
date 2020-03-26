@@ -58,6 +58,16 @@ label {
   display: inline-block;
 }
 
+.houses .btn .fas {
+  position: absolute;
+  bottom: 0;
+}
+
+.houses .btn:hover .fas {
+  transform: translate(10px);
+  transition: 0.5s;
+}
+
 
 
 /* MAP */
