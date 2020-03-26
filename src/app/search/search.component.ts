@@ -1,5 +1,6 @@
 import { HouseService } from "./../house.service";
 import { Component } from "@angular/core";
+import { ObservablesService } from "../observables.service";
 
 @Component({
   selector: "app-search-hause",
@@ -8,8 +9,12 @@ import { Component } from "@angular/core";
 })
 export class SearchComponent {
   listHouses: any;
+  filterVillage: any;
 
-  constructor(private houseService: HouseService) {
+  constructor(
+    private houseService: HouseService,
+    private observableService: ObservablesService
+  ) {
     //   {
     //     id: 1,
     //     nombre: "La Casona",
@@ -65,8 +70,12 @@ export class SearchComponent {
     //   }
     // ];
   }
-  async ngOnInit() {
-    this.listHouses = await this.houseService.getAll();
-    console.log(this.listHouses);
+  ngOnInit() {
+    this.observableService.filterSb.subscribe(async res => {
+      this.filterVillage = { poblacion: res };
+      console.log(res);
+      this.listHouses = await this.houseService.getByFilter(this.filterVillage);
+      console.log(this.listHouses);
+    });
   }
 }

@@ -8,9 +8,11 @@ import { House } from "./models/house";
 export class HouseService {
   arrHouse: House[];
   baseUrl: string;
+  baseUrlFilter: string;
   constructor(private httpClient: HttpClient) {
     this.arrHouse = new Array();
     this.baseUrl = "http://localhost:3000/api/houses";
+    this.baseUrlFilter = "http://localhost:3000/api/houses/filter";
   }
 
   getAll() {
@@ -41,4 +43,8 @@ export class HouseService {
   }
 
 
+  getByFilter(filter) {
+    console.log(filter);
+    return this.httpClient.post(this.baseUrlFilter, filter).toPromise();
+  }
 }

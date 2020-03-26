@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { House } from "../models/house";
 import { ObservablesService } from "../observables.service";
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
 
 @Component({
   selector: "app-form-house",
@@ -156,18 +156,23 @@ export class FormHouseComponent implements OnInit {
   }
 
   async onSubmit() {
-    // console.log(this.form.value);
+    console.log(this.form.value);
     const fd = new FormData();
-    fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
+    fd.append("imagen", this.files[0], "nuevaCasa.jpg");
     Object.keys(this.form.value).forEach(key => {
       fd.append(key, this.form.value[key]);
     });
     const headers = new HttpHeaders({
-      'user-token': localStorage.getItem('token'),
+      "user-token": localStorage.getItem("token")
     });
-    const req = new HttpRequest('POST', 'http://localhost:3000/api/houses', fd, {
-      headers: headers
-    });
+    const req = new HttpRequest(
+      "POST",
+      "http://localhost:3000/api/houses",
+      fd,
+      {
+        headers: headers
+      }
+    );
     this.http
       .request(req)
       .toPromise()
@@ -177,7 +182,6 @@ export class FormHouseComponent implements OnInit {
       });
 
     // const response = await this.houseService.addHouse(this.form.value);
-
   }
 
   onChange($event) {
