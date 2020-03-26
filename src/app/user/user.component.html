@@ -1,5 +1,24 @@
 <div class="container">
   <div class="row">
+    <div class="col-12 col-md-10 icons d-flex justify-content-end">
+      <div>
+        <i id="1" class="fas fa-pen" *ngIf="showInputs" (click)="editeInfo($event)"></i>
+        <i id="2" *ngIf="!showInputs" class="fas fa-check" (click)="editeInfo($event)"></i>
+      </div>
+      <div>
+        <div>
+          <i id="1" *ngIf="card2" (click)="changeCard($event)" class="fas fa-user"></i>
+          <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
+        </div>
+      </div>
+      <div>
+        <div>
+          <i class="fas fa-trash-alt" (click)="deleteUser()" *ngIf="card1"></i>
+          <i class="fas fa-trash-alt" (click)="deleteHouse()" *ngIf="card2"></i>
+        </div>
+      </div>
+
+    </div>
     <div class="col-12 col-md-4" *ngIf="card1">
       <div class="containerImg mt-2 mt-md-5">
         <div class="userimage"></div>
@@ -8,29 +27,7 @@
 
     <div class="col-12 col-md-8 user">
       <div class="row">
-        <!-- <div class="col-12">
-                            <h3>Hola, nombre</h3>
-                        </div> -->
-        <div class="col-12 col-md-10 icons d-flex justify-content-end">
-          <div>
-            <i id="1" class="fas fa-pen" *ngIf="showInputs" (click)="editeInfo($event)"></i>
-            <i id="2" *ngIf="!showInputs" class="fas fa-check" (click)="editeInfo($event)"></i>
-          </div>
-          <div>
-            <div>
-              <i id="1" *ngIf="card2" (click)="changeCard($event)" class="fas fa-user"></i>
-              <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
-            </div>
-          </div>
-          <div>
-            <div>
-              <i class="fas fa-trash-alt" (click)="deleteUser()" *ngIf="card1"></i>
-              <i class="fas fa-trash-alt" (click)="deleteHouse()" *ngIf="card2"></i>
-            </div>
-          </div>
 
-        </div>
-        <!-- user information -->
         <div class="col-12 information" *ngIf="card1">
           <div class="row">
             <form [formGroup]="formEditUser" (ngSubmit)="onSubmit()" class="col-12">
@@ -124,7 +121,7 @@
                   <p *ngIf="showInputs">Descripción</p>
                   <p *ngIf="showInputs">{{house?.descripcion}}</p>
                   <input *ngIf="!showInputs" type="text-area" class="form-control form-control-sm"
-                    placeholder="Descripción" formControlName="Descripción de tu casa">
+                    placeholder="Descripción de tu casa" formControlName="descripcion">
                 </div>
 
                 <div class="col-12">
@@ -277,31 +274,31 @@
                 <div class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="ascensor">
-                    <p class="firstP">{{house?.ascensor}}</p>
+                    <p class="firstP">{{house?.ascensor}} Ascensor</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="parking">
-                    <p class="">{{house?.parking}}</p>
+                    <p class="">{{house?.parking}} Parking</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="piscina">
-                    <p class="">{{house?.piscina}}</p>
+                    <p class="">{{house?.piscina}} Piscina</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="terraza">
-                    <p class="">{{house?.terraza}}</p>
+                    <p class="">{{house?.terraza}} Terraza</p>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="balcon">
-                    <p class="">{{house?.balcon}}</p>
+                    <p class="">{{house?.balcon}} Balcón</p>
                   </div>
                 </div>
               </div>
