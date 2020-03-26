@@ -6,7 +6,8 @@
         <img src="../assets/images/logo2.png" alt="">
       </div>
       <div class="search col-5 d-none d-xs-none d-md-block">
-        <input class="form-control form" type="search" placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
+        <input class="form-control form" type="search" (keypress)="searchFilter($event)"
+          placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
       </div>
       <div class="buttons col-10 col-md-5 ">
         <button *ngIf="!usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"

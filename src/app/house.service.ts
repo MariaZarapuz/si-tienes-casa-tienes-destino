@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { House } from "./models/house";
 
@@ -8,9 +8,11 @@ import { House } from "./models/house";
 export class HouseService {
   arrHouse: House[];
   baseUrl: string;
+  baseUrlFilter: string;
   constructor(private httpClient: HttpClient) {
     this.arrHouse = new Array();
     this.baseUrl = "http://localhost:3000/api/houses";
+    this.baseUrlFilter = "http://localhost:3000/api/houses/filter";
   }
   getAll() {
     return this.httpClient.get(this.baseUrl).toPromise();
@@ -18,5 +20,10 @@ export class HouseService {
 
   addHouse(formValue) {
     return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  }
+
+  getByFilter(filter) {
+    console.log(filter);
+    return this.httpClient.post(this.baseUrlFilter, filter).toPromise();
   }
 }

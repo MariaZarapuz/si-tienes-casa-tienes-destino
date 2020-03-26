@@ -124,6 +124,7 @@ export class UserComponent implements OnInit {
       case "2":
         this.card1 = false;
         this.card2 = true;
+
         break;
     }
   }

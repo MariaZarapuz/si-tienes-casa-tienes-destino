@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Router } from "@angular/router";
 import { UsuariosService } from "./usuarios.service";
+import { ObservablesService } from "./observables.service";
 
 @Component({
   selector: "app-root",
@@ -9,12 +10,24 @@ import { UsuariosService } from "./usuarios.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  constructor(private usuariosService: UsuariosService) {}
+  constructor(
+    private usuariosService: UsuariosService,
+    private observableService: ObservablesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
   signOff() {
     console.log("LLego");
     localStorage.clear();
+  }
+
+  searchFilter(e) {
+    if (e.keyCode === 13) {
+      const filterValue = e.target.value;
+      this.observableService.handleFilter(filterValue);
+      this.router.navigate(["/search"]);
+    }
   }
 }

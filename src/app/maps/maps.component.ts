@@ -7,8 +7,6 @@ import {
   Output,
   EventEmitter
 } from "@angular/core";
-import { Observable } from "rxjs";
-import { debugOutputAstAsTypeScript } from "@angular/compiler";
 
 declare var google;
 
