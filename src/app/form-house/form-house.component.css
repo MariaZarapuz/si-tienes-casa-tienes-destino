@@ -49,8 +49,16 @@ a, p, i, h2, h4, button, input, label, select, option{
 .secondDiv .information .date label{
   padding-top: 10px
 }
+.secondDiv .information .date input{
+  width: 160px;
+  margin-top: 8px;
+}
 .secondDiv .information .descrip{
   margin-top: 10px;
+}
+.secondDiv .information .inp{
+  margin-top: 10px;
+  width: 45px;
 }
 
 /* THIRD DIV */

@@ -95,7 +95,7 @@
             <div class="row">
               <p class="col-10">¿Cuántos dormitorios tiene?</p>
               <div class="col-2">
-                <input class="form-control" type="number" formControlName="habitaciones">
+                <input class="inp form-control" type="number" formControlName="habitaciones">
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@
             <div class="row">
               <p class="col-10">¿De cuántas camas dispone?</p>
               <div class="col-2">
-                <input class=" form-control" type="number" formControlName="camas">
+                <input class="inp form-control" type="number" formControlName="camas">
               </div>
 
             </div>
@@ -114,7 +114,7 @@
             <div class="row">
               <p class="col-10">¿De cuántos baños dispone?</p>
               <div class="col-2">
-                <input class="form-control" type="number" formControlName="banos">
+                <input class="inp form-control" type="number" formControlName="banos">
               </div>
 
             </div>
@@ -124,7 +124,7 @@
             <div class="row">
               <p class="col-10">¿Capacidad?</p>
               <div class="col-2">
-                <input class=" form-control" type="number" formControlName="capacidad">
+                <input class="inp form-control" type="number" formControlName="capacidad">
               </div>
 
             </div>
@@ -139,13 +139,13 @@
                   <div class="col-12 col-lg-6">
                     <div class="row">
                       <label class="col-5">Desde</label>
-                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="fecha_entrada">
+                      <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_entrada">
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
                     <div class="row">
                       <label class="col-5">hasta</label>
-                      <input class="col-7 form-control col-form-label-sm" type="date" formControlName="fecha_salida">
+                      <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_salida">
                     </div>
                   </div>
                 </div>
@@ -211,8 +211,9 @@
         </div>
         <!--insertar foto-->
         <div>
-            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)" formControlName="file" required>
-             
+          <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)" formControlName="file"
+            required>
+
         </div>
         <div class="col-12">
           <div class="row">

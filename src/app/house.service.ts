@@ -15,6 +15,10 @@ export class HouseService {
     this.baseUrlFilter = "http://localhost:3000/api/houses/filter";
   }
 
+
+
+  // USER
+
   getAll() {
     return this.httpClient.get(this.baseUrl).toPromise();
   }
@@ -23,18 +27,23 @@ export class HouseService {
     return this.httpClient.get(`${this.baseUrl}/${fkHouse}`).toPromise()
   }
 
+  deleteHousebyId(idHouse): Promise<any> {
+    console.log('Hola')
+    return this.httpClient.delete(`${this.baseUrl}/${idHouse}`).toPromise()
+  }
+
+  updateHouseById(idHouse, formValue): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/${idHouse}`, formValue).toPromise()
+  }
+
+  //FORM-HOUSE
+
   addHouse(formValue) {
     return this.httpClient.post(this.baseUrl, formValue).toPromise();
   }
 
 
-
-  deleteHousebyId(idHouse): Promise<any> {
-    console.log('Hola')
-    return this.httpClient.delete(`${this.baseUrl}/${idHouse}`).toPromise()
-
-  }
-
+  //SEARCH
 
   getByFilter(filter) {
     console.log(filter);

@@ -20,6 +20,8 @@ export class UserComponent implements OnInit {
   user: any;
   house: any;
   idHouse: any;
+  showBtn: boolean;
+  showIcon: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -88,8 +90,21 @@ export class UserComponent implements OnInit {
       email: new FormControl(this.user.email, [Validators.required]),
       contraseña: new FormControl(this.user.contraseña, [Validators.required]),
     });
+
     this.house = await this.houseService.getByFk(this.user.id)
     this.idHouse = this.house.id
+    if (this.house == null) {
+      console.log('No tienes casita')
+      this.showBtn = true
+      this.showIcon = false
+    } else {
+      this.showBtn = false
+      this.showIcon = true
+      console.log()
+      console.log('Ya tienes casita')
+    }
+    //this.house = await this.houseService.getByFk(this.user.id)
+    //console.log(this.house)
     this.formEditHouse = new FormGroup({
       tipo: new FormControl(this.house.tipo, [Validators.required]),
       pais: new FormControl(this.house.pais, [Validators.required]),
@@ -131,7 +146,7 @@ export class UserComponent implements OnInit {
 
   }
 
-
+  //USER
   async onSubmit() {
     // console.log(this.formEditUser.value);
     await this.usuarioService.updateUser(this.formEditUser.value);
@@ -143,11 +158,31 @@ export class UserComponent implements OnInit {
     // console.log(this.user);
   }
 
-
-  async onSubmitHouse() {
-
+  async deleteUser() {
+    await this.usuarioService.deleteByToken()
+    localStorage.clear()
+    this.router.navigate(['/home'])
   }
 
+
+  //HOUSE
+  async onSubmitHouse(pIdHouse) {
+    pIdHouse = this.house.id
+    console.log(pIdHouse);
+    await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
+    this.house = await this.houseService.getByFk(this.user.id)
+    //this.house = this.house[0]
+  }
+
+  async deleteHouse(pIdHouse) {
+    pIdHouse = this.idHouse
+    console.log(pIdHouse)
+    await this.houseService.deleteHousebyId(pIdHouse)
+    this.router.navigate(['/user'])
+  }
+
+
+  //BOTH
 
   editeInfo($event) {
     //console.log($event.target.id);
@@ -161,9 +196,6 @@ export class UserComponent implements OnInit {
         this.showParagraph = false;
     }
   }
-  showProfile() {
-
-  }
 
 
   async changeCard($event) {
@@ -176,23 +208,8 @@ export class UserComponent implements OnInit {
       case "2":
         this.card1 = false;
         this.card2 = true;
-
         break;
     }
-  }
-
-  async deleteUser() {
-    await this.usuarioService.deleteByToken()
-    localStorage.clear()
-    this.router.navigate(['/home'])
-  }
-
-
-  async deleteHouse(pIdHouse) {
-    pIdHouse = this.idHouse
-    console.log(pIdHouse)
-    await this.houseService.deleteHousebyId(pIdHouse)
-    this.router.navigate(['/user'])
   }
 
 
