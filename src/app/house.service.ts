@@ -14,13 +14,27 @@ export class HouseService {
     this.baseUrl = "http://localhost:3000/api/houses";
     this.baseUrlFilter = "http://localhost:3000/api/houses/filter";
   }
+
   getAll() {
     return this.httpClient.get(this.baseUrl).toPromise();
+  }
+
+  getByFk(fkHouse): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/${fkHouse}`).toPromise()
   }
 
   addHouse(formValue) {
     return this.httpClient.post(this.baseUrl, formValue).toPromise();
   }
+
+
+
+  deleteHousebyId(idHouse): Promise<any> {
+    console.log('Hola')
+    return this.httpClient.delete(`${this.baseUrl}/${idHouse}`).toPromise()
+
+  }
+
 
   getByFilter(filter) {
     console.log(filter);

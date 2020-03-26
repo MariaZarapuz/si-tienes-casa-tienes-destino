@@ -2,7 +2,8 @@ import { async } from "@angular/core/testing";
 import { UsuariosService } from "./../usuarios.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { HouseService } from '../house.service';
 
 @Component({
   selector: "app-user",
@@ -17,10 +18,14 @@ export class UserComponent implements OnInit {
   formEditUser: FormGroup;
   formEditHouse: FormGroup;
   user: any;
+  house: any;
+  idHouse: any;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private router: Router,
-    private usuarioService: UsuariosService
+    private usuarioService: UsuariosService,
+    private houseService: HouseService
   ) {
     this.showInputs = true;
     this.showParagraph = false;
@@ -40,14 +45,14 @@ export class UserComponent implements OnInit {
       piso: new FormControl("", []),
       puerta: new FormControl("", []),
       poblacion: new FormControl("", [Validators.required]),
-      codigo_postal: new FormControl("", [Validators.required]),
+      cp: new FormControl("", [Validators.required]),
       provincia: new FormControl("", [Validators.required]),
       capacidad: new FormControl("", [Validators.required]),
       habitaciones: new FormControl("", [Validators.required]),
       camas: new FormControl("", [Validators.required]),
       banos: new FormControl("", [Validators.required]),
       descripcion: new FormControl("", [Validators.required]),
-      imagenes: new FormControl("", [Validators.required]),
+      imagen1: new FormControl("", [Validators.required]),
       fecha_entrada: new FormControl("", [Validators.required]),
       fecha_salida: new FormControl("", [Validators.required]),
       lavadora: new FormControl(""),
@@ -81,10 +86,49 @@ export class UserComponent implements OnInit {
       apellidos: new FormControl(this.user.apellidos, [Validators.required]),
       fecha_nacimiento: new FormControl(this.user.fecha_nacimiento, [Validators.required]),
       email: new FormControl(this.user.email, [Validators.required]),
-      contraseña: new FormControl(this.user.contraseña, [Validators.required])
+      contraseña: new FormControl(this.user.contraseña, [Validators.required]),
+    });
+    this.house = await this.houseService.getByFk(this.user.id)
+    this.idHouse = this.house.id
+    this.formEditHouse = new FormGroup({
+      tipo: new FormControl(this.house.tipo, [Validators.required]),
+      pais: new FormControl(this.house.pais, [Validators.required]),
+      direccion: new FormControl(this.house.direccion, [Validators.required]),
+      piso: new FormControl(this.house.piso, []),
+      puerta: new FormControl(this.house.puerta, []),
+      poblacion: new FormControl(this.house.poblacion, [Validators.required]),
+      cp: new FormControl(this.house.codigo_postal, [Validators.required]),
+      provincia: new FormControl(this.house.provincia, [Validators.required]),
+      capacidad: new FormControl(this.house.capacidad, [Validators.required]),
+      habitaciones: new FormControl(this.house.habitaciones, [Validators.required]),
+      camas: new FormControl(this.house.camas, [Validators.required]),
+      banos: new FormControl(this.house.banos, [Validators.required]),
+      descripcion: new FormControl(this.house.descripcion, [Validators.required]),
+      imagen1: new FormControl(this.house.imagen1, [Validators.required]),
+      fecha_entrada: new FormControl(this.house.fecha_entrada, [Validators.required]),
+      fecha_salida: new FormControl(this.house.fecha_salida, [Validators.required]),
+      lavadora: new FormControl(this.house.lavadora),
+      secadora: new FormControl(this.house.secadora),
+      aireAcondicionado: new FormControl(this.house.aireAcondicionado),
+      calefaccion: new FormControl(this.house.calefaccion),
+      teleCable: new FormControl(this.house.teleCable),
+      plancha: new FormControl(this.house.plancha),
+      horno: new FormControl(this.house.horno),
+      wifi: new FormControl(this.house.wifi),
+      microondas: new FormControl(this.house.microondas),
+      lavavajillas: new FormControl(this.house.lavavajillas),
+      secador: new FormControl(this.house.secador),
+      tostador: new FormControl(this.house.tostador),
+      ascensor: new FormControl(this.house.ascensor),
+      parking: new FormControl(this.house.parking),
+      piscina: new FormControl(this.house.piscina),
+      terraza: new FormControl(this.house.terraza),
+      balcon: new FormControl(this.house.balcon),
+      latitud: new FormControl(this.house.latitud),
+      longitud: new FormControl(this.house.longitud)
     });
 
-    console.log(this.user);
+
   }
 
 
@@ -100,11 +144,13 @@ export class UserComponent implements OnInit {
   }
 
 
-  onSubmitHouse() { }
+  async onSubmitHouse() {
+
+  }
 
 
   editeInfo($event) {
-    console.log($event.target.id);
+    //console.log($event.target.id);
     switch ($event.target.id) {
       case "1":
         this.showInputs = false;
@@ -120,8 +166,8 @@ export class UserComponent implements OnInit {
   }
 
 
-  changeCard($event) {
-    console.log($event.target.id);
+  async changeCard($event) {
+    //console.log($event.target.id);
     switch ($event.target.id) {
       case "1":
         this.card1 = true;
@@ -139,6 +185,14 @@ export class UserComponent implements OnInit {
     await this.usuarioService.deleteByToken()
     localStorage.clear()
     this.router.navigate(['/home'])
+  }
+
+
+  async deleteHouse(pIdHouse) {
+    pIdHouse = this.idHouse
+    console.log(pIdHouse)
+    await this.houseService.deleteHousebyId(pIdHouse)
+    this.router.navigate(['/user'])
   }
 
 
