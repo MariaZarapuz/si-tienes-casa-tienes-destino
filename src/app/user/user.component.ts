@@ -2,7 +2,7 @@ import { async } from "@angular/core/testing";
 import { UsuariosService } from "./../usuarios.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user",
@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   user: any;
 
   constructor(
-    private activatedRouter: ActivatedRoute,
+    private router: Router,
     private usuarioService: UsuariosService
   ) {
     this.showInputs = true;
@@ -72,34 +72,36 @@ export class UserComponent implements OnInit {
     });
   }
 
+
   async ngOnInit() {
-    this.user = await this.usuarioService.getUserId();
+    this.user = await this.usuarioService.getToken();
     this.user = this.user[0];
     this.formEditUser = new FormGroup({
       nombre: new FormControl(this.user.nombre, [Validators.required]),
       apellidos: new FormControl(this.user.apellidos, [Validators.required]),
-      fecha_nacimiento: new FormControl(this.user.fecha_nacimiento, [
-        Validators.required
-      ]),
+      fecha_nacimiento: new FormControl(this.user.fecha_nacimiento, [Validators.required]),
       email: new FormControl(this.user.email, [Validators.required]),
-      contraseña: new FormControl("", [Validators.required])
+      contraseña: new FormControl(this.user.contraseña, [Validators.required])
     });
+
     console.log(this.user);
   }
 
-  async onSubmit() {
-    console.log(this.formEditUser.value);
 
+  async onSubmit() {
+    // console.log(this.formEditUser.value);
     await this.usuarioService.updateUser(this.formEditUser.value);
 
-    this.user = await this.usuarioService.getUserId();
+    this.user = await this.usuarioService.getToken();
     this.user = this.user[0];
     this.showInputs = true;
     this.showParagraph = false;
-    console.log(this.user);
+    // console.log(this.user);
   }
 
-  onSubmitHouse() {}
+
+  onSubmitHouse() { }
+
 
   editeInfo($event) {
     console.log($event.target.id);
@@ -113,6 +115,10 @@ export class UserComponent implements OnInit {
         this.showParagraph = false;
     }
   }
+  showProfile() {
+
+  }
+
 
   changeCard($event) {
     console.log($event.target.id);
@@ -128,4 +134,12 @@ export class UserComponent implements OnInit {
         break;
     }
   }
+
+  async deleteUser() {
+    await this.usuarioService.deleteByToken()
+    localStorage.clear()
+    this.router.navigate(['/home'])
+  }
+
+
 }

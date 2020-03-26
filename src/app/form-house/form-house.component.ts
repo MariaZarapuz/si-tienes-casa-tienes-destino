@@ -126,6 +126,7 @@ export class FormHouseComponent implements OnInit {
       this.activo = res.activo;
     });
   }
+
   manejarEnvioDireccion($event) {
     // console.log("ENTRA!!!!!!");
     // Fuerza que la ejecucion se realice de manera asincrona sobre la aplicacion
@@ -142,7 +143,7 @@ export class FormHouseComponent implements OnInit {
       case "1":
         this.firstDiv = false;
         this.secondDiv = true;
-        console.log(this.secondDiv);
+        // console.log(this.secondDiv);
         break;
       case "2":
         this.secondDiv = false;

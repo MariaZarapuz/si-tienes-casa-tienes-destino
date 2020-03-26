@@ -45,10 +45,10 @@ export class FormUsersComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   passwordValidator(form) {
-    console.log(form);
+    //console.log(form);
     const contraseñaValue = form.controls.contraseña.value;
 
     const repite_contraseñaValue = form.controls.repite_contraseña.value;

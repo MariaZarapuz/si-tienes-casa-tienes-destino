@@ -52,38 +52,36 @@ a, p, h2, h4, button, input, label{
     margin-bottom: 20px;
     color: #220e2a;
 }
-.information .message{
-    margin-bottom: 30px;
-    margin-top:30px
-}
-.information .message a{
-    font-size: 0.9em;
-}
+
 .information .btnLink{
     margin-top: 10px;
     background-color: #220e2a;
-  border: 2px solid #220e2a;
+    border: 2px solid #220e2a;
 
 }
+
 .information .btnLink:hover{
   background-color: transparent;
 
   border: 2px solid #220e2a;
 }
+
 .information .btnLink a{
     color: white
 }
+
 .information .btnLink:hover a{
     color: #220e2a;
 }
 
-.button .btnSave{
+.button .saveBtn{
   margin-top: 10px;
   background-color: #8bc5ce;
   border: 2px solid #8bc5ce;
   color: white
 }
-.button .btnSave:hover{
+
+.button .saveBtn:hover{
   background-color: #220e2a;
   color: #8bc5ce;
   border: 2px solid #220e2a;

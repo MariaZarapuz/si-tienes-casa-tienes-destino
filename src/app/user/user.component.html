@@ -22,6 +22,11 @@
               <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
             </div>
           </div>
+          <div>
+            <div>
+              <i class="fas fa-trash-alt" (click)="deleteUser()"></i>
+            </div>
+          </div>
 
         </div>
         <!-- user information -->
@@ -61,6 +66,11 @@
                   <p *ngIf="showInputs"> {{user?.email}}</p>
                   <input *ngIf="!showInputs" type="text" class="form-control" formControlName="email">
                 </div>
+              </div>
+              <div class="message" *ngIf="showInputs">
+                <button class="btnLink btn" [routerLink]="['/house/register']"><a>¿Aún no has registrado tu
+                    casa?</a>
+                </button>
               </div>
               <div class="button col-12 col-sm-10 d-flex flex-row-reverse" *ngIf="!showInputs">
                 <button type="submit" class="btn saveBtn mt-4">Guardar</button>
