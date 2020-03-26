@@ -26,8 +26,7 @@ export class AppComponent implements OnInit {
   searchFilter(e) {
     if (e.keyCode === 13) {
       const filterValue = e.target.value;
-      this.observableService.handleFilter(filterValue);
-      this.router.navigate(["/search"]);
+      this.router.navigate(["/search", filterValue]);
     }
   }
 }
