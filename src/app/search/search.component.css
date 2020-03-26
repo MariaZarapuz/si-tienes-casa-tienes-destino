@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
 
-a, p, i, h2, h4, button, input, label{
+a, p, h2, h4, button, input, label{
   font-family: 'Montserrat', sans-serif
 }
 
