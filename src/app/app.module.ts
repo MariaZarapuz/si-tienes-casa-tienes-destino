@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { LoginComponent } from './login/login.component';
 import { MapsComponent } from './maps/maps.component';
+import { PuntosPipe } from './puntos.pipe';
 
 
 
@@ -30,6 +31,7 @@ import { MapsComponent } from './maps/maps.component';
     LoginComponent,
     SearchComponent,
     MapsComponent,
+    PuntosPipe,
   ],
   imports: [
     FormsModule,

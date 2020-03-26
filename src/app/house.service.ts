@@ -1,9 +1,9 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { House } from "./models/house";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { House } from './models/house';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class HouseService {
   arrHouse: House[];
@@ -11,8 +11,8 @@ export class HouseService {
   baseUrlFilter: string;
   constructor(private httpClient: HttpClient) {
     this.arrHouse = new Array();
-    this.baseUrl = "http://localhost:3000/api/houses";
-    this.baseUrlFilter = "http://localhost:3000/api/houses/filter";
+    this.baseUrl = 'http://localhost:3000/api/houses';
+    this.baseUrlFilter = 'http://localhost:3000/api/houses/filter';
   }
 
   getAll() {
@@ -20,7 +20,7 @@ export class HouseService {
   }
 
   getById(userId): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/${userId}`).toPromise()
+    return this.httpClient.get(`${this.baseUrl}/${userId}`).toPromise();
   }
 
   addHouse(formValue) {
@@ -30,15 +30,15 @@ export class HouseService {
 
 
   deleteHousebyId(idHouse): Promise<any> {
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
       body: {
         studentId: idHouse
       }
-    }
-    return this.httpClient.delete(`${this.baseUrl}/:id`, httpOptions).toPromise()
+    };
+    return this.httpClient.delete(`${this.baseUrl}/:id`, httpOptions).toPromise();
 
   }
 
