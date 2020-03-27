@@ -28,6 +28,10 @@ export class UsuariosService {
     return this.httpClient.get(this.baseUrl, httpOptions).toPromise();
   }
 
+  getById(userId): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/user/${userId}`).toPromise()
+  }
+
   updateUser(formValue): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({

@@ -68,8 +68,9 @@ export class HouseDetailComponent implements OnInit {
       console.log(response)
       this.house = response;
     })
-    this.user = await this.usuariosService.getToken();
-    this.user = this.user[0];
+    /* this.user = await this.usuariosService.getById();
+    this.user = this.user[0]; */
+
     this.srcPrincipal = this.ArrayPhotos[0].src;
   }
 
