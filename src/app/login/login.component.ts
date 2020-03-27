@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.mostrarError = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async onSubmit() {
     /* console.log(this.formulario.value) */
@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
       );
 
       this.id = response.id;
-      console.log(this.id);
       response = response["success"];
+      console.log(response)
       this.usuariosService.postLocalStore("token", response);
       this.usuariosService.postLocalStore("id", this.id);
 

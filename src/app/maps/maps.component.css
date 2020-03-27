@@ -19,9 +19,9 @@ a, p, i, h2, h4, button, input, label{
   left: 160px;
 }
 
-.search{
+/* .search{
   display:none;
-}
+} */
 .loading {
   display: none;
 }

@@ -29,7 +29,8 @@ export class UsuariosService {
   }
 
   getById(userId): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/user/${userId}`).toPromise()
+    return this.httpClient.get(`${this.baseUrl}/user/${userId}`).toPromise();
+
   }
 
   updateUser(formValue): Promise<any> {

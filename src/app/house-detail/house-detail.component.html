@@ -41,14 +41,14 @@
           <div class="row">
             <div class="col-12 title">
               <h1 class="card-title">Título de la casa</h1>
-              <p>{{house.poblacion}}, {{house.provincia}}</p>
+              <p>{{house?.poblacion}}, {{house?.provincia}}</p>
             </div>
             <div class="col-12 icons mb-4">
-              <p class="mt-5 mb-3 bold">{{house.tipo}}</p>
-              <a class="">{{house.habitaciones}} <i class="fas fa-bed"></i></a>
-              <a href="">{{house.capacidad}} <i class="fas fa-users"></i></a>
-              <a href="">{{house.banos}} <i class="fas fa-bath"></i></a>
-              <p class="mt-3"> {{house.descripcion}}</p>
+              <p class="mt-4 mb-3 bold">{{house?.titulo}}</p>
+              <a class="">{{house?.habitaciones}} <i class="fas fa-bed"></i></a>
+              <a href="">{{house?.capacidad}} <i class="fas fa-users"></i></a>
+              <a href="">{{house?.banos}} <i class="fas fa-bath"></i></a>
+              <p class="mt-3"> {{house?.descripcion}}</p>
             </div>
           </div>
         </div>
@@ -71,8 +71,9 @@
         <div class="userimage"></div>
       </div>
       <div class="userInfo mt-3 text-center">
-        <p>{{user?.nombre}} {{user.apellidos}}</p>
+        <p>{{user?.nombre}} {{user?.apellidos}}</p>
         <p><a id="2" (click)="changeCard($event)">Contacta con el propietario</a></p>
       </div>
     </div>
   </div>
+</div>

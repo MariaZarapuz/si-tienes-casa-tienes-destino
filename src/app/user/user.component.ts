@@ -21,7 +21,6 @@ export class UserComponent implements OnInit {
   user: any;
   house: any;
   fechaFormat: any;
-
   idHouse: any;
   showBtn: boolean;
   showIcon: boolean;
@@ -44,7 +43,7 @@ export class UserComponent implements OnInit {
       contraseña: new FormControl('', [Validators.required])
     });
     this.formEditHouse = new FormGroup({
-      tipo: new FormControl('', [Validators.required]),
+      titulo: new FormControl('', [Validators.required]),
       pais: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required]),
       piso: new FormControl('', []),
@@ -112,7 +111,7 @@ export class UserComponent implements OnInit {
     //this.house = await this.houseService.getByFk(this.user.id)
     //console.log(this.house)
     this.formEditHouse = new FormGroup({
-      tipo: new FormControl(this.house.tipo, [Validators.required]),
+      titulo: new FormControl(this.house.titulo, [Validators.required]),
       pais: new FormControl(this.house.pais, [Validators.required]),
       direccion: new FormControl(this.house.direccion, [Validators.required]),
       piso: new FormControl(this.house.piso, []),
@@ -227,7 +226,7 @@ export class UserComponent implements OnInit {
     const fechaNacimiento = fecha.slice(0, 10);
     const fechaNac = await fechaNacimiento.split('-').reverse().join('/');
     this.fechaFormat = fechaNac;
-    console.log(this.fechaFormat);
+    //console.log(this.fechaFormat);
   }
 
 }
