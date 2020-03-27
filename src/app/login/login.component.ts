@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   formulario: FormGroup;
   mostrarError: boolean;
+  id: any;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -31,9 +32,13 @@ export class LoginComponent implements OnInit {
       let response = await this.usuariosService.loginUsuario(
         this.formulario.value
       );
-      console.log(response);
+
+      this.id = response.id;
       response = response["success"];
+      console.log(response)
       this.usuariosService.postLocalStore("token", response);
+      this.usuariosService.postLocalStore("id", this.id);
+
       this.router.navigate(["/home"]);
     } catch (err) {
       this.mostrarError = true;

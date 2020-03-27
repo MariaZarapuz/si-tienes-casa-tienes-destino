@@ -105,7 +105,9 @@ a, p, h2, h4, button, input, label{
 .houseInfo .feature{
     padding-bottom: 15px;
 }
-
+.houseInfo .feature textarea{
+margin-top: 10px
+}
 .houseInfo .services{
     padding-top: 20px;
 }
@@ -116,7 +118,7 @@ a, p, h2, h4, button, input, label{
     margin-bottom: 5px;
 }
  .houseInfo .installations{
-    -top: 40px;
+    margin-top: 40px;
 }
 
 .houseInfo .installations p{

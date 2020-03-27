@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
       this.filterVillage = { poblacion: params.ciudad };
-      console.log(this.filterVillage);
+      //console.log(this.filterVillage);
       const arrayHouses = await this.houseService.getByFilter(
         this.filterVillage
       );
@@ -29,6 +29,6 @@ export class SearchComponent implements OnInit {
       console.log(this.listHouses);
     });
 
-
+    //console.log(this.listHouses);
   }
 }

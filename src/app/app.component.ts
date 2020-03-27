@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
     private usuariosService: UsuariosService,
     private observableService: ObservablesService,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   signOff() {
-    console.log("LLego");
+    //console.log("LLego");
     localStorage.clear();
   }
 

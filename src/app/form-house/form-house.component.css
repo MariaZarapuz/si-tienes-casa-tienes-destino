@@ -57,7 +57,7 @@ a, p, i, h2, h4, button, input, label, select, option{
   margin-top: 10px;
 }
 .secondDiv .information .inp{
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 45px;
 }
 
@@ -102,7 +102,14 @@ a, p, i, h2, h4, button, input, label, select, option{
   margin-top: 10px;
   border: 2px solid #8bc5ce;
   color: #220e2a;
+  font-weight: bold;
   background-color: #8bc5ce
+}
+.saveBtn:hover{
+  border: 2px solid #220e2a;
+  color: white;
+  font-weight: normal;
+  background-color: #220e2a;
 }
 
 

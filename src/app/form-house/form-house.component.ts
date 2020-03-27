@@ -23,6 +23,7 @@ export class FormHouseComponent implements OnInit {
   activo: boolean;
   objAddressHouse: any;
   files: any;
+  showLoading: boolean;
 
   constructor(
     private router: Router,
@@ -57,7 +58,7 @@ export class FormHouseComponent implements OnInit {
       'tostador'
     ];
     this.form = new FormGroup({
-      tipo: new FormControl('', [Validators.required]),
+      titulo: new FormControl('', [Validators.required]),
       pais: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required]),
       piso: new FormControl('', []),
@@ -95,7 +96,7 @@ export class FormHouseComponent implements OnInit {
     });
 
     this.arrPrimerFormulario = [
-      this.form.controls.tipo,
+      this.form.controls.titulo,
       this.form.controls.pais,
       this.form.controls.direccion,
       this.form.controls.provincia,
@@ -112,9 +113,11 @@ export class FormHouseComponent implements OnInit {
       this.form.controls.fecha_entrada,
       this.form.controls.fecha_salida
     ];
+
   }
 
   ngOnInit() {
+    this.showLoading = false
     this.ObservableService.addressSb.subscribe(res => {
       // console.log(res);
       this.objAddressHouse = res;
@@ -158,7 +161,8 @@ export class FormHouseComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log(this.form.value);
+    this.showLoading = true
+    //console.log(this.form.value);
     const fd = new FormData();
     fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
     Object.keys(this.form.value).forEach(key => {
@@ -180,10 +184,11 @@ export class FormHouseComponent implements OnInit {
       .toPromise()
       .then(result => {
         console.log(result);
+        this.showLoading = false
         this.router.navigate(['/user']);
       });
 
-    // const response = await this.houseService.addHouse(this.form.value);
+    //const response = await this.houseService.addHouse(this.form.value);
   }
 
   onChange($event) {
@@ -232,4 +237,6 @@ export class FormHouseComponent implements OnInit {
     });
     return result;
   }
+
+
 }

@@ -46,7 +46,7 @@ export class HouseService {
   //SEARCH
 
   getByFilter(filter) {
-    console.log(filter);
+    //console.log(filter);
     return this.httpClient.post(this.baseUrlFilter, filter).toPromise();
   }
 }
