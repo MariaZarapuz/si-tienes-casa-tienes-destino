@@ -123,6 +123,8 @@ export class FormHouseComponent implements OnInit {
       this.form.controls.poblacion.setValue(this.objAddressHouse.poblacion);
       this.form.controls.provincia.setValue(this.objAddressHouse.provincia);
       this.form.controls.cp.setValue(this.objAddressHouse.cp);
+      this.form.controls.latitud.setValue(this.objAddressHouse.lat);
+      this.form.controls.longitud.setValue(this.objAddressHouse.lng);
       this.activo = res.activo;
     });
   }

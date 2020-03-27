@@ -26,8 +26,9 @@ export class SearchComponent implements OnInit {
         this.filterVillage
       );
       this.listHouses = arrayHouses;
+      console.log(this.listHouses);
     });
 
-    console.log(this.listHouses);
+
   }
 }
