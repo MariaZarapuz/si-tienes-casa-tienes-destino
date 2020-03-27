@@ -62,8 +62,11 @@
     <div class="col-12 col-md-8" *ngIf="card2">
       <h4 class="card-title">Comentarios</h4>
 
-      <textarea name="" id="" cols="30" rows="10" NgModel>hfjshfshfjhdsfjhdhfhdjfhjdhfdhfdjhf</textarea>
-      <button type="submit">Enviar</button>
+
+      <textarea name="comentario" id="" cols="30" rows="10"
+        [(ngModel)]="comentario">hfjshfshfjhdsfjhdhfhdjfhjdhfdhfdjhf</textarea>
+      <button (click)="save()" type="submit">Enviar</button>
+
 
     </div>
     <div class="d-none d-md-block col-4 userInfoContain">
