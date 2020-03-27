@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: "house/register", component: FormHouseComponent },
   { path: "search/:ciudad", component: SearchComponent },
   { path: "user", component: UserComponent },
-  { path: "house-detail", component: HouseDetailComponent },
+  { path: "house/detail/:fk_usuarios", component: HouseDetailComponent },
   { path: "login", component: LoginComponent },
   { path: "**", redirectTo: "home" }
 ];
@@ -24,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

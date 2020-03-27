@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HouseService } from '../house.service';
+import { UsuariosService } from './../usuarios.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-house-detail',
@@ -12,8 +15,15 @@ export class HouseDetailComponent implements OnInit {
   idImagen: number;
   ArrayPhotos: Array<any>;
   srcPrincipal: any;
+  house: any;
+  user: any;
 
-  constructor() {
+  constructor(
+    private houseService: HouseService,
+    private usuariosService: UsuariosService,
+    private activatedRoute: ActivatedRoute,
+
+  ) {
     this.card1 = true;
     this.card2 = false;
     this.card3 = false;
@@ -51,7 +61,15 @@ export class HouseDetailComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.activatedRoute.params.subscribe(async params => {
+      console.log(params)
+      const response = await this.houseService.getByFk(params.pFk_usuarios);
+      console.log(response)
+      this.house = response;
+    })
+    this.user = await this.usuariosService.getToken();
+    this.user = this.user[0];
     this.srcPrincipal = this.ArrayPhotos[0].src;
   }
 
@@ -61,22 +79,15 @@ export class HouseDetailComponent implements OnInit {
   }
 
   changeCard($event) {
-    console.log($event.target.id);
+    //console.log($event.target.id);
     switch ($event.target.id) {
       case '1':
         this.card1 = true;
         this.card2 = false;
-        this.card3 = false;
         break;
       case '2':
         this.card1 = false;
         this.card2 = true;
-        this.card3 = false;
-        break;
-      case '3':
-        this.card1 = false;
-        this.card2 = false;
-        this.card3 = true;
         break;
     }
   }

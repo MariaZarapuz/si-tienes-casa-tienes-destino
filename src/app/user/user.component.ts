@@ -101,14 +101,13 @@ export class UserComponent implements OnInit {
     this.house = await this.houseService.getByFk(this.user.id)
     this.idHouse = this.house.id
     if (this.house == null) {
-      console.log('No tienes casita')
+      //console.log('No tienes casita')
       this.showBtn = true
       this.showIcon = false
     } else {
       this.showBtn = false
       this.showIcon = true
-      console.log()
-      console.log('Ya tienes casita')
+      //console.log('Ya tienes casita')
     }
     //this.house = await this.houseService.getByFk(this.user.id)
     //console.log(this.house)
@@ -177,8 +176,11 @@ export class UserComponent implements OnInit {
     pIdHouse = this.house.id
     console.log(pIdHouse);
     await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
-    this.house = await this.houseService.getByFk(this.user.id)
+    this.house = await this.houseService.getByFk(this.user.id);
+    this.router.navigate(['/user'])
     //this.house = this.house[0]
+    this.showInputs = true;
+    this.showParagraph = false;
   }
 
   async deleteHouse(pIdHouse) {

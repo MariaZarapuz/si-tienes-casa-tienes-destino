@@ -6,10 +6,10 @@
         <!-- <i id="2" *ngIf="!showInputs" class="fas fa-check" (click)="editeInfo($event)"></i> -->
       </div>
       <div>
-        <div *ngIf="!showInputs">
+        <div *ngIf="showInputs">
           <i id="1" *ngIf="card2" class="fas fa-user" (click)="changeCard($event)"></i>
         </div>
-        <div *ngIf="showIcon">
+        <div *ngIf="showInputs">
           <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
         </div>
       </div>

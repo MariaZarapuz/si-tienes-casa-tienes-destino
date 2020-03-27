@@ -13,7 +13,15 @@ a, p, i, h2, h4, button, input, label{
   right: 0;
 
 }
+.mapContain img{
+  position: absolute;
+  top: 125px;
+  left: 160px;
+}
 
+.search{
+  display:none;
+}
 .loading {
   display: none;
 }

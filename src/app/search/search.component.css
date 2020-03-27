@@ -61,6 +61,7 @@ label {
 .houses .btn .fas {
   position: absolute;
   bottom: 0;
+  right: 20px
 }
 
 .houses .btn:hover .fas {
@@ -81,14 +82,3 @@ label {
   height: 600px
 }
 
-/* .containerLoading{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   margin-top: 30px;
-} */
-
-/* .containLoading {
-  position: fixed;
-  right: 0;
-} */

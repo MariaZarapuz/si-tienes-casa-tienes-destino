@@ -23,8 +23,8 @@ export class HouseService {
     return this.httpClient.get(this.baseUrl).toPromise();
   }
 
-  getByFk(fkHouse): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/${fkHouse}`).toPromise()
+  getByFk(fkUser): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/${fkUser}`).toPromise()
   }
 
   deleteHousebyId(idHouse): Promise<any> {

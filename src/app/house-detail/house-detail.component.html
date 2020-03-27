@@ -1,51 +1,74 @@
 <div class="container">
-  <!-- IMAGES -->
-  <div class="images">
-    <div class="row">
-      <div class="pImg col-9 ">
-        <div class="principalImage">
-          <div>
-            <img id="1" [src]=srcPrincipal alt="">
+  <div class="row">
+    <!-- IMAGES -->
+    <div class="images">
+      <div class="row">
+        <div class="pImg col-9 ">
+          <div class="principalImage">
+            <div>
+              <img id="1" [src]=srcPrincipal alt="">
+            </div>
+          </div>
+        </div>
+        <div class="pImgs col-3">
+          <div class="secondaryImages">
+            <div class="pointer" *ngFor="let item of ArrayPhotos">
+              <img (click)="changeImage($event)" [src]=item.src id={{item.id}}>
+            </div>
           </div>
         </div>
       </div>
-      <div class="pImgs col-3">
-        <div class="secondaryImages">
-          <div class="pointer" *ngFor="let item of ArrayPhotos">
-            <img (click)="changeImage($event)" [src]=item.src id={{item.id}}>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="cards card text-center">
-    <div class="title card-header">
-      <ul class="nav nav-pills card-header-pills">
-        <li class="nav-item">
-          <a class="pointer nav-link" id="1" (click)="changeCard($event)">Descripción</a>
-        </li>
-        <li class="nav-item">
-          <a class="pointer nav-link" id="2" (click)="changeCard($event)">Valoraciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="pointer nav-link" id="3" (click)="changeCard($event)">Comentarios</a>
-        </li>
-      </ul>
     </div>
 
     <!-- CARDS -->
-    <div class="card-body" *ngIf="card1">
-      <h4 class="card-title">Casa/Apartamento</h4>
-      <p>Dirección</p>
-      <a href="">2 <i class="fas fa-bed"></i></a>
-      <a href="">4 <i class="fas fa-users"></i></a>
-      <a href="">2 <i class="fas fa-bath"></i></a>
+
+    <!-- <div class="title card-header text-center">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="pointer nav-link" id="1" (click)="changeCard($event)">Descripción</a>
+            </li>
+            <li class="nav-item">
+              <a class="pointer nav-link" id="2" (click)="changeCard($event)">Valoraciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="pointer nav-link" id="3" (click)="changeCard($event)">Comentarios</a>
+            </li>
+          </ul>
+        </div> -->
+    <div class="col-12 col-md-8 descriptionCard" *ngIf="card1">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 title">
+              <h1 class="card-title">Título de la casa</h1>
+              <p>{{house.poblacion}}, {{house.provincia}}</p>
+            </div>
+            <div class="col-12 icons mb-4">
+              <p class="mt-5 mb-3 bold">{{house.tipo}}</p>
+              <a class="">{{house.habitaciones}} <i class="fas fa-bed"></i></a>
+              <a href="">{{house.capacidad}} <i class="fas fa-users"></i></a>
+              <a href="">{{house.banos}} <i class="fas fa-bath"></i></a>
+              <p class="mt-3"> {{house.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <h4>Servicios</h4>
+
+        </div>
+      </div>
+
     </div>
-    <div class="card-body" *ngIf="card2">
-      <h4 class="card-title">Valoraciones</h4>
-    </div>
-    <div class="card-body" *ngIf="card3">
+    <div class="col-12 col-md-8" *ngIf="card2">
       <h4 class="card-title">Comentarios</h4>
     </div>
+    <div class="d-none d-md-block col-4 userInfoContain">
+      <div class="containerImg">
+        <div class="userimage"></div>
+      </div>
+      <div class="userInfo mt-3 text-center">
+        <p>{{user?.nombre}} {{user.apellidos}}</p>
+        <p><a id="2" (click)="changeCard($event)">Contacta con el propietario</a></p>
+      </div>
+    </div>
   </div>
-</div>
