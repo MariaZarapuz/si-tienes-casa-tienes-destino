@@ -39,6 +39,7 @@ a, p, h1, h2, h3, h4, h5 button, input, label{
 .descriptionCard {
   padding-left: 20px;
   margin-top: 20px;
+  margin-bottom:60px
 }
 .descriptionCard .title h1{
   font-weight: bold;
