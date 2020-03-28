@@ -168,9 +168,12 @@ export class UserComponent implements OnInit {
   }
 
   async deleteUser() {
-    await this.usuarioService.deleteByToken();
-    localStorage.clear();
-    this.router.navigate(["/home"]);
+    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu perfil?')
+    if (booleanDelete == true) {
+      await this.usuarioService.deleteByToken()
+      localStorage.clear()
+      this.router.navigate(['/home'])
+    }
   }
 
   //HOUSE
@@ -185,9 +188,12 @@ export class UserComponent implements OnInit {
   }
 
   async deleteHouse(pIdHouse) {
-    pIdHouse = this.idHouse;
-    await this.houseService.deleteHousebyId(pIdHouse);
-    this.router.navigate(["/home"]);
+    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu casa?')
+    if (booleanDelete == true) {
+      pIdHouse = this.idHouse
+      await this.houseService.deleteHousebyId(pIdHouse)
+      this.router.navigate(['/home'])
+    }
   }
 
   //BOTH
