@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   async onSubmit() {
-    /* console.log(this.formulario.value) */
+
     try {
       let response = await this.usuariosService.loginUsuario(
         this.formulario.value
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
       this.router.navigate(["/home"]);
     } catch (err) {
       this.mostrarError = true;
-      /* err = ('El usuario y/o la contraseña son incorrectos'); */
       console.log(err);
     }
   }

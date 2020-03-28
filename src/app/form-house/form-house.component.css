@@ -112,6 +112,21 @@ a, p, i, h2, h4, button, input, label, select, option{
   background-color: #220e2a;
 }
 
+/* LOADING */
+/* .loading{
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+}
+
+.loading .gif{
+  background-color: rgb(189, 189, 189);
+  background-blend-mode: multiply;
+  background-image: url("https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif");
+} */
 
 
 /* OTHERS */

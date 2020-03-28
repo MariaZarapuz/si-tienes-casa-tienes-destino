@@ -119,7 +119,6 @@ export class FormHouseComponent implements OnInit {
   ngOnInit() {
     this.showLoading = false
     this.ObservableService.addressSb.subscribe(res => {
-      // console.log(res);
       this.objAddressHouse = res;
       this.form.controls.pais.setValue(this.objAddressHouse.pais);
       this.form.controls.direccion.setValue(this.objAddressHouse.direccion);
@@ -133,22 +132,16 @@ export class FormHouseComponent implements OnInit {
   }
 
   manejarEnvioDireccion($event) {
-    // console.log("ENTRA!!!!!!");
-    // Fuerza que la ejecucion se realice de manera asincrona sobre la aplicacion
     this.ngZone.run(() => {
       this.activo = true;
     });
-
-    // console.log("ACTIVO", this.activo);
   }
 
   nextDiv($event) {
-    // console.log($event.target.id);
     switch ($event.target.id) {
       case '1':
         this.firstDiv = false;
         this.secondDiv = true;
-        // console.log(this.secondDiv);
         break;
       case '2':
         this.secondDiv = false;
@@ -161,8 +154,7 @@ export class FormHouseComponent implements OnInit {
   }
 
   async onSubmit() {
-    this.showLoading = true
-    //console.log(this.form.value);
+    /* this.showLoading = true */
     const fd = new FormData();
     fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
     Object.keys(this.form.value).forEach(key => {
@@ -184,11 +176,10 @@ export class FormHouseComponent implements OnInit {
       .toPromise()
       .then(result => {
         console.log(result);
-        this.showLoading = false
+        /* this.showLoading = false */
         this.router.navigate(['/user']);
       });
 
-    //const response = await this.houseService.addHouse(this.form.value);
   }
 
   onChange($event) {
@@ -221,7 +212,6 @@ export class FormHouseComponent implements OnInit {
         result = true;
       }
     });
-    // console.log(cont);
     return result;
   }
 
@@ -233,7 +223,6 @@ export class FormHouseComponent implements OnInit {
       if (!control.valid) {
         result = true;
       }
-      // console.log("................", control.valid);
     });
     return result;
   }

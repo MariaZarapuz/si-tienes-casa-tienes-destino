@@ -97,20 +97,9 @@ export class UserComponent implements OnInit {
       email: new FormControl(this.user.email, [Validators.required]),
       contraseña: new FormControl(this.user.contraseña, [Validators.required]),
     });
-
+    /*     if (this.house) { */
     this.house = await this.houseService.getByFk(this.user.id)
     this.idHouse = this.house.id
-    if (this.house == null) {
-      //console.log('No tienes casita')
-      this.showBtn = true
-      this.showIcon = false
-    } else {
-      this.showBtn = false
-      this.showIcon = true
-      //console.log('Ya tienes casita')
-    }
-    //this.house = await this.houseService.getByFk(this.user.id)
-    //console.log(this.house)
     this.formEditHouse = new FormGroup({
       tipo: new FormControl(this.house.tipo, [Validators.required]),
       pais: new FormControl(this.house.pais, [Validators.required]),
@@ -148,20 +137,26 @@ export class UserComponent implements OnInit {
       latitud: new FormControl(this.house.latitud),
       longitud: new FormControl(this.house.longitud)
     });
+    /*  } */
 
 
+    if (this.house == null) {
+      this.showBtn = true
+      this.showIcon = false
+    } else {
+      this.showBtn = false
+      this.showIcon = true
+    }
   }
 
   //USER
   async onSubmit() {
-    // console.log(this.formEditUser.value);
     await this.usuarioService.updateUser(this.formEditUser.value);
 
     this.user = await this.usuarioService.getToken();
     this.user = this.user[0];
     this.showInputs = true;
     this.showParagraph = false;
-    // console.log(this.user);
   }
 
   async deleteUser() {
@@ -174,27 +169,23 @@ export class UserComponent implements OnInit {
   //HOUSE
   async onSubmitHouse(pIdHouse) {
     pIdHouse = this.house.id
-    console.log(pIdHouse);
     await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
     this.house = await this.houseService.getByFk(this.user.id);
     this.router.navigate(['/user'])
-    //this.house = this.house[0]
     this.showInputs = true;
     this.showParagraph = false;
   }
 
   async deleteHouse(pIdHouse) {
     pIdHouse = this.idHouse
-    console.log(pIdHouse)
     await this.houseService.deleteHousebyId(pIdHouse)
-    this.router.navigate(['/user'])
+    this.router.navigate(['/home'])
   }
 
 
   //BOTH
 
   editeInfo($event) {
-    // console.log($event.target.id);
     switch ($event.target.id) {
       case '1':
         this.showInputs = false;
@@ -206,9 +197,8 @@ export class UserComponent implements OnInit {
     }
   }
 
-
   async changeCard($event) {
-    // console.log($event.target.id);
+
     switch ($event.target.id) {
       case '1':
         this.card1 = true;
@@ -221,13 +211,10 @@ export class UserComponent implements OnInit {
     }
   }
 
-
-
   async convertDateFormat(fecha) {
     const fechaNacimiento = fecha.slice(0, 10);
     const fechaNac = await fechaNacimiento.split('-').reverse().join('/');
     this.fechaFormat = fechaNac;
-    console.log(this.fechaFormat);
   }
 
 }
