@@ -1,132 +1,152 @@
-a, p, h2, h4, button, input, label{
+a,
+p,
+h2,
+h4,
+button,
+input,
+label {
   font-family: 'Montserrat', sans-serif
 }
 
 /* USER IMAGE */
-.containerImg{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
+.containerImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
 }
-.userimage{
-    background-image: url('../../assets/images/user.png');
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center center;
+
+.userimage {
+  background-image: url('../../assets/images/user.png');
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center center;
 }
 
 /* ICONS */
-.icons i{
-    color: #220e2a;
-    font-size: 1.4em;
-    width: 25px;
-    margin-top: 25px;
-    margin-left:10px;
+.icons i {
+  color: #220e2a;
+  font-size: 1.4em;
+  width: 25px;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.iconService {
+  width: 32px;
 }
 
 
-.user p{
-    font-size: 1.1em;
+.user p {
+  font-size: 1.1em;
 
 }
 
 /* USER INFORMATION */
-.information{
-    padding-top: 30px;
+.information {
+  padding-top: 30px;
 }
 
-.information .fa-pen, .information .fa-check{
-    font-size: 1em;
-}
-.information p{
-    padding-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 11px;
-}
-.information i{
-    font-size: 1.4em;
-    padding-top: 5px;
-    margin-bottom: 20px;
-    color: #220e2a;
+.information .fa-pen,
+.information .fa-check {
+  font-size: 1em;
 }
 
-.information .btnLink{
-    margin-top: 10px;
-    background-color: #220e2a;
-    border: 2px solid #220e2a;
+.information p {
+  padding-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+}
+
+.information i {
+  font-size: 1.4em;
+  padding-top: 5px;
+  margin-bottom: 20px;
+  color: #220e2a;
+}
+
+.information .btnLink {
+  margin-top: 10px;
+  background-color: #220e2a;
+  border: 2px solid #220e2a;
 
 }
 
-.information .btnLink:hover{
+.information .btnLink:hover {
   background-color: transparent;
 
   border: 2px solid #220e2a;
 }
 
-.information .btnLink a{
-    color: white
+.information .btnLink a {
+  color: white
 }
 
-.information .btnLink:hover a{
-    color: #220e2a;
+.information .btnLink:hover a {
+  color: #220e2a;
 }
 
-.button .saveBtn{
+.button .saveBtn {
   margin-top: 10px;
   background-color: #8bc5ce;
   border: 2px solid #8bc5ce;
   color: white
 }
 
-.button .saveBtn:hover{
+.button .saveBtn:hover {
   background-color: #220e2a;
   color: #8bc5ce;
   border: 2px solid #220e2a;
 }
 
 /* HOUSE INFORMATION */
-.houseInfo{
-    margin-top: 20px;
-    margin-bottom: 50px
-}
-.houseInfo h5{
-    font-weight: bold;
-    /* margin-bottom: 15px; */
-    color: #220e2a;
-}
-.houseInfo p{
-    padding-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 11px;
-}
-.houseInfo .feature{
-    padding-bottom: 15px;
-}
-.houseInfo .feature textarea{
-margin-top: 10px
-}
-.houseInfo .services{
-    padding-top: 20px;
+.houseInfo {
+  margin-top: 20px;
+  margin-bottom: 50px
 }
 
-.houseInfo .services p{
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
- .houseInfo .installations{
-    margin-top: 40px;
+.houseInfo h5 {
+  font-weight: bold;
+  /* margin-bottom: 15px; */
+  color: #220e2a;
 }
 
-.houseInfo .installations p{
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 5px;
+.houseInfo p {
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 11px;
 }
 
-.houseInfo input{
-    margin-top: 11px;
+.houseInfo .feature {
+  padding-bottom: 15px;
+}
+
+.houseInfo .feature textarea {
+  margin-top: 10px
+}
+
+.houseInfo .services {
+  padding-top: 20px;
+}
+
+.houseInfo .services p {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.houseInfo .installations {
+  margin-top: 40px;
+}
+
+.houseInfo .installations p {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.houseInfo input {
+  margin-top: 11px;
 }
