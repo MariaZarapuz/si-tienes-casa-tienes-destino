@@ -101,7 +101,7 @@ export class UserComponent implements OnInit {
     this.house = await this.houseService.getByFk(this.user.id)
     this.idHouse = this.house.id
     this.formEditHouse = new FormGroup({
-      tipo: new FormControl(this.house.tipo, [Validators.required]),
+      titulo: new FormControl(this.house.titulo, [Validators.required]),
       pais: new FormControl(this.house.pais, [Validators.required]),
       direccion: new FormControl(this.house.direccion, [Validators.required]),
       piso: new FormControl(this.house.piso, []),
@@ -160,11 +160,13 @@ export class UserComponent implements OnInit {
   }
 
   async deleteUser() {
-    await this.usuarioService.deleteByToken()
-    localStorage.clear()
-    this.router.navigate(['/home'])
+    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu perfil?')
+    if (booleanDelete == true) {
+      await this.usuarioService.deleteByToken()
+      localStorage.clear()
+      this.router.navigate(['/home'])
+    }
   }
-
 
   //HOUSE
   async onSubmitHouse(pIdHouse) {
@@ -177,9 +179,12 @@ export class UserComponent implements OnInit {
   }
 
   async deleteHouse(pIdHouse) {
-    pIdHouse = this.idHouse
-    await this.houseService.deleteHousebyId(pIdHouse)
-    this.router.navigate(['/home'])
+    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu casa?')
+    if (booleanDelete == true) {
+      pIdHouse = this.idHouse
+      await this.houseService.deleteHousebyId(pIdHouse)
+      this.router.navigate(['/home'])
+    }
   }
 
 

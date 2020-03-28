@@ -167,7 +167,7 @@
                 <div class="col-12">
                   <p *ngIf="showInputs">Código postal: {{house?.cp}}</p>
                   <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                    placeholder="Código postal" formControlName="cp">
+                    placeholder="{{house?.cp}}" formControlName="cp">
                 </div>
                 <div class="col-12">
                   <p *ngIf="showInputs">Provincia: {{house?.provincia}}</p>
