@@ -82,6 +82,7 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
+    console.log(this.house.plancha);
     this.user = await this.usuarioService.getToken();
 
     this.user = this.user[0];
@@ -168,11 +169,13 @@ export class UserComponent implements OnInit {
   }
 
   async deleteUser() {
-    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu perfil?')
+    const booleanDelete = confirm(
+      "¿Estás seguro de que quieres borrar tu perfil?"
+    );
     if (booleanDelete == true) {
-      await this.usuarioService.deleteByToken()
-      localStorage.clear()
-      this.router.navigate(['/home'])
+      await this.usuarioService.deleteByToken();
+      localStorage.clear();
+      this.router.navigate(["/home"]);
     }
   }
 
@@ -188,11 +191,13 @@ export class UserComponent implements OnInit {
   }
 
   async deleteHouse(pIdHouse) {
-    const booleanDelete = confirm('¿Estás seguro de que quieres borrar tu casa?')
+    const booleanDelete = confirm(
+      "¿Estás seguro de que quieres borrar tu casa?"
+    );
     if (booleanDelete == true) {
-      pIdHouse = this.idHouse
-      await this.houseService.deleteHousebyId(pIdHouse)
-      this.router.navigate(['/home'])
+      pIdHouse = this.idHouse;
+      await this.houseService.deleteHousebyId(pIdHouse);
+      this.router.navigate(["/home"]);
     }
   }
 

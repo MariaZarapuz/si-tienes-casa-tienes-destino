@@ -1,3 +1,4 @@
+import { ContactService } from "./../contact.service";
 import { FormsModule } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { HouseService } from "../house.service";
@@ -23,6 +24,7 @@ export class HouseDetailComponent implements OnInit {
   constructor(
     private houseService: HouseService,
     private usuariosService: UsuariosService,
+    private contactService: ContactService,
     private activatedRoute: ActivatedRoute
   ) {
     this.card1 = true;
@@ -81,10 +83,10 @@ export class HouseDetailComponent implements OnInit {
     this.srcPrincipal = e.target.src;
   }
 
-  save(recep, emi) {
-    emi = this.usuariosService.getLocalStore("id");
-    recep = this.house.fk_usuarios;
-    console.log(this.comentario, recep, emi);
+  async save() {
+    let emi = this.usuariosService.getLocalStore("id");
+    let recep = this.house.fk_usuarios;
+    await this.contactService.insertComent(this.comentario, emi, recep);
   }
 
   changeCard($event) {
