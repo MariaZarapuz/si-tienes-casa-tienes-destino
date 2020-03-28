@@ -92,10 +92,10 @@ label {
   right: 0;
 }
 
-.map {
-  width: 100%;
-  height: 600px
+agm-map {
+  height: 500px;
 }
+
 .wait img {
   display: block;
   margin:auto

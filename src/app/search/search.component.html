@@ -45,9 +45,10 @@
 
     <!-- MAP -->
     <div class="col-6 d-none d-lg-block containMap ">
-      <div #googleMap class="map">
-        <app-maps [modoInput]="true"></app-maps>
-      </div>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker *ngFor="let mark of listHouses" [latitude]=mark.latitud [longitude]=mark.longitud>
+        </agm-marker>
+      </agm-map>
     </div>
     <div *ngIf="loading" class="col-12 offset-md-2 col-md-8 wait">
       <!-- div de google maps -->

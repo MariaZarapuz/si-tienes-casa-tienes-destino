@@ -1,4 +1,4 @@
-import { ObservablesService } from "./../observables.service";
+import { ObservablesService } from './../observables.service';
 import {
   Component,
   OnInit,
@@ -6,21 +6,21 @@ import {
   Input,
   Output,
   EventEmitter
-} from "@angular/core";
+} from '@angular/core';
 
 declare var google;
 
 @Component({
-  selector: "app-maps",
-  templateUrl: "./maps.component.html",
-  styleUrls: ["./maps.component.css"]
+  selector: 'app-maps',
+  templateUrl: './maps.component.html',
+  styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit {
   @Input() modoInput: boolean;
   @Input() modoMap: boolean;
   @Output() envioDireccion: EventEmitter<any>;
 
-  @ViewChild("googleMap", null)
+  @ViewChild('googleMap', null)
   gMap: any;
   map: any;
   directionsService: any;
@@ -38,14 +38,14 @@ export class MapsComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
 
-    //Pide activar la geolocalizacion del navegador y pasa las coordenadas
+    // Pide activar la geolocalizacion del navegador y pasa las coordenadas
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         this.showPosition.bind(this),
         this.showError
       );
     } else {
-      console.log("La hemos liado con la geolocalizacion");
+      console.log('La hemos liado con la geolocalizacion');
     }
 
     this.autocompletadoGoogle();
@@ -57,18 +57,18 @@ export class MapsComponent implements OnInit {
     }
   }
 
-  //Metodo que se ejecuta cuando estamos posicionados correctamente cuando se habilita la geolocalizacion
+  // Metodo que se ejecuta cuando estamos posicionados correctamente cuando se habilita la geolocalizacion
   showPosition(position) {
     console.log(position);
     this.loadMap(position);
   }
 
-  //Al cargar la pagina coge la geolocalizacion de showPosition y carga el mapa
+  // Al cargar la pagina coge la geolocalizacion de showPosition y carga el mapa
   loadMap(position) {
     this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
 
-    let propsMap = {
+    const propsMap = {
       center: new google.maps.LatLng(
         position.coords.latitude,
         position.coords.longitude
@@ -80,10 +80,10 @@ export class MapsComponent implements OnInit {
 
     this.directionsDisplay.setMap(this.map);
 
-    let marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
       position: propsMap.center,
       map: this.map,
-      title: "Usted se encuentra aqui!"
+      title: 'Usted se encuentra aqui!'
     });
     this.markers.push(marker);
     this.loading = false;
@@ -91,19 +91,19 @@ export class MapsComponent implements OnInit {
 
   // Carga el autompletado del input al iniciar la pagina.
   autocompletadoGoogle() {
-    let input = document.getElementById("inputPlace");
-    let autoComplete = new google.maps.places.Autocomplete(input);
+    const input = document.getElementById('inputPlace');
+    const autoComplete = new google.maps.places.Autocomplete(input);
 
-    autoComplete.setFields(["address_components", "geometry", "icon", "name"]);
+    autoComplete.setFields(['address_components', 'geometry', 'icon', 'name']);
 
-    autoComplete.addListener("place_changed", () => {
-      let place = autoComplete.getPlace();
+    autoComplete.addListener('place_changed', () => {
+      const place = autoComplete.getPlace();
       if (place.geometry === undefined) {
         this.objAdress = { activo: true };
         this.ObservableService.handleAdress(this.objAdress);
       } else {
-        let lat = place.geometry.location.lat();
-        let lng = place.geometry.location.lng();
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
 
 
         switch (place.address_components.length) {
@@ -161,7 +161,7 @@ export class MapsComponent implements OnInit {
 
         this.ObservableService.handleAdress(this.objAdress);
 
-        let m = new google.maps.Marker({
+        const m = new google.maps.Marker({
           animation: google.maps.Animation.DROP
         });
         this.lat = lat;
@@ -175,7 +175,7 @@ export class MapsComponent implements OnInit {
     this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
 
-    let propsMap = {
+    const propsMap = {
       center: new google.maps.LatLng(this.lat, this.lng),
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -184,10 +184,10 @@ export class MapsComponent implements OnInit {
 
     this.directionsDisplay.setMap(this.map);
 
-    let m = new google.maps.Marker({
+    const m = new google.maps.Marker({
       position: new google.maps.LatLng(this.lat, this.lng),
       map: this.map,
-      title: "Nuevo punto"
+      title: 'Nuevo punto'
     });
     this.markers.push(m);
   }
@@ -197,19 +197,19 @@ export class MapsComponent implements OnInit {
     console.log(error);
     switch (error.code) {
       case error.PERMISSION_DENIED:
-        console.log("El usuario no quiere ser localizado");
+        console.log('El usuario no quiere ser localizado');
         break;
 
       case error.POSITION_UNAVAILABLE:
-        console.log("No se ha podido recuperar la posición");
+        console.log('No se ha podido recuperar la posición');
         break;
 
       case error.TIMEOUT:
-        console.log("Se ha tardado demasiado en recuperar la localización");
+        console.log('Se ha tardado demasiado en recuperar la localización');
         break;
 
       case error.UNKNOWN_ERROR:
-        console.log("Error desconocido");
+        console.log('Error desconocido');
         break;
     }
   }
