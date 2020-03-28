@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
 
-a, p, h1, h2, h3, h4, h5 button, input, label{
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 button,
+input,
+label {
   font-family: 'Montserrat', sans-serif
 }
 
@@ -8,15 +16,18 @@ a, p, h1, h2, h3, h4, h5 button, input, label{
 .images {
   margin-top: 20px;
 }
+
 .images img {
   width: 100%
 }
+
 .images .pImg {
   margin: 0;
   padding: 0;
   padding-left: 15px;
 
 }
+
 .images .pImg .principalImage img {
   height: 400px;
   object-fit: cover;
@@ -39,43 +50,55 @@ a, p, h1, h2, h3, h4, h5 button, input, label{
 .descriptionCard {
   padding-left: 20px;
   margin-top: 20px;
-}/* 
+}
+
+/* 
 .cards .descriptionCard{
   padding: 70px;
   padding-top: 30px
 }*/
-.descriptionCard .title h1{
+.descriptionCard .title h1 {
   font-weight: bold;
   color: #220e2a;
 }
-.descriptionCard .title p{
+
+.descriptionCard .title p {
   margin-top: 0px;
   padding-top: 0px;
 }
-.descriptionCard .icons .bold{
+
+.descriptionCard .icons .bold {
   font-weight: bold;
   font-size: 1.2em;
 }
-.descriptionCard .icons a{
+
+.descriptionCard .icons a {
   font-weight: 1.2em;
   color: #220e2a;
   margin-right: 20px;
   margin-left: 0px
 }
-.descriptionCard h4{
+
+.descriptionCard h4 {
   font-weight: bold;
 }
-.containerImg{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
+
+.containerImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
 }
-.userimage{
-    background-image: url('../../assets/images/user.png');
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center center;
+
+.userimage {
+  background-image: url('../../assets/images/user.png');
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.iconService {
+  width: 32px;
 }

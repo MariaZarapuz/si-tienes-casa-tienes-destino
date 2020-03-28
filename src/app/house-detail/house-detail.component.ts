@@ -64,10 +64,9 @@ export class HouseDetailComponent implements OnInit {
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
-      console.log(params);
-      const response = await this.houseService.getByFk(params.fk_usuarios);
-      console.log(response);
-      this.house = response;
+      this.house = await this.houseService.getByFk(params.fk_usuarios);
+
+      console.log(this.house);
       console.log(params.fk_usuarios);
 
       this.user = await this.usuariosService.getById(params.fk_usuarios);
