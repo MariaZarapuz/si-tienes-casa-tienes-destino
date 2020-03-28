@@ -57,7 +57,7 @@ a, p, i, h2, h4, button, input, label, select, option{
   margin-top: 10px;
 }
 .secondDiv .information .inp{
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 45px;
 }
 
@@ -102,9 +102,31 @@ a, p, i, h2, h4, button, input, label, select, option{
   margin-top: 10px;
   border: 2px solid #8bc5ce;
   color: #220e2a;
+  font-weight: bold;
   background-color: #8bc5ce
 }
+.saveBtn:hover{
+  border: 2px solid #220e2a;
+  color: white;
+  font-weight: normal;
+  background-color: #220e2a;
+}
 
+/* LOADING */
+/* .loading{
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+}
+
+.loading .gif{
+  background-color: rgb(189, 189, 189);
+  background-blend-mode: multiply;
+  background-image: url("https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif");
+} */
 
 
 /* OTHERS */

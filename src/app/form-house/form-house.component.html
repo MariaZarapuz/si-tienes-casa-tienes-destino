@@ -1,232 +1,237 @@
 <div class="container">
-  <!-- SEARCH DIV -->
-  <div *ngIf="firstDiv && !activo" class="col-12 col-md-5 col-lg-6 searchDiv">
-    <h4>¿Cuál es la dirección de la vivienda?</h4>
-    <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
-  </div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-12">
-    <div class="row">
-      <!-- IMAGE -->
-      <div class="image col-12 col-md-7 col-lg-6 mt-5 mt-lg-4">
-        <img class="mt-md-5" src="../../assets/images/formhouse.svg" alt="">
-      </div>
+  <div class="row">
 
-      <!-- FIRST DIV -->
-      <div id="address" *ngIf="firstDiv && activo" class="col-12 col-md-5 col-lg-6 firstDiv">
-        <h4>¿Cuál es la dirección de la vivienda?</h4>
-        <div class="row address">
+    <!-- IMAGE -->
+    <div class="image col-12 col-md-7 col-lg-6 mt-5 mt-lg-4">
+      <img class="mt-md-5" src="../../assets/images/formhouse.svg" alt="">
+    </div>
+    <!-- SEARCH DIV -->
+    <div *ngIf="firstDiv && !activo" class="col-12 col-md-5 col-lg-6 searchDiv">
+      <h4>¿Cuál es la dirección de la vivienda?</h4>
+      <app-maps [modoInput]="false" [modoMap]="true" (envioDireccion)="manejarEnvioDireccion($event)"></app-maps>
+    </div>
+    <!-- FORM -->
+    <form [formGroup]="form" class="col-12 col-md-5 col-lg-6">
+      <div class="row">
+        <!-- FIRST DIV -->
+        <div id="address" *ngIf="firstDiv && activo" class="firstDiv">
+          <h4>¿Cuál es la dirección de la vivienda?</h4>
+          <div class="row address">
 
-          <div class="col-12 col-lg-6">
-            <select class="form-control" formControlName="tipo" name="Tipo de vivienda">
-              <option value="" selected disabled>Tipo de vivienda</option>
-              <option value="Apartamento">Apartamento</option>
-              <option value="Chalet">Chalet</option>
-            </select>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <input type="text" class="form-control" placeholder="País" formControlName="pais">
-            <div class="error inputValid" *ngIf="form.controls.pais.errors?.required && form.controls.pais.touched">
-              Rellene el campo
-            </div>
-          </div>
-
-          <div class="col-12">
-            <input type="text" class="form-control" placeholder="Calle y número" formControlName="direccion">
-            <div class=" error inputValid"
-              *ngIf="form.controls.direccion.errors?.required && form.controls.direccion.touched">
-              Rellene el campo País
-            </div>
-          </div>
-
-          <div class="col-6 col-sm-4">
-            <input type="text" class="form-control" placeholder="Piso" formControlName="piso">
-          </div>
-
-          <div class="col-6 col-sm-4">
-            <input type="text" class="form-control" placeholder="Puerta" formControlName="puerta">
-          </div>
-
-          <div class="col-12 col-sm-4">
-            <input type="text" class="form-control" placeholder="C.P" formControlName="cp">
-            <div class=" error inputValid" *ngIf="form.controls.cp.errors?.required && form.controls.cp.touched">
-              Rellene el campo
-            </div>
-          </div>
-
-          <div class="col-6">
-            <input type="text" class="form-control" placeholder="Poblacion" formControlName="poblacion">
-            <div class=" error inputValid"
-              *ngIf="form.controls.poblacion.errors?.required && form.controls.poblacion.touched">
-              Rellene el campo población
-            </div>
-          </div>
-
-          <div class="col-6">
-            <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia">
-            <div class=" error inputValid"
-              *ngIf="form.controls.provincia.errors?.required && form.controls.provincia.touched">
-              Rellene el campo provincia
-            </div>
-          </div>
-
-          <div class="col-12">
-            <div class="row">
-              <div class="col-6">
-                <button id="-1" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+            <div class="col-12 col-lg-6">
+              <input type="text" class="form-control" placeholder="Nombre" formControlName="titulo">
+              <div class="error inputValid"
+                *ngIf="form.controls.titulo.errors?.required && form.controls.titulo.touched">
+                Rellene el campo
               </div>
-              <div class="col-6 d-flex flex-row-reverse">
-                <button id="1" class="btn nextBtn" [disabled]="validarPrimerForm()"
-                  (click)="nextDiv($event)">Siguiente</button>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <input type="text" class="form-control" placeholder="País" formControlName="pais">
+              <div class="error inputValid" *ngIf="form.controls.pais.errors?.required && form.controls.pais.touched">
+                Rellene el campo
+              </div>
+            </div>
+
+            <div class="col-12">
+              <input type="text" class="form-control" placeholder="Calle y número" formControlName="direccion">
+              <div class=" error inputValid"
+                *ngIf="form.controls.direccion.errors?.required && form.controls.direccion.touched">
+                Rellene el campo
+              </div>
+            </div>
+
+            <div class="col-6 col-sm-4">
+              <input type="text" class="form-control" placeholder="Piso" formControlName="piso">
+            </div>
+
+            <div class="col-6 col-sm-4">
+              <input type="text" class="form-control" placeholder="Puerta" formControlName="puerta">
+            </div>
+
+            <div class="col-12 col-sm-4">
+              <input type="text" class="form-control" placeholder="C.P" formControlName="cp">
+              <div class=" error inputValid" *ngIf="form.controls.cp.errors?.required && form.controls.cp.touched">
+                Rellene el campo
+              </div>
+            </div>
+
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Poblacion" formControlName="poblacion">
+              <div class=" error inputValid"
+                *ngIf="form.controls.poblacion.errors?.required && form.controls.poblacion.touched">
+                Rellene el campo población
+              </div>
+            </div>
+
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia">
+              <div class=" error inputValid"
+                *ngIf="form.controls.provincia.errors?.required && form.controls.provincia.touched">
+                Rellene el campo provincia
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <button id="-1" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+                </div>
+                <div class="col-6 d-flex flex-row-reverse">
+                  <button id="1" class="btn nextBtn" [disabled]="validarPrimerForm()"
+                    (click)="nextDiv($event)">Siguiente</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
 
 
-      <!-- SECOND DIV -->
-      <div id="decript" *ngIf="secondDiv" class="secondDiv col-12 col-md-5 col-lg-6">
-        <h4>Información sobre la vivienda</h4>
-        <div class="row information">
-          <div class="col-12">
-            <div class="row">
-              <p class="col-10">¿Cuántos dormitorios tiene?</p>
-              <div class="col-2">
-                <input class="inp form-control" type="number" formControlName="habitaciones">
+        <!-- SECOND DIV -->
+        <div id="decript" *ngIf="secondDiv" class="secondDiv">
+          <h4>Información sobre la vivienda</h4>
+          <div class="row information">
+            <div class="col-12">
+              <div class="row">
+                <p class="col-10">¿Cuántos dormitorios tiene?</p>
+                <div class="col-2">
+                  <input class="inp form-control" type="number" formControlName="habitaciones">
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <div class="row">
-              <p class="col-10">¿De cuántas camas dispone?</p>
-              <div class="col-2">
-                <input class="inp form-control" type="number" formControlName="camas">
+            <div class="col-12">
+              <div class="row">
+                <p class="col-10">¿De cuántas camas dispone?</p>
+                <div class="col-2">
+                  <input class="inp form-control" type="number" formControlName="camas">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row">
+                <p class="col-10">¿De cuántos baños dispone?</p>
+                <div class="col-2">
+                  <input class="inp form-control" type="number" formControlName="banos">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row">
+                <p class="col-10">¿Capacidad?</p>
+                <div class="col-2">
+                  <input class="inp form-control" type="number" formControlName="capacidad">
+                </div>
+
               </div>
 
             </div>
-          </div>
 
-          <div class="col-12">
-            <div class="row">
-              <p class="col-10">¿De cuántos baños dispone?</p>
-              <div class="col-2">
-                <input class="inp form-control" type="number" formControlName="banos">
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col-12">
-            <div class="row">
-              <p class="col-10">¿Capacidad?</p>
-              <div class="col-2">
-                <input class="inp form-control" type="number" formControlName="capacidad">
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-12">
-            <div class="row">
-              <p class="col-12">¿En qué fechas desearías intercambiar tu casa?</p>
-              <div class="date offset-1 col-10">
-                <div class="row">
-                  <div class="col-12 col-lg-6">
-                    <div class="row">
-                      <label class="col-5">Desde</label>
-                      <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_entrada">
+            <div class="col-12">
+              <div class="row">
+                <p class="col-12">¿En qué fechas desearías intercambiar tu casa?</p>
+                <div class="date offset-1 col-10">
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <div class="row">
+                        <label class="col-5">Desde</label>
+                        <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_entrada">
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <div class="row">
-                      <label class="col-5">hasta</label>
-                      <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_salida">
+                    <div class="col-12 col-lg-6">
+                      <div class="row">
+                        <label class="col-5">hasta</label>
+                        <input class=" form-control col-form-label-sm" type="date" formControlName="fecha_salida">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-12 ">
-            <div class="row">
-              <p class="col-12 ">Realiza una descripción de la vivienda</p>
-              <div class="col-12 descrip">
-                <textarea class="form-control" id="validationTextarea" placeholder=""
-                  formControlName="descripcion"></textarea>
+            <div class="col-12 ">
+              <div class="row">
+                <p class="col-12 ">Realiza una descripción de la vivienda</p>
+                <div class="col-12 descrip">
+                  <textarea class="form-control" id="validationTextarea" placeholder=""
+                    formControlName="descripcion"></textarea>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <button id="-2" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+                </div>
+                <div class="col-6 d-flex flex-row-reverse">
+                  <button id="2" class="btn nextBtn" (click)="nextDiv($event)" [disabled]="validarSegundoForm()">
+                    Siguiente </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THIRD DIV -->
+
+        <div id="services" class="thirdDiv" *ngIf="thirdDiv">
+          <h4>Indica los servicios e instalaciones que tiene tu casa</h4>
+          <!-- services -->
+          <div class="row services">
+            <div class="col-12">
+              <h5>Servicios</h5>
+            </div>
+            <div class="col-6 service" *ngFor="let servicio of arrServices">
+              <div class="row">
+                <input class="col-2" type="checkbox" formControlName={{servicio}}>
+                <p class="col-10">{{servicio}}</p>
               </div>
             </div>
           </div>
 
+          <!-- intallations -->
+          <div class="row installations">
+            <div class="col-12">
+              <h5>Instalaciones</h5>
+            </div>
+            <div class="col-6 service" *ngFor="let installation of arrInstallations">
+              <div class="row">
+                <input class="col-2" type="checkbox" formControlName={{installation}}>
+                <p class="col-10">{{installation}}</p>
+              </div>
 
+            </div>
+          </div>
+          <!--insertar foto-->
+          <div>
+            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
+              formControlName="file" required>
 
+          </div>
           <div class="col-12">
             <div class="row">
               <div class="col-6">
-                <button id="-2" class="btn backBtn" (click)="behindDiv($event)">Atras</button>
+                <button id="-3" class="btn backBtn mt-4 mb-4" (click)="behindDiv($event)">Atras</button>
               </div>
               <div class="col-6 d-flex flex-row-reverse">
-                <button id="2" class="btn nextBtn" (click)="nextDiv($event)" [disabled]="validarSegundoForm()">
-                  Siguiente </button>
+                <button id="3" class="btn saveBtn mt-4 mb-4" (click)="nextDiv($event)">Guardar</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- THIRD DIV -->
-
-      <div id="services" class="thirdDiv col-12 col-md-5 col-lg-6" *ngIf="thirdDiv">
-        <h4>Indica los servicios e instalaciones que tiene tu casa</h4>
-        <!-- services -->
-        <div class="row services">
-          <div class="col-12">
-            <h5>Servicios</h5>
-          </div>
-          <div class="col-6 service" *ngFor="let servicio of arrServices">
-            <div class="row">
-              <input class="col-2" type="checkbox" formControlName={{servicio}}>
-              <p class="col-10">{{servicio}}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- intallations -->
-        <div class="row installations">
-          <div class="col-12">
-            <h5>Instalaciones</h5>
-          </div>
-          <div class="col-6 service" *ngFor="let installation of arrInstallations">
-            <div class="row">
-              <input class="col-2" type="checkbox" formControlName={{installation}}>
-              <p class="col-10">{{installation}}</p>
-            </div>
-
-          </div>
-        </div>
-        <!--insertar foto-->
-        <div>
-          <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)" formControlName="file"
-            required>
-
-        </div>
-        <div class="col-12">
-          <div class="row">
-            <div class="col-6">
-              <button id="-3" class="btn backBtn mt-4" (click)="behindDiv($event)">Atras</button>
-            </div>
-            <div class="col-6 d-flex flex-row-reverse">
-              <button id="3" class="btn saveBtn mt-4" (click)="nextDiv($event)">Guardar</button>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
+<!-- *ngIf="showLoading" -->
+<!-- <div class="loading">
+  <div class="gif"></div>
+</div> -->

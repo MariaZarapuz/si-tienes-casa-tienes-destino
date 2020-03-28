@@ -105,9 +105,6 @@ export class MapsComponent implements OnInit {
         let lat = place.geometry.location.lat();
         let lng = place.geometry.location.lng();
 
-        // console.log(lat)
-        // console.log(lng)
-        console.log(place);
 
         switch (place.address_components.length) {
           case 4:
@@ -161,7 +158,6 @@ export class MapsComponent implements OnInit {
             break;
         }
         this.envioDireccion.emit(this.objAdress);
-        console.log(this.objAdress.activo);
 
         this.ObservableService.handleAdress(this.objAdress);
 
@@ -170,7 +166,6 @@ export class MapsComponent implements OnInit {
         });
         this.lat = lat;
         this.lng = lng;
-        console.log(this.lat, this.lng);
       }
     });
   }

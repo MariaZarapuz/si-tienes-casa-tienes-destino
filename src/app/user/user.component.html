@@ -96,10 +96,10 @@
                   <h5>Características de la casa</h5>
                 </div>
 
-                <div class="col-12">
-                  <p *ngIf="showInputs">Tipo: {{house?.tipo}}</p>
+                <div class="col-12 mt-2">
+                  <p *ngIf="showInputs">Nombre: {{house?.titulo}}</p>
                   <input *ngIf="!showInputs" type="select" class="form-control form-control-sm"
-                    placeholder="{{house?.tipo}}" formControlName="tipo">
+                    placeholder="{{house?.titulo}}" formControlName="titulo">
                 </div>
                 <div class="col-12">
                   <p *ngIf="showInputs">{{house?.habitaciones}} habitaciones</p>
@@ -122,10 +122,10 @@
                     placeholder="{{house?.capacidad}} personas" formControlName="capacidad">
                 </div>
                 <div class="col-12">
-                  <p *ngIf="showInputs">Descripción</p>
+                  <p>Descripción</p>
                   <p *ngIf="showInputs">{{house?.descripcion | puntos}}</p>
-                  <input *ngIf="!showInputs" type="text-area" class="form-control form-control-sm"
-                    placeholder="Descripción de tu casa" formControlName="descripcion">
+                  <textarea *ngIf="!showInputs" class="form-control" placeholder="{{house?.descripcion}}"
+                    formControlName="descripcion"></textarea>
                 </div>
 
                 <div class="col-12">
@@ -149,7 +149,7 @@
                   <h5>Dirección</h5>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 mt-2">
                   <p *ngIf="showInputs">Dirección: {{house?.direccion}}</p>
                   <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
                     placeholder="Calle y numero" formControlName="direccion">

@@ -21,7 +21,7 @@
           <div class="col-12 col-md-8 info">
             <div class="row">
               <div class="summary col-9">
-                <h4 class="card-title">{{item.nombre}}</h4>
+                <h4 class="card-title">{{item.titulo}}</h4>
                 <p>{{item.direccion}}</p>
                 <div class="icons">
                   <a href="">{{item.camas}} <i class="fas fa-bed"></i></a>
@@ -46,10 +46,10 @@
     <!-- MAP -->
     <div class="col-6 d-none d-lg-block containMap ">
       <div #googleMap class="map">
-        <app-maps></app-maps>
+        <app-maps [modoInput]="true"></app-maps>
       </div>
     </div>
-    <div *ngIf="loading" class=" offset-1 col-4 d-none d-lg-block col-6">
+    <div *ngIf="loading" class="col-12 offset-md-2 col-md-8">
       <!-- div de google maps -->
       <img class="wait" src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif">
     </div>

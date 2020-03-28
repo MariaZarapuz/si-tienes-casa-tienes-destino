@@ -65,7 +65,7 @@ label {
 }
 
 .houses .btn:hover .fas {
-  transform: translate(10px);
+  transform: translate(5px);
   transition: 0.5s;
 }
 

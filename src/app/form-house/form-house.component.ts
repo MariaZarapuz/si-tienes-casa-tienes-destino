@@ -23,6 +23,7 @@ export class FormHouseComponent implements OnInit {
   activo: boolean;
   objAddressHouse: any;
   files: any;
+  showLoading: boolean;
 
   constructor(
     private router: Router,
@@ -57,7 +58,7 @@ export class FormHouseComponent implements OnInit {
       'tostador'
     ];
     this.form = new FormGroup({
-      tipo: new FormControl('', [Validators.required]),
+      titulo: new FormControl('', [Validators.required]),
       pais: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required]),
       piso: new FormControl('', []),
@@ -95,7 +96,7 @@ export class FormHouseComponent implements OnInit {
     });
 
     this.arrPrimerFormulario = [
-      this.form.controls.tipo,
+      this.form.controls.titulo,
       this.form.controls.pais,
       this.form.controls.direccion,
       this.form.controls.provincia,
@@ -112,38 +113,35 @@ export class FormHouseComponent implements OnInit {
       this.form.controls.fecha_entrada,
       this.form.controls.fecha_salida
     ];
+
   }
 
   ngOnInit() {
+    this.showLoading = false
     this.ObservableService.addressSb.subscribe(res => {
-      // console.log(res);
       this.objAddressHouse = res;
       this.form.controls.pais.setValue(this.objAddressHouse.pais);
       this.form.controls.direccion.setValue(this.objAddressHouse.direccion);
       this.form.controls.poblacion.setValue(this.objAddressHouse.poblacion);
       this.form.controls.provincia.setValue(this.objAddressHouse.provincia);
       this.form.controls.cp.setValue(this.objAddressHouse.cp);
+      this.form.controls.latitud.setValue(this.objAddressHouse.lat);
+      this.form.controls.longitud.setValue(this.objAddressHouse.lng);
       this.activo = res.activo;
     });
   }
 
   manejarEnvioDireccion($event) {
-    // console.log("ENTRA!!!!!!");
-    // Fuerza que la ejecucion se realice de manera asincrona sobre la aplicacion
     this.ngZone.run(() => {
       this.activo = true;
     });
-
-    // console.log("ACTIVO", this.activo);
   }
 
   nextDiv($event) {
-    // console.log($event.target.id);
     switch ($event.target.id) {
       case '1':
         this.firstDiv = false;
         this.secondDiv = true;
-        // console.log(this.secondDiv);
         break;
       case '2':
         this.secondDiv = false;
@@ -156,7 +154,7 @@ export class FormHouseComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log(this.form.value);
+    /* this.showLoading = true */
     const fd = new FormData();
     fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
     Object.keys(this.form.value).forEach(key => {
@@ -178,10 +176,10 @@ export class FormHouseComponent implements OnInit {
       .toPromise()
       .then(result => {
         console.log(result);
+        /* this.showLoading = false */
         this.router.navigate(['/user']);
       });
 
-    // const response = await this.houseService.addHouse(this.form.value);
   }
 
   onChange($event) {
@@ -214,7 +212,6 @@ export class FormHouseComponent implements OnInit {
         result = true;
       }
     });
-    // console.log(cont);
     return result;
   }
 
@@ -226,8 +223,9 @@ export class FormHouseComponent implements OnInit {
       if (!control.valid) {
         result = true;
       }
-      // console.log("................", control.valid);
     });
     return result;
   }
+
+
 }
