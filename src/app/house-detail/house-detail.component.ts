@@ -83,10 +83,13 @@ export class HouseDetailComponent implements OnInit {
     this.srcPrincipal = e.target.src;
   }
 
-  async save() {
-    let emi = this.usuariosService.getLocalStore("id");
-    let recep = this.house.fk_usuarios;
-    await this.contactService.insertComent(this.comentario, emi, recep);
+  async save(recep, emi, nombre) {
+    emi = this.usuariosService.getLocalStore("id");
+    nombre = this.usuariosService.getLocalStore("nombre");
+
+    recep = this.house.fk_usuarios;
+    console.log(this.comentario, recep, emi);
+    await this.contactService.insertComent(this.comentario, recep, emi, nombre);
   }
 
   changeCard($event) {

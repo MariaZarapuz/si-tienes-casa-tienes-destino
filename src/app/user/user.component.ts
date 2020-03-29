@@ -1,9 +1,13 @@
-import { async } from "@angular/core/testing";
+import { ContactService } from "./../contact.service";
+
 import { UsuariosService } from "./../usuarios.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HouseService } from "../house.service";
+
+import { groupBy, mergeMap, toArray } from "rxjs/operators";
+import { from } from "rxjs";
 
 @Component({
   selector: "app-user",
@@ -24,17 +28,29 @@ export class UserComponent implements OnInit {
   idHouse: any;
   showBtn: boolean;
   showIcon: boolean;
+  display: boolean;
+  comentarios: any;
+  arrUserEmit: any[];
+  array: any;
+  msmUser: any[];
+  userComentari: any[];
+  recepId: any;
+  comentRes: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private usuarioService: UsuariosService,
-    private houseService: HouseService
+    private houseService: HouseService,
+    private contactService: ContactService
   ) {
+    this.userComentari = new Array();
     this.showInputs = true;
     this.showParagraph = false;
     this.card1 = true;
     this.card2 = false;
+    this.arrUserEmit = new Array();
+
     this.formEditUser = new FormGroup({
       nombre: new FormControl("", [Validators.required]),
       apellidos: new FormControl("", [Validators.required]),
@@ -234,5 +250,37 @@ export class UserComponent implements OnInit {
       .reverse()
       .join("/");
     this.fechaFormat = fechaNac;
+  }
+
+  async getSms() {
+    this.userComentari = new Array();
+    this.display = false;
+    const id = this.usuarioService.getLocalStore("id");
+
+    this.comentarios = await this.contactService.getSms(id);
+
+    const source = from(this.comentarios);
+    const example = source.pipe(
+      groupBy(person => person["user_emit"]),
+      // return each item in group as array
+      mergeMap(group => group.pipe(toArray()))
+    );
+
+    const subscribe = example.subscribe(val => this.userComentari.push(val));
+    console.log(this.userComentari);
+  }
+
+  PonerTextArea(e) {
+    this.recepId = e.target.id;
+    this.display = !this.display;
+  }
+
+  async save() {
+    const emi = this.usuarioService.getLocalStore("id");
+    const nombre = this.usuarioService.getLocalStore("nombre");
+    const recep = this.recepId;
+
+    console.log(this.comentRes, recep, emi);
+    await this.contactService.insertComent(this.comentRes, recep, emi, nombre);
   }
 }

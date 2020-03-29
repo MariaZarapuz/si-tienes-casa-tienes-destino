@@ -13,7 +13,47 @@
           <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
         </div>
       </div>
+
       <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+          <i id="1" (click)="getSms()" *ngIf="card1" class="fas fa-envelope" data-toggle="modal"
+            data-target="#exampleModalCenter"></i>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Mensajes recibidos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div *ngIf="!display">
+                <div class="modal-body" *ngFor="let comentario of userComentari">
+                  <p>Mensaje enviado por:<strong> {{comentario[0].nombre_emi}}</strong></p>
+                  <div *ngFor="let userCom of comentario">
+                    <p>{{userCom.comentario}}</p>
+                  </div>
+                  <div class="text-right">
+                    <button type="button" [id]="comentario[0].user_emit" (click)="PonerTextArea($event)"
+                      class="btn btn-primary">Reponder</button>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="display">
+                <textarea name="" id="" cols="30" rows="10" [(ngModel)]="comentRes"></textarea>
+                <button type="button" (click)="save()" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div>
           <i class="fas fa-trash-alt" (click)="deleteUser()" *ngIf="card1"></i>
           <i class="fas fa-trash-alt" (click)="deleteHouse()" *ngIf="card2"></i>
