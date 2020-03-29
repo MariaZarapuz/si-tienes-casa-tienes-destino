@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <!-- IMAGES -->
-    <div class="images">
+    <div class="images mb-0">
       <div class="row">
         <div class="pImg col-9 ">
           <div class="principalImage">
@@ -20,21 +20,7 @@
       </div>
     </div>
 
-    <!-- CARDS -->
-
-    <!-- <div class="title card-header text-center">
-          <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item">
-              <a class="pointer nav-link" id="1" (click)="changeCard($event)">Descripción</a>
-            </li>
-            <li class="nav-item">
-              <a class="pointer nav-link" id="2" (click)="changeCard($event)">Valoraciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="pointer nav-link" id="3" (click)="changeCard($event)">Comentarios</a>
-            </li>
-          </ul>
-        </div> -->
+    <!-- CARDs -->
     <div class="col-12 col-md-8 descriptionCard" *ngIf="card1">
       <div class="row">
         <div class="col-12">
@@ -43,8 +29,8 @@
               <h1 class="card-title">{{house?.titulo}}</h1>
               <p>{{house?.poblacion}}, {{house?.provincia}}</p>
             </div>
-            <div class="col-12 icons mb-4">
-              <a class="mt-4 mb-3">{{house?.habitaciones}} <i class="fas fa-bed"></i></a>
+            <div class="col-12 icons mt-4 mb-4">
+              <a class="mb-3">{{house?.habitaciones}} <i class="fas fa-bed"></i></a>
               <a href="">{{house?.capacidad}} <i class="fas fa-users"></i></a>
               <a href="">{{house?.banos}} <i class="fas fa-bath"></i></a>
               <p class="mt-3"> {{house?.descripcion}}</p>
@@ -52,8 +38,160 @@
           </div>
         </div>
         <div class="col-12">
-          <h4>Servicios</h4>
 
+          <!-- services -->
+          <div class="col-12 services">
+            <div class="row">
+              <div class="col-12">
+                <h5>Servicios</h5>
+              </div>
+
+              <div *ngIf="house?.aireAcondicionado == 1" class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.aireAcondicionado === 1">
+                    <img src="../../assets/servicios/icons8-aire-acondicionado-100.png" title="Aire Acondicinado"
+                      class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.calefaccion === 1  " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.calefaccion === 1">
+                    <img src="../../assets/servicios/icons8-calefacción-50.png" title="Calefacción" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.wifi ===1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.wifi === 1">
+                    <img src="../../assets/servicios/icons8-wifi-64.png" title="Wifi" class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.teleCable === 1 " class="col-6">
+                <div class="row">
+
+                  <div *ngIf="house?.teleCable === 1">
+                    <img src="../../assets/servicios/icons8-televisión-de-alta-definición-80.png" title="teleCable"
+                      class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.plancha === 1  " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.plancha === 1">
+                    <img src="../../assets/servicios/icons8-plancha-80.png" title="plancha" class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.horno === 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.horno === 1">
+                    <img src="../../assets/servicios/icons8-horno-tostador-50.png" title="horno" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.microondas === 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.microondas === 1">
+                    <img src="../../assets/servicios/icons8-microondas-80.png" title="microondas" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.secador === 1  " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.secador === 1">
+                    <img src="../../assets/servicios/icons8-secador-de-pelo-64.png" title="secador" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.lavavajillas === 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.lavavajillas === 1">
+                    <img src="../../assets/servicios/icons8-lavavajillas-80.png" title="lavavajillas"
+                      class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.lavadora === 1 " class="col-6">
+                <div class="row">
+
+                  <img src="../../assets/servicios/icons8-lavadora-80.png" title="lavadora" class="iconService" alt="">
+
+                </div>
+              </div>
+
+              <div *ngIf="house?.secadora === 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.secadora === 1">
+                    <img src="../../assets/servicios/icons8-secadora-50.png" title="secadora" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- intallations -->
+          <div class="col-12 installations">
+
+            <div class="row">
+
+              <div class="col-12">
+                <h5>Instalaciones</h5>
+              </div>
+
+              <div *ngIf="house?.ascensor == 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.ascensor === 1">
+                    <img src="../../assets/servicios/icons8-ascensor-50.png" title="ascensor" class="iconService"
+                      alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.piscina === 1 " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.parking === 1">
+                    <img src="../../assets/servicios/icons8-garaje-80.png" title="parking" class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="house?.piscina === 1  " class="col-6">
+                <div class="row">
+                  <div *ngIf="house?.piscina === 1">
+                    <img src="../../assets/servicios/icons8-piscina-50.png" title="piscina" class="iconService" alt="">
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div *ngIf="house?.parque === 1 " class="col-6">
+        <div class="row">
+           <div *ngIf="house?.parque === 1">
+            <img src="../../assets/servicios/icons8-zona-de-juegos-80.png" title="Parque Infantil" class="iconService"
+              alt="">
+          </div>
+        </div>
+      </div> -->
+
+            </div>
+          </div>
         </div>
       </div>
 
@@ -68,7 +206,9 @@
 
 
     </div>
-    <div class="d-none d-md-block col-4 userInfoContain">
+
+
+    <div class="col-12 col-md-4 userInfoContain">
       <div class="containerImg">
         <div class="userimage"></div>
       </div>

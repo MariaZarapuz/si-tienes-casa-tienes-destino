@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
       this.id = response.id;
       this.nombre = response.nombre;
       response = response["success"];
-      console.log(response);
       this.usuariosService.postLocalStore("token", response);
       this.usuariosService.postLocalStore("id", this.id);
       this.usuariosService.postLocalStore("nombre", this.nombre);

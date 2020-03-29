@@ -213,7 +213,27 @@
           <!--insertar foto-->
           <div>
             <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file" required>
+              formControlName="file1" required>
+
+          </div>
+          <div>
+            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
+              formControlName="file2" required>
+
+          </div>
+          <div>
+            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
+              formControlName="file3" required>
+
+          </div>
+          <div>
+            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
+              formControlName="file4" required>
+
+          </div>
+          <div>
+            <input class="form-control" type="file" name="foto_usuario" (change)="onChange($event)"
+              formControlName="file5" required>
 
           </div>
           <div class="col-12">
@@ -232,6 +252,8 @@
   </div>
 </div>
 <!-- *ngIf="showLoading" -->
-<!-- <div class="loading">
-  <div class="gif"></div>
-</div> -->
+<div class="loading d-flex justify-content-center" *ngIf="showLoading">
+
+  <img src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif" alt="">
+
+</div>

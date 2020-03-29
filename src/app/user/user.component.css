@@ -8,6 +8,10 @@ label {
   font-family: 'Montserrat', sans-serif
 }
 
+.display {
+  display: none;
+}
+
 /* USER IMAGE */
 .containerImg {
   display: flex;

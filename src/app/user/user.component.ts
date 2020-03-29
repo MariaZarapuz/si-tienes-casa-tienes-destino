@@ -173,7 +173,7 @@ export class UserComponent implements OnInit {
     console.log(this.house, "init");
   }
 
-  //USER
+  // USER
   async onSubmit() {
     await this.usuarioService.updateUser(this.formEditUser.value);
 
@@ -184,12 +184,17 @@ export class UserComponent implements OnInit {
   }
 
   async deleteUser() {
-    await this.usuarioService.deleteByToken();
-    localStorage.clear();
-    this.router.navigate(["/home"]);
+    const booleanDelete = confirm(
+      "¿Estás seguro de que quieres borrar tu perfil?"
+    );
+    if (booleanDelete == true) {
+      await this.usuarioService.deleteByToken();
+      localStorage.clear();
+      this.router.navigate(["/home"]);
+    }
   }
 
-  //HOUSE
+  // HOUSE
   async onSubmitHouse(pIdHouse) {
     pIdHouse = this.house.id;
     await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
@@ -201,12 +206,17 @@ export class UserComponent implements OnInit {
   }
 
   async deleteHouse(pIdHouse) {
-    pIdHouse = this.idHouse;
-    await this.houseService.deleteHousebyId(pIdHouse);
-    this.router.navigate(["/home"]);
+    const booleanDelete = confirm(
+      "¿Estás seguro de que quieres borrar tu casa?"
+    );
+    if (booleanDelete == true) {
+      pIdHouse = this.idHouse;
+      await this.houseService.deleteHousebyId(pIdHouse);
+      this.router.navigate(["/home"]);
+    }
   }
 
-  //BOTH
+  // BOTH
 
   editeInfo($event) {
     switch ($event.target.id) {
@@ -251,7 +261,7 @@ export class UserComponent implements OnInit {
 
     const source = from(this.comentarios);
     const example = source.pipe(
-      groupBy(person => person.user_emit),
+      groupBy(person => person["user_emit"]),
       // return each item in group as array
       mergeMap(group => group.pipe(toArray()))
     );

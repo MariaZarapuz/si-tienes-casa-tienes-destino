@@ -9,7 +9,7 @@
         <div *ngIf="showInputs">
           <i id="1" *ngIf="card2" class="fas fa-user" (click)="changeCard($event)"></i>
         </div>
-        <div *ngIf="showInputs">
+        <div [ngClass]="{'display': !showIcon}" *ngIf="showInputs">
           <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
         </div>
       </div>
@@ -207,7 +207,7 @@
                 <div class="col-12">
                   <p *ngIf="showInputs">Código postal: {{house?.cp}}</p>
                   <input *ngIf="!showInputs" type="text" class="form-control form-control-sm"
-                    placeholder="Código postal" formControlName="cp">
+                    placeholder="{{house?.cp}}" formControlName="cp">
                 </div>
                 <div class="col-12">
                   <p *ngIf="showInputs">Provincia: {{house?.provincia}}</p>
@@ -241,45 +241,62 @@
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="aireAcondicionado">
                     <p *ngIf="!showInputs">Aire Acondicinado</p>
                     <div *ngIf="house.aireAcondicionado === 1">
-                      <img src="../../assets/servicios/icons8-aire-acondicionado-100.png" class="iconService"
+                      <img src="../../assets/servicios/icons8-aire-acondicionado-100.png" title="Aire Acondicinado"
+                        class="iconService" *ngIf="showInputs" alt="">
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="house.calefaccion === 1 || !(house.calefaccion === 0 && showInputs) " class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="calefaccion">
+                    <p *ngIf="!showInputs">Calefacción</p>
+                    <div *ngIf="house.calefaccion === 1">
+                      <img src="../../assets/servicios/icons8-calefacción-50.png" title="Calefacción"
+                        class="iconService" *ngIf="showInputs" alt="">
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="house.wifi === 1 || !(house.wifi === 0 && showInputs) " class="col-6">
+                  <div class="row">
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="wifi">
+                    <p *ngIf="!showInputs">Wifi</p>
+                    <div *ngIf="house.wifi === 1">
+                      <img src="../../assets/servicios/icons8-wifi-64.png" title="Wifi" class="iconService"
                         *ngIf="showInputs" alt="">
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="row">
-                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="calefaccion">
-                    <p *ngIf="!showInputs">Calefacción</p>
-                    <p class="" *ngIf="showInputs">{{house?.calefaccion}} Calefacción</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="row">
-                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="wifi">
-                    <p *ngIf="!showInputs">Wifi</p>
-                    <p class="" *ngIf="showInputs">{{house?.wifi}} Wifi</p>
-                  </div>
-                </div>
-                <div class="col-6">
+
+                <div *ngIf="house.teleCable === 1 || !(house.teleCable === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="teleCable">
                     <p *ngIf="!showInputs">Televisión por cable</p>
-                    <p class="" *ngIf="showInputs">{{house?.teleCable}} Televisión por cable</p>
+                    <div *ngIf="house.teleCable === 1">
+                      <img src="../../assets/servicios/icons8-televisión-de-alta-definición-80.png" title="teleCable"
+                        class="iconService" *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.plancha === 1 || !(house.plancha === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="plancha">
                     <p *ngIf="!showInputs">Plancha</p>
-                    <p class="" *ngIf="showInputs">{{house?.plancha}} Plancha</p>
+                    <div *ngIf="house.plancha === 1">
+                      <img src="../../assets/servicios/icons8-plancha-80.png" title="plancha" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
+
                 <div *ngIf="house.horno === 1 || !(house.horno === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="horno">
                     <p *ngIf="!showInputs">Horno</p>
                     <div *ngIf="house.horno === 1">
-                      <img src="../../assets/servicios/icons8-horno-tostador-50.png" class="iconService"
+                      <img src="../../assets/servicios/icons8-horno-tostador-50.png" title="horno" class="iconService"
                         *ngIf="showInputs" alt="">
                     </div>
                   </div>
@@ -290,85 +307,113 @@
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="microondas">
                     <p *ngIf="!showInputs">Microondas</p>
                     <div *ngIf="house.microondas === 1">
-                      <img src="../../assets/servicios/icons8-microondas-80.png" class="iconService" *ngIf="showInputs"
-                        alt="">
+                      <img src="../../assets/servicios/icons8-microondas-80.png" title="microondas" class="iconService"
+                        *ngIf="showInputs" alt="">
                     </div>
-
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.secador === 1 || !(house.secador === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secador">
                     <p *ngIf="!showInputs">Secador</p>
-                    <p class="" *ngIf="showInputs">{{house?.secador}} Secador</p>
+                    <div *ngIf="house.secador === 1">
+                      <img src="../../assets/servicios/icons8-secador-de-pelo-64.png" title="secador"
+                        class="iconService" *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.lavavajillas === 1 || !(house.lavavajillas === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavavajillas">
                     <p *ngIf="!showInputs">Lavavajillas</p>
-                    <p *ngIf="showInputs">{{house?.lavavajillas}} Lavavajillas</p>
+                    <div *ngIf="house.lavavajillas === 1">
+                      <img src="../../assets/servicios/icons8-lavavajillas-80.png" title="lavavajillas"
+                        class="iconService" *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.lavadora === 1 || !(house.lavadora === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="lavadora">
                     <p *ngIf="!showInputs">Lavadora</p>
-                    <p class="" *ngIf="showInputs">{{house?.lavadora}} Lavadora</p>
+                    <div *ngIf="house.lavadora === 1">
+                      <img src="../../assets/servicios/icons8-lavadora-80.png" title="lavadora" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.secadora === 1 || !(house.secadora === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="secadora">
                     <p *ngIf="!showInputs">Secadora</p>
-                    <p class="" *ngIf="showInputs">{{house?.secadora}} Secadora</p>
+                    <div *ngIf="house.secadora === 1">
+                      <img src="../../assets/servicios/icons8-secadora-50.png" title="secadora" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
 
             <!-- intallations -->
             <div class="col-12 installations">
+
               <div class="row">
+
                 <div class="col-12">
                   <h5>Instalaciones</h5>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.ascensor === 1 || !(house.ascensor === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="ascensor">
                     <p *ngIf="!showInputs">Ascensor</p>
-                    <p class="" *ngIf="showInputs">{{house?.ascensor}} Ascensor</p>
+                    <div *ngIf="house.ascensor === 1">
+                      <img src="../../assets/servicios/icons8-ascensor-50.png" title="ascensor" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.piscina === 1 || !(house.parking === 0 && showInputs) " class="col-6">
                   <div class="row">
-                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="parking">
-                    <p *ngIf="!showInputs">Parking</p>
-                    <p class="" *ngIf="showInputs">{{house?.parking}} Parking</p>
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="Garaje">
+                    <p *ngIf="!showInputs">Garaje</p>
+                    <div *ngIf="house.parking === 1">
+                      <img src="../../assets/servicios/icons8-garaje-80.png" title="parking" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <div *ngIf="house.piscina === 1 || !(house.piscina === 0 && showInputs) " class="col-6">
                   <div class="row">
                     <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="piscina">
                     <p *ngIf="!showInputs">Piscina</p>
-                    <p class="" *ngIf="showInputs">{{house?.piscina}} Piscina</p>
+                    <div *ngIf="house.piscina === 1">
+                      <img src="../../assets/servicios/icons8-piscina-50.png" title="piscina" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
                 </div>
-                <div class="col-6">
+
+                <!-- <div *ngIf="house.parque === 1 || !(house.parque === 0 && showInputs) " class="col-6">
                   <div class="row">
-                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="terraza">
-                    <p *ngIf="!showInputs">Terraza</p>
-                    <p class="" *ngIf="showInputs">{{house?.terraza}} Terraza</p>
+                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="parque">
+                    <p *ngIf="!showInputs">Parque Infantil</p>
+                    <div *ngIf="house.parque === 1">
+                      <img src="../../assets/servicios/icons8-zona-de-juegos-80.png" title="Parque Infantil" class="iconService"
+                        *ngIf="showInputs" alt="">
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div class="row">
-                    <input class="col-1" type="checkbox" *ngIf="!showInputs" formControlName="balcon">
-                    <p *ngIf="!showInputs">Balcón</p>
-                    <p class="" *ngIf="showInputs">{{house?.balcon}} Balcón</p>
-                  </div>
-                </div>
+                </div> -->
+
               </div>
             </div>
             <div class="button col-12 d-flex flex-row-reverse" *ngIf="!showInputs">
