@@ -22,7 +22,7 @@ export class FormHouseComponent implements OnInit {
   thirdDiv: boolean;
   activo: boolean;
   objAddressHouse: any;
-  files: any;
+  files: any[];
   showLoading: boolean;
 
   constructor(
@@ -32,6 +32,7 @@ export class FormHouseComponent implements OnInit {
     private houseService: HouseService,
     private http: HttpClient
   ) {
+    this.files = new Array();
     this.activo = false;
     this.firstDiv = true;
     this.secondDiv = false;
@@ -92,7 +93,11 @@ export class FormHouseComponent implements OnInit {
       balcon: new FormControl(""),
       latitud: new FormControl(""),
       longitud: new FormControl(""),
-      file: new FormControl("")
+      file1: new FormControl(""),
+      file2: new FormControl(""),
+      file3: new FormControl(""),
+      file4: new FormControl(""),
+      file5: new FormControl("")
     });
 
     this.arrPrimerFormulario = [
@@ -155,10 +160,17 @@ export class FormHouseComponent implements OnInit {
   async onSubmit() {
     /* this.showLoading = true */
     const fd = new FormData();
-    fd.append("imagen", this.files[0], "nuevaCasa.jpg");
+    console.log(this.files);
+    for (let index = 0; index < this.files.length; index++) {
+      fd.append("imagen", this.files[index][0], `nuevaCasa${index}.jpg`);
+    }
     Object.keys(this.form.value).forEach(key => {
       fd.append(key, this.form.value[key]);
     });
+    /*  fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
+     Object.keys(this.form.value).forEach(key => {
+       fd.append(key, this.form.value[key]);
+     }); */
     const headers = new HttpHeaders({
       "user-token": localStorage.getItem("token")
     });
@@ -182,7 +194,7 @@ export class FormHouseComponent implements OnInit {
   }
 
   onChange($event) {
-    this.files = $event.target.files;
+    this.files.push($event.target.files);
   }
 
   behindDiv($event) {

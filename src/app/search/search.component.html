@@ -11,11 +11,11 @@
   <div class="row">
     <!-- HOUSES -->
 
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 houseContain">
       <div *ngFor="let item of listHouses" class="col-12 col-lg-12 houses">
         <div class="row">
 
-          <div class="col-12 col-md-4 image">
+          <div class="col-12 col-md-4 image mt-lg-2">
             <img [src]=item?.imagen1 class="card-img-top" alt="house image">
           </div>
           <div class="col-12 col-md-8 info">
@@ -45,13 +45,14 @@
 
     <!-- MAP -->
     <div class="col-6 d-none d-lg-block containMap ">
-      <div #googleMap class="map">
-        <app-maps [modoInput]="true"></app-maps>
-      </div>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker *ngFor="let mark of listHouses" [latitude]=mark.latitud [longitude]=mark.longitud>
+        </agm-marker>
+      </agm-map>
     </div>
-    <div *ngIf="loading" class="col-12 offset-md-2 col-md-8">
+    <div *ngIf="loading" class="col-12 offset-md-2 col-md-8 wait">
       <!-- div de google maps -->
-      <img class="wait" src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif">
+      <img class="" src="https://i.pinimg.com/originals/3f/2c/97/3f2c979b214d06e9caab8ba8326864f3.gif">
     </div>
   </div>
 </div>

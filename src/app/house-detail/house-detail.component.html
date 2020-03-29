@@ -6,7 +6,7 @@
         <div class="pImg col-9 ">
           <div class="principalImage">
             <div>
-              <img id="1" [src]=srcPrincipal [src]=house?.imagen1 alt="">
+              <img id="1" [src]=srcPrincipal alt="">
             </div>
           </div>
         </div>
@@ -20,21 +20,7 @@
       </div>
     </div>
 
-    <!-- CARDS -->
-
-    <!-- <div class="title card-header text-center">
-          <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item">
-              <a class="pointer nav-link" id="1" (click)="changeCard($event)">Descripción</a>
-            </li>
-            <li class="nav-item">
-              <a class="pointer nav-link" id="2" (click)="changeCard($event)">Valoraciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="pointer nav-link" id="3" (click)="changeCard($event)">Comentarios</a>
-            </li>
-          </ul>
-        </div> -->
+    <!-- CARDs -->
     <div class="col-12 col-md-8 descriptionCard" *ngIf="card1">
       <div class="row">
         <div class="col-12">
@@ -220,7 +206,9 @@
 
 
     </div>
-    <div class="d-none d-md-block col-4 userInfoContain">
+
+
+    <div class="col-12 col-md-4 userInfoContain">
       <div class="containerImg">
         <div class="userimage"></div>
       </div>

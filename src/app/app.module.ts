@@ -17,6 +17,7 @@ import { HouseDetailComponent } from './house-detail/house-detail.component';
 import { LoginComponent } from './login/login.component';
 import { MapsComponent } from './maps/maps.component';
 import { PuntosPipe } from './puntos.pipe';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -39,6 +40,9 @@ import { PuntosPipe } from './puntos.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB9CobDD06h6vgzmUpmoKIpCgSXc43B7B0'
+    })
 
   ],
   providers: [],

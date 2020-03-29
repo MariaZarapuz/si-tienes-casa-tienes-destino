@@ -158,7 +158,7 @@ export class UserComponent implements OnInit {
     console.log(this.house, "init");
   }
 
-  //USER
+  // USER
   async onSubmit() {
     await this.usuarioService.updateUser(this.formEditUser.value);
 
@@ -179,7 +179,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  //HOUSE
+  // HOUSE
   async onSubmitHouse(pIdHouse) {
     pIdHouse = this.house.id;
     await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
@@ -201,7 +201,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  //BOTH
+  // BOTH
 
   editeInfo($event) {
     switch ($event.target.id) {
