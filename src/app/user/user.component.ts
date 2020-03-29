@@ -82,7 +82,6 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log(this.house.plancha);
     this.user = await this.usuarioService.getToken();
 
     this.user = this.user[0];
