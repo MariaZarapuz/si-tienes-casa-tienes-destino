@@ -30,8 +30,8 @@ export class UserComponent implements OnInit {
   user: any;
   house: any;
   fechaFormat: any;
+  i: number = 0;
   files: any[];
-
   btnPhoto: boolean;
   idHouse: any;
   showBtn: boolean;
@@ -51,6 +51,7 @@ export class UserComponent implements OnInit {
   arrayGeneral: any;
   userComentari_bis: any;
   id: any;
+  idMensaje: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -378,6 +379,7 @@ export class UserComponent implements OnInit {
     }
 
     let id: number = parseInt(this.usuarioService.getLocalStore("id"));
+    console.log(id);
     //Metraigo todos los mensajes que tengan ese id como emisor o recptor
     const comentarios: any = await this.contactService.getSms(id);
 
@@ -386,7 +388,6 @@ export class UserComponent implements OnInit {
       if (coment.user_emit === id) this.arrayEnviados.push(coment);
       else if (coment.user_recep === id) this.arrayRecibidos.push(coment);
     }
-    console.log(this.arrayEnviados, this.arrayRecibidos);
 
     const source = from(this.arrayRecibidos);
     const smsEmit = source.pipe(
@@ -394,11 +395,12 @@ export class UserComponent implements OnInit {
       // return each item in group as array
       mergeMap(group => group.pipe(toArray()))
     );
-    smsEmit.subscribe(val => this.userComentari.push(val));
+    smsEmit.subscribe(val => {
+      this.userComentari.push(val);
+    });
     //consigo un array de sms enviado
-    this.userComentari_bis = this.userComentari[0];
+    this.userComentari_bis = this.userComentari[this.idMensaje];
     console.log(this.userComentari_bis);
-
     const sourceRecep = from(this.arrayEnviados);
     const smsRecep = sourceRecep.pipe(
       groupBy(sms => sms["user_recep"]),
@@ -407,7 +409,7 @@ export class UserComponent implements OnInit {
     );
     smsRecep.subscribe(val => this.userComentariRecep.push(val));
     //consigo un array de sms recibidos
-    this.userComentariRecep = this.userComentariRecep[0];
+    this.userComentariRecep = this.userComentariRecep[this.idMensaje];
     console.log(this.userComentariRecep);
 
     for (const comentarios of this.userComentari_bis) {
@@ -430,8 +432,14 @@ export class UserComponent implements OnInit {
   }
 
   PonerTextArea(e) {
-    this.recepId = e.target.id;
+    console.log(
+      e.srcElement.parentNode.parentNode.children[0].children[1].children[0].id
+    );
+    this.recepId = e;
+    this.idMensaje = e.target.id;
+    console.log(this.idMensaje);
     this.display = !this.display;
+    this.getComents("ts");
   }
 
   async save(e) {

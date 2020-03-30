@@ -43,7 +43,7 @@
               <div class="modal-body wrapper">
                 <div class="" *ngIf=display>
 
-                  <div *ngFor="let comentario of userComentari">
+                  <div *ngFor="let comentario of userComentari; let i = index">
                     <div class="row namelist">
 
                       <div class="row col-6">
@@ -54,8 +54,7 @@
 
                       </div>
                       <div class="col-6 justify-content-end">
-                        <button class=" btn look col-6 " [id]="comentario[0].user_emit"
-                          (click)="PonerTextArea($event)">Ver</button>
+                        <button class=" btn look col-6 " [id]="i" (click)="PonerTextArea($event)">Ver</button>
                       </div>
 
                     </div>
