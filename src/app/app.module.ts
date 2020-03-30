@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { MapsComponent } from './maps/maps.component';
 import { PuntosPipe } from './puntos.pipe';
 import { AgmCoreModule } from '@agm/core';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -33,6 +34,7 @@ import { AgmCoreModule } from '@agm/core';
     SearchComponent,
     MapsComponent,
     PuntosPipe,
+    ResetPasswordComponent,
   ],
   imports: [
     FormsModule,

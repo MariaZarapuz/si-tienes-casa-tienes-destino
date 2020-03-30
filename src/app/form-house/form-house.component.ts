@@ -123,7 +123,7 @@ export class FormHouseComponent implements OnInit {
 
   ngOnInit() {
 
-    this.showLoading = false
+    this.showLoading = false;
     this.ObservableService.addressSb.subscribe(res => {
       this.objAddressHouse = res;
       this.form.controls.pais.setValue(this.objAddressHouse.pais);
@@ -162,7 +162,7 @@ export class FormHouseComponent implements OnInit {
   async onSubmit() {
     /* this.showLoading = true */
     const fd = new FormData();
-    console.log(this.files)
+    console.log(this.files);
     for (let index = 0; index < this.files.length; index++) {
       fd.append('imagen', this.files[index][0], `nuevaCasa${index}.jpg`);
 
@@ -197,7 +197,7 @@ export class FormHouseComponent implements OnInit {
   }
 
   onChange($event) {
-    this.files.push($event.target.files)
+    this.files.push($event.target.files);
   }
 
 

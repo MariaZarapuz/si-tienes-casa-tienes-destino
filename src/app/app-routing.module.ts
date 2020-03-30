@@ -7,6 +7,7 @@ import { HomeComponent } from "./home/home.component";
 import { UserComponent } from "./user/user.component";
 import { HouseDetailComponent } from "./house-detail/house-detail.component";
 import { LoginComponent } from "./login/login.component";
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -17,7 +18,9 @@ const routes: Routes = [
   { path: "user", component: UserComponent },
   { path: "house/detail/:fk_usuarios", component: HouseDetailComponent },
   { path: "login", component: LoginComponent },
+  { path: "resetPassword", component: ResetPasswordComponent },
   { path: "**", redirectTo: "home" }
+
 ];
 
 @NgModule({
