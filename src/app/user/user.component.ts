@@ -239,6 +239,7 @@ export class UserComponent implements OnInit {
 
   // HOUSE
   async onSubmitHouse(pIdHouse) {
+    console.log("hola estoy mandando casa");
     pIdHouse = this.house.id;
     await this.houseService.updateHouseById(pIdHouse, this.formEditHouse.value);
     this.house = await this.houseService.getByFk(this.user.id);
