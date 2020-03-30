@@ -31,7 +31,7 @@ label {
   background-position: center center;
 }
 
-/* ICONS */
+/* ICONS USER*/
 .icons i {
   color: #220e2a;
   font-size: 1.4em;
@@ -40,9 +40,9 @@ label {
   margin-left: 10px;
 }
 
-.iconService {
+/* .iconService {
   width: 32px;
-}
+} */
 
 
 .user p {
@@ -151,6 +151,31 @@ label {
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+.houseInfo .photos {
+  margin-top: 30px;
+
+}
+
+.houseInfo .photos .photo {
+  position: relative
+}
+
+.houseInfo .photos .button {
+  margin: auto;
+}
+
+.houseInfo .photos img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.houseInfo .photos a {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: rgb(223, 57, 27);
 }
 
 .houseInfo input {
@@ -284,5 +309,16 @@ label {
 
 .namelist {
   padding-bottom: 20px;
+}
 
+.iconService {
+  width: 32px;
+}
+
+.iconServicep {
+  width: 38px;
+}
+
+.iconServiceg {
+  width: 30px;
 }

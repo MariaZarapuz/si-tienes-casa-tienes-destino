@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ export class HomeComponent implements OnInit {
 
   slide: string;
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.slide = 'slide1';
   }
 
@@ -25,4 +28,10 @@ export class HomeComponent implements OnInit {
     }, 10000);
   }
 
+  searchFilter(e) {
+    if (e.keyCode === 13) {
+      const filterValue = e.target.value;
+      this.router.navigate(["/search", filterValue]);
+    }
+  }
 }

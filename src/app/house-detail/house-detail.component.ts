@@ -1,14 +1,14 @@
-import { ContactService } from "./../contact.service";
-import { FormsModule } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
-import { HouseService } from "../house.service";
-import { UsuariosService } from "./../usuarios.service";
-import { ActivatedRoute } from "@angular/router";
+import { ContactService } from './../contact.service';
+import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { HouseService } from '../house.service';
+import { UsuariosService } from './../usuarios.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-house-detail",
-  templateUrl: "./house-detail.component.html",
-  styleUrls: ["./house-detail.component.css"]
+  selector: 'app-house-detail',
+  templateUrl: './house-detail.component.html',
+  styleUrls: ['./house-detail.component.css']
 })
 export class HouseDetailComponent implements OnInit {
   card1: boolean;
@@ -72,7 +72,7 @@ export class HouseDetailComponent implements OnInit {
       console.log(this.ArrayPhotos);
       this.srcPrincipal = this.ArrayPhotos[0].src;
       this.user = await this.usuariosService.getById(params.fk_usuarios);
-      //console.log(this.user);
+      // console.log(this.user);
       this.user = this.user[0];
     });
   }
@@ -83,8 +83,8 @@ export class HouseDetailComponent implements OnInit {
   }
 
   async save(recep, emi, nombre) {
-    emi = this.usuariosService.getLocalStore("id");
-    nombre = this.usuariosService.getLocalStore("nombre");
+    emi = this.usuariosService.getLocalStore('id');
+    nombre = this.usuariosService.getLocalStore('nombre');
 
     recep = this.house.fk_usuarios;
     console.log(this.comentario, recep, emi);
@@ -93,11 +93,11 @@ export class HouseDetailComponent implements OnInit {
 
   changeCard($event) {
     switch ($event.target.id) {
-      case "1":
+      case '1':
         this.card1 = true;
         this.card2 = false;
         break;
-      case "2":
+      case '2':
         this.card1 = false;
         this.card2 = true;
         break;

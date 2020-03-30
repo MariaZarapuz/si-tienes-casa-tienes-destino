@@ -19,14 +19,17 @@ label {
   padding: 20px 0px;
   border-bottom: 1px solid rgb(197, 197, 197);
 }
-.houses .image{
+
+.houses .image {
   height: 130px;
   overflow: hidden;
 }
-.houses .image img{
+
+.houses .image img {
   display: block;
   position: center;
-  /* background-position: center center; */
+  height: auto;
+  width: 100%;
 }
 
 .houses .summary {
@@ -78,10 +81,11 @@ label {
   transition: 0.5s;
 }
 
-.houseContain{
+.houseContain {
   padding-bottom: 40px;
 }
-.houseContain .houses:last-child{
+
+.houseContain .houses:last-child {
   border-bottom: 1px solid transparent;
 }
 
@@ -98,15 +102,16 @@ agm-map {
 
 .wait img {
   display: block;
-  margin:auto
+  margin: auto
 }
 
 @media (max-width: 767px) {
-  .houses .image{
-  height: 300px;
-  overflow: hidden;
+  .houses .image {
+    height: 300px;
+    overflow: hidden;
+  }
 }
-}
+
 @media (max-width: 992px) {
   /* .wait{
   margin-left: 100px; */

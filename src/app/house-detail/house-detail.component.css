@@ -94,7 +94,18 @@ label {
   background-size: cover;
   background-position: center center;
 }
-
-.iconService {
+.installations h4{
+    font-size: 1.3em;
+}
+.services h4{
+    font-size: 1.3em;
+}
+.iconService{
   width: 32px;
+ }
+.iconServicep{
+  width: 38px;
+}
+.iconServiceg{
+  width: 30px;
 }

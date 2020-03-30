@@ -1,7 +1,7 @@
 import { HouseService } from "./../house.service";
 import { Component, OnInit } from "@angular/core";
 import { ObservablesService } from "../observables.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-search-hause",
@@ -17,14 +17,15 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private houseService: HouseService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
     this.listHouses = new Array();
 
   }
   ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
-      console.log(params)
+      console.log(params);
       this.filterVillage = { poblacion: params.ciudad };
       const arrayHouses = await this.houseService.getByFilter(
         this.filterVillage
@@ -46,9 +47,12 @@ export class SearchComponent implements OnInit {
     //   { lat: 40.54147, lng: -73.935242 },
     //   { lat: 35.6894989, lng: 139.6917114 }
     // ]
+  }
 
-
-
-
+  searchFilter(e) {
+    if (e.keyCode === 13) {
+      const filterValue = e.target.value;
+      this.router.navigate(["/search", filterValue]);
+    }
   }
 }

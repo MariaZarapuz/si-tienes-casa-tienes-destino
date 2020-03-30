@@ -41,7 +41,9 @@ export class UsuariosService {
     };
     return this.httpClient.put(`${this.baseUrl}/updateProfile`, formValue, httpOptions).toPromise();
   }
-
+  updatePassword(formValue, email): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/${email}`, formValue).toPromise();
+  }
   deleteByToken(): Promise<any> {
     const httpOptions = {
       headers: new HttpHeaders({
