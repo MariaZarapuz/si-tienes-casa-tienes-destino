@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   id: any;
   mostraInput: boolean;
   email: any;
+  nombre: any;
+
   constructor(
     private usuariosService: UsuariosService,
     private router: Router
@@ -30,16 +32,17 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
-
     try {
       let response = await this.usuariosService.loginUsuario(
         this.formulario.value
       );
 
       this.id = response.id;
-      response = response.success;
+      this.nombre = response.nombre;
+      response = response['success'];
       this.usuariosService.postLocalStore('token', response);
       this.usuariosService.postLocalStore('id', this.id);
+      this.usuariosService.postLocalStore('nombre', this.nombre);
 
       this.router.navigate(['/home']);
     } catch (err) {

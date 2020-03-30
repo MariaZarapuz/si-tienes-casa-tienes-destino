@@ -1,5 +1,9 @@
 <!-- HERO -->
 <div class="hero row">
+
+  <input class="col-12 form-control d-block d-md-none" type="search" (keypress)="searchFilter($event)"
+    placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
+
   <div class="col-12 slider"
     [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
     <div class="join row">

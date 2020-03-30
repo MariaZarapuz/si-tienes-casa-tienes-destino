@@ -28,7 +28,8 @@ label {
 .houses .image img {
   display: block;
   position: center;
-  /* background-position: center center; */
+  height: auto;
+  width: 100%;
 }
 
 .houses .summary {

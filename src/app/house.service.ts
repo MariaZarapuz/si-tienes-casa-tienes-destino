@@ -27,6 +27,12 @@ export class HouseService {
     return this.httpClient.get(`${this.baseUrl}/${fkUser}`).toPromise()
   }
 
+  //FORM-HOUSE
+
+  addHouse(formValue) {
+    return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  }
+
   deleteHousebyId(idHouse): Promise<any> {
     console.log('Hola')
     return this.httpClient.delete(`${this.baseUrl}/${idHouse}`).toPromise()
@@ -36,12 +42,9 @@ export class HouseService {
     return this.httpClient.put(`${this.baseUrl}/${idHouse}`, formValue).toPromise()
   }
 
-  //FORM-HOUSE
-
-  addHouse(formValue) {
-    return this.httpClient.post(this.baseUrl, formValue).toPromise();
+  editImageById(idHouse, formValue): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/image1/${idHouse}`, formValue).toPromise()
   }
-
 
   //SEARCH
 

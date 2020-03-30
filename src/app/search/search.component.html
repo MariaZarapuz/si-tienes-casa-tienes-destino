@@ -1,16 +1,9 @@
-<!-- <div class="row nav">
-  <nav class="navbar navbar-light col-12 filters">
-    <a class="navbar-brand">¿A dónde quieres ir?</a>
-    <form class="form-inline">
-
-      <button class="btn btn-outline-secondary" (click)="mapa()">Buscar</button>
-    </form>
-  </nav>
-</div> -->
 <div class="main">
+
   <div class="row">
     <!-- HOUSES -->
-
+    <input class="col-12 form-control d-block d-md-none" type="search" (keypress)="searchFilter($event)"
+      placeholder="¿A dónde quieres ir?" aria-label="Ciudad">
     <div class="col-12 col-lg-6 houseContain">
       <div *ngFor="let item of listHouses" class="col-12 col-lg-12 houses">
         <div class="row">
