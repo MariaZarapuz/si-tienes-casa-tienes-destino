@@ -69,13 +69,12 @@ export class HouseDetailComponent implements OnInit {
           src: this.src5
         }
       ];
+      console.log(this.ArrayPhotos);
       this.srcPrincipal = this.ArrayPhotos[0].src;
       this.user = await this.usuariosService.getById(params.fk_usuarios);
       //console.log(this.user);
       this.user = this.user[0];
     });
-
-    console.log(this.ArrayPhotos[0].src);
   }
 
   changeImage(e) {

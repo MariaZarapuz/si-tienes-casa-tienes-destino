@@ -20,6 +20,10 @@ label {
   margin-top: 30px;
 }
 
+.sangria {
+  margin-left: 100px;
+}
+
 .userimage {
   background-image: url('../../assets/images/user.png');
   height: 150px;
@@ -153,4 +157,26 @@ label {
 
 .houseInfo input {
   margin-top: 11px;
+}
+
+.look {
+  background-color: #220e2a;
+  color: #8bc5ce;
+  border: 1px solid #8bc5ce;
+}
+
+.header-sms {
+  background-color: #220e2a;
+  color: #8bc5ce;
+
+}
+
+.x-cerrar {
+  color: beige;
+
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bold;
 }

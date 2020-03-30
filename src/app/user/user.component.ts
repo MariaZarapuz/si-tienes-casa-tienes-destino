@@ -1,13 +1,14 @@
 import { ContactService } from "./../contact.service";
 
 import { UsuariosService } from "./../usuarios.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, RootRenderer } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HouseService } from "../house.service";
 
 import { groupBy, mergeMap, toArray } from "rxjs/operators";
 import { from } from "rxjs";
+import { setTimeout } from "timers";
 
 @Component({
   selector: "app-user",
@@ -36,6 +37,13 @@ export class UserComponent implements OnInit {
   userComentari: any[];
   recepId: any;
   comentRes: any;
+  arrayMsmMe: any;
+  arrayEnviados: any;
+  arrayRecibidos: any;
+  userComentariRecep: any;
+  arrayGeneral: any;
+  userComentari_bis: any;
+  id: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -98,6 +106,8 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.id = parseInt(this.usuarioService.getLocalStore("id"));
+
     this.user = await this.usuarioService.getToken();
 
     this.user = this.user[0];
@@ -252,27 +262,74 @@ export class UserComponent implements OnInit {
     this.fechaFormat = fechaNac;
   }
 
-  async getSms() {
+  async getComents(mode) {
+    this.arrayGeneral = new Array();
     this.userComentari = new Array();
-    this.display = false;
-    const id = this.usuarioService.getLocalStore("id");
+    this.arrayEnviados = new Array();
+    this.arrayRecibidos = new Array();
+    this.userComentariRecep = new Array();
 
-    this.comentarios = await this.contactService.getSms(id);
+    if (mode === "html") {
+      this.display = true;
+    }
 
-    const source = from(this.comentarios);
-    const example = source.pipe(
-      groupBy(person => person["user_emit"]),
+    let id: number = parseInt(this.usuarioService.getLocalStore("id"));
+    //Metraigo todos los mensajes que tengan ese id como emisor o recptor
+    const comentarios: any = await this.contactService.getSms(id);
+
+    console.log(comentarios);
+    for (const coment of comentarios) {
+      if (coment.user_emit === id) this.arrayEnviados.push(coment);
+      else if (coment.user_recep === id) this.arrayRecibidos.push(coment);
+    }
+    console.log(this.arrayEnviados, this.arrayRecibidos);
+
+    const source = from(this.arrayRecibidos);
+    const smsEmit = source.pipe(
+      groupBy(sms => sms["user_emit"]),
       // return each item in group as array
       mergeMap(group => group.pipe(toArray()))
     );
+    smsEmit.subscribe(val => this.userComentari.push(val));
+    //consigo un array de sms enviado
+    this.userComentari_bis = this.userComentari[0];
+    console.log(this.userComentari_bis);
 
-    const subscribe = example.subscribe(val => this.userComentari.push(val));
-    console.log(this.userComentari);
+    const sourceRecep = from(this.arrayEnviados);
+    const smsRecep = sourceRecep.pipe(
+      groupBy(sms => sms["user_recep"]),
+      // return each item in group as array
+      mergeMap(group => group.pipe(toArray()))
+    );
+    smsRecep.subscribe(val => this.userComentariRecep.push(val));
+    //consigo un array de sms recibidos
+    this.userComentariRecep = this.userComentariRecep[0];
+    console.log(this.userComentariRecep);
+
+    for (const comentarios of this.userComentari_bis) {
+      this.arrayGeneral.push(comentarios);
+    }
+    for (const comentarios of this.userComentariRecep) {
+      this.arrayGeneral.push(comentarios);
+    }
+    this.arrayGeneral.sort(function(a, b) {
+      if (a.id > b.id) {
+        return 1;
+      }
+      if (a.id < b.id) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    console.log(this.arrayGeneral);
   }
 
   PonerTextArea(e) {
+    console.log(e);
     this.recepId = e.target.id;
     this.display = !this.display;
+    console.log(this.recepId);
   }
 
   async save() {
@@ -282,5 +339,9 @@ export class UserComponent implements OnInit {
 
     console.log(this.comentRes, recep, emi);
     await this.contactService.insertComent(this.comentRes, recep, emi, nombre);
+    this.getComents("ts");
+  }
+  goHouse() {
+    this.router.navigate(["/house/detail", this.recepId]);
   }
 }
