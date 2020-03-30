@@ -10,29 +10,31 @@
             <!-- <label>Email</label> -->
             <input type="text" class="form-control" formControlName="email" placeholder="Email" autocomplete="on">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-0">
             <!-- <label>Password</label> -->
             <input type="password" class="form-control" formControlName="contraseña" placeholder="Contraseña">
           </div>
           <div *ngIf="mostrarError">
             <p class="red">El email y/o la contraseña son incorrectas</p>
           </div>
-          <div class="button">
-            <p>¿Has olvidado tu contraseña? <a (click)="manejarClick($event)" id="1">aqui</a></p>
-            <input type="submit" value="Inicia sesión" class="btn btn-block">
-            <p>Si no tienes cuenta, <a [routerLink]="['/user/register']">regístrate</a>.</p>
+          <div class="button ">
+            <p class="plogin">¿Has olvidado tu contraseña? <a class="prettyA" (click)="manejarClick($event)"
+                id="1">aquí</a>.</p>
+            <input type="submit" value="Inicia sesión" class="btn btn-block mt-4">
+            <p class="plogin">Si no tienes cuenta, <a class="prettyA" [routerLink]="['/user/register']">regístrate</a>.
+            </p>
 
           </div>
 
 
         </form>
-        <div *ngIf="mostraInput">
-          <p>Escribe tu correo para validar la contraseña</p>
+        <div *ngIf="mostraInput" class="col-12">
+          <h6 class="sendEmail mb-3 pl-1">Recibirás un email para recuperar tu contraseña</h6>
           <div class="input-group mb-3">
             <input type="text" [(ngModel)]="email" class="form-control" placeholder="Escribe tu email"
               aria-label="Escribe tu email" aria-describedby="basic-addon2">
             <div class="input-group-append">
-              <button (click)="recogerEmail()" class="btn btn-outline-secondary" type="submit">Enviar</button>
+              <button (click)="recogerEmail()" class="btn btnEnv" type="submit">Enviar</button>
             </div>
           </div>
         </div>

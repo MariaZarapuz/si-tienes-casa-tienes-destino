@@ -109,3 +109,15 @@ label {
 .iconServiceg{
   width: 30px;
 }
+.regist .registBtn{
+  /* background-color:  #220e2a;
+  color: white */
+  color: #220e2a
+}
+.regist .registBtn:hover{
+  /* background-color:  #220e2a;
+  color: white */
+  background-color: #220e2a;
+  color: white;
+  text-decoration: underline
+}

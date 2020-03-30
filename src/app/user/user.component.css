@@ -96,15 +96,15 @@ label {
 
 .button .saveBtn {
   margin-top: 10px;
-  background-color: #8bc5ce;
-  border: 2px solid #8bc5ce;
+  background-color: #220e2a;
+  border: 2px solid #220e2a;
   color: white
 }
 
 .button .saveBtn:hover {
-  background-color: #220e2a;
-  color: #8bc5ce;
-  border: 2px solid #220e2a;
+  background-color: #8bc5ce;
+  color: white;
+  border: 2px solid #8bc5ce;
 }
 
 /* HOUSE INFORMATION */

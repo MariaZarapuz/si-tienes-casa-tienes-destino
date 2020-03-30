@@ -25,6 +25,8 @@ export class HouseDetailComponent implements OnInit {
   src3: any;
   src4: any;
   src5: any;
+  showp: boolean;
+  showMess: boolean;
 
   constructor(
     private houseService: HouseService,
@@ -35,6 +37,8 @@ export class HouseDetailComponent implements OnInit {
     this.card1 = true;
     this.card2 = false;
     this.card3 = false;
+    this.showp = false;
+    this.showMess = false;
   }
 
   async ngOnInit() {
@@ -75,6 +79,10 @@ export class HouseDetailComponent implements OnInit {
       // console.log(this.user);
       this.user = this.user[0];
     });
+    const token = this.usuariosService.getLocalStore('token')
+    if (token == null) {
+      this.showMess = true;
+    }
   }
 
   changeImage(e) {
@@ -89,6 +97,15 @@ export class HouseDetailComponent implements OnInit {
     recep = this.house.fk_usuarios;
     console.log(this.comentario, recep, emi);
     await this.contactService.insertComent(this.comentario, recep, emi, nombre);
+  }
+
+  validateLogin() {
+    const token = this.usuariosService.getLocalStore('token')
+    console.log(token)
+    if (token == null) {
+      this.showp = true;
+    }
+    return this.showp
   }
 
   changeCard($event) {
