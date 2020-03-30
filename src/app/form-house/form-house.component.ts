@@ -1,15 +1,15 @@
-import { HouseService } from './../house.service';
-import { Component, OnInit, NgZone } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { House } from '../models/house';
-import { ObservablesService } from '../observables.service';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HouseService } from "./../house.service";
+import { Component, OnInit, NgZone } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { House } from "../models/house";
+import { ObservablesService } from "../observables.service";
+import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
 
 @Component({
-  selector: 'app-form-house',
-  templateUrl: './form-house.component.html',
-  styleUrls: ['./form-house.component.css']
+  selector: "app-form-house",
+  templateUrl: "./form-house.component.html",
+  styleUrls: ["./form-house.component.css"]
 })
 export class FormHouseComponent implements OnInit {
   form: FormGroup;
@@ -45,18 +45,18 @@ export class FormHouseComponent implements OnInit {
       'parque'
     ];
     this.arrServices = [
-      'wifi',
-      'aireAcondicionado',
-      'calefaccion',
-      'secador',
-      'teleCable',
-      'lavadora',
-      'secadora',
-      'plancha',
-      'horno',
-      'microondas',
-      'lavavajillas',
-      'tostador'
+      "wifi",
+      "aireAcondicionado",
+      "calefaccion",
+      "secador",
+      "teleCable",
+      "lavadora",
+      "secadora",
+      "plancha",
+      "horno",
+      "microondas",
+      "lavavajillas",
+      "tostador"
     ];
     this.form = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
@@ -117,12 +117,10 @@ export class FormHouseComponent implements OnInit {
       this.form.controls.fecha_entrada,
       this.form.controls.fecha_salida
     ];
-
   }
 
   ngOnInit() {
-
-    this.showLoading = false
+    this.showLoading = false;
     this.ObservableService.addressSb.subscribe(res => {
       this.objAddressHouse = res;
       this.form.controls.pais.setValue(this.objAddressHouse.pais);
@@ -144,15 +142,15 @@ export class FormHouseComponent implements OnInit {
 
   nextDiv($event) {
     switch ($event.target.id) {
-      case '1':
+      case "1":
         this.firstDiv = false;
         this.secondDiv = true;
         break;
-      case '2':
+      case "2":
         this.secondDiv = false;
         this.thirdDiv = true;
         break;
-      case '3':
+      case "3":
         this.onSubmit();
         break;
     }
@@ -169,21 +167,21 @@ export class FormHouseComponent implements OnInit {
     } console.log(this.house)
 
     const fd = new FormData();
-    console.log(this.files)
+    console.log(this.files);
     for (let index = 0; index < this.files.length; index++) {
-      fd.append('imagen', this.files[index][0], `nuevaCasa${index}.jpg`);
-
+      fd.append("imagen", this.files[index][0], `nuevaCasa${index}.jpg`);
     }
     Object.keys(this.form.value).forEach(key => {
       fd.append(key, this.form.value[key]);
     });
 
     const headers = new HttpHeaders({
-      'user-token': localStorage.getItem('token')
+      "user-token": localStorage.getItem("token")
     });
+    console.log(fd);
     const req = new HttpRequest(
-      'POST',
-      'http://localhost:3000/api/houses',
+      "POST",
+      "http://localhost:3000/api/houses",
       fd,
       {
         headers
@@ -195,25 +193,24 @@ export class FormHouseComponent implements OnInit {
       .then(result => {
         console.log(result);
         /* this.showLoading = false */
-        this.router.navigate(['/user']);
+        this.router.navigate(["/user"]);
       });
-
   }
   onChange($event) {
-    this.files.push($event.target.files)
+    this.files.push($event.target.files);
   }
 
   behindDiv($event) {
     console.log($event.target.id);
     switch ($event.target.id) {
-      case '-1':
+      case "-1":
         // this.router.navigate(["/user"]);
         break;
-      case '-2':
+      case "-2":
         this.secondDiv = false;
         this.firstDiv = true;
         break;
-      case '-3':
+      case "-3":
         this.thirdDiv = false;
         this.secondDiv = true;
         break;
@@ -243,6 +240,4 @@ export class FormHouseComponent implements OnInit {
     });
     return result;
   }
-
-
 }

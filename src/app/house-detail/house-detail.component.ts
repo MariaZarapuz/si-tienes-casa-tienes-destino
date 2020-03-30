@@ -1,3 +1,4 @@
+import { ContactService } from "./../contact.service";
 import { FormsModule } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { HouseService } from "../house.service";
@@ -28,24 +29,24 @@ export class HouseDetailComponent implements OnInit {
   constructor(
     private houseService: HouseService,
     private usuariosService: UsuariosService,
+    private contactService: ContactService,
     private activatedRoute: ActivatedRoute
   ) {
     this.card1 = true;
     this.card2 = false;
     this.card3 = false;
-
   }
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
       const response = await this.houseService.getByFk(params.fk_usuarios);
       this.house = response;
-      this.src1 = this.house.imagen1
-      this.src2 = this.house.imagen2
-      this.src3 = this.house.imagen3
-      this.src4 = this.house.imagen4
-      this.src5 = this.house.imagen5
-      console.log(this.src5)
+      this.src1 = this.house.imagen1;
+      this.src2 = this.house.imagen2;
+      this.src3 = this.house.imagen3;
+      this.src4 = this.house.imagen4;
+      this.src5 = this.house.imagen5;
+      console.log(this.src5);
       this.ArrayPhotos = [
         {
           id: 1,
@@ -74,8 +75,7 @@ export class HouseDetailComponent implements OnInit {
       this.user = this.user[0];
     });
 
-    console.log(this.ArrayPhotos[0].src)
-
+    console.log(this.ArrayPhotos[0].src);
   }
 
   changeImage(e) {
@@ -83,10 +83,13 @@ export class HouseDetailComponent implements OnInit {
     this.srcPrincipal = e.target.src;
   }
 
-  save(recep, emi) {
+  async save(recep, emi, nombre) {
     emi = this.usuariosService.getLocalStore("id");
+    nombre = this.usuariosService.getLocalStore("nombre");
+
     recep = this.house.fk_usuarios;
     console.log(this.comentario, recep, emi);
+    await this.contactService.insertComent(this.comentario, recep, emi, nombre);
   }
 
   changeCard($event) {
