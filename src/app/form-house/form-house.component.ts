@@ -24,6 +24,7 @@ export class FormHouseComponent implements OnInit {
   objAddressHouse: any;
   files: any[];
   showLoading: boolean;
+  house: any;
 
   constructor(
     private router: Router,
@@ -41,8 +42,7 @@ export class FormHouseComponent implements OnInit {
       'ascensor',
       'parking',
       'piscina',
-      'terraza',
-      'balcon'
+      'parque'
     ];
     this.arrServices = [
       'wifi',
@@ -89,8 +89,7 @@ export class FormHouseComponent implements OnInit {
       ascensor: new FormControl(''),
       parking: new FormControl(''),
       piscina: new FormControl(''),
-      terraza: new FormControl(''),
-      balcon: new FormControl(''),
+      parque: new FormControl(''),
       latitud: new FormControl(''),
       longitud: new FormControl(''),
       file1: new FormControl(''),
@@ -161,6 +160,14 @@ export class FormHouseComponent implements OnInit {
 
   async onSubmit() {
     /* this.showLoading = true */
+    this.house = this.form.value;
+    for (const key in this.house) {
+      if (this.house.hasOwnProperty(key)) {
+        const element = this.house[key];
+        if (element === true) { this.house[key] = 1; } else if (element === '') { this.house[key] = 0; }
+      }
+    } console.log(this.house)
+
     const fd = new FormData();
     console.log(this.files)
     for (let index = 0; index < this.files.length; index++) {
@@ -170,10 +177,7 @@ export class FormHouseComponent implements OnInit {
     Object.keys(this.form.value).forEach(key => {
       fd.append(key, this.form.value[key]);
     });
-    /*  fd.append('imagen', this.files[0], 'nuevaCasa.jpg');
-     Object.keys(this.form.value).forEach(key => {
-       fd.append(key, this.form.value[key]);
-     }); */
+
     const headers = new HttpHeaders({
       'user-token': localStorage.getItem('token')
     });
@@ -195,11 +199,9 @@ export class FormHouseComponent implements OnInit {
       });
 
   }
-
   onChange($event) {
     this.files.push($event.target.files)
   }
-
 
   behindDiv($event) {
     console.log($event.target.id);

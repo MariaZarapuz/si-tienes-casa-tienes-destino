@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HouseService } from '../house.service';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -15,12 +16,20 @@ export class UserComponent implements OnInit {
   showParagraph: boolean;
   card1: boolean;
   card2: boolean;
+  image1: boolean;
+  image2: boolean;
+  image3: boolean;
+  image4: boolean;
+  image5: boolean;
   formEditUser: FormGroup;
   formEditHouse: FormGroup;
+  formEditPhoto: FormGroup;
   user: any;
   house: any;
   fechaFormat: any;
+  files: any[];
 
+  btnPhoto: boolean;
   idHouse: any;
   showBtn: boolean;
   showIcon: boolean;
@@ -29,8 +38,10 @@ export class UserComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private usuarioService: UsuariosService,
-    private houseService: HouseService
+    private houseService: HouseService,
+    private http: HttpClient,
   ) {
+    this.files = new Array();
     this.showInputs = true;
     this.showParagraph = false;
     this.card1 = true;
@@ -57,6 +68,10 @@ export class UserComponent implements OnInit {
       banos: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required]),
       imagen1: new FormControl('', [Validators.required]),
+      imagen2: new FormControl('', [Validators.required]),
+      imagen3: new FormControl('', [Validators.required]),
+      imagen4: new FormControl('', [Validators.required]),
+      imagen5: new FormControl('', [Validators.required]),
       fecha_entrada: new FormControl('', [Validators.required]),
       fecha_salida: new FormControl('', [Validators.required]),
       lavadora: new FormControl(''),
@@ -74,14 +89,22 @@ export class UserComponent implements OnInit {
       ascensor: new FormControl(''),
       parking: new FormControl(''),
       piscina: new FormControl(''),
-      terraza: new FormControl(''),
-      balcon: new FormControl(''),
+      parque: new FormControl(''),
       latitud: new FormControl(''),
       longitud: new FormControl('')
     });
+    this.formEditPhoto = new FormGroup({
+      imagen1: new FormControl(''),
+      imagen2: new FormControl(''),
+      imagen3: new FormControl(''),
+      imagen4: new FormControl(''),
+      imagen5: new FormControl(''),
+    })
+    this.btnPhoto = false
   }
 
   async ngOnInit() {
+
     this.user = await this.usuarioService.getToken();
 
     this.user = this.user[0];
@@ -118,7 +141,6 @@ export class UserComponent implements OnInit {
       descripcion: new FormControl(this.house.descripcion, [
         Validators.required
       ]),
-      imagen1: new FormControl(this.house.imagen1, [Validators.required]),
       fecha_entrada: new FormControl(this.house.fecha_entrada, [
         Validators.required
       ]),
@@ -140,12 +162,26 @@ export class UserComponent implements OnInit {
       ascensor: new FormControl(this.house.ascensor),
       parking: new FormControl(this.house.parking),
       piscina: new FormControl(this.house.piscina),
-      terraza: new FormControl(this.house.terraza),
-      balcon: new FormControl(this.house.balcon),
+      parque: new FormControl(this.house.parque),
       latitud: new FormControl(this.house.latitud),
-      longitud: new FormControl(this.house.longitud)
+      longitud: new FormControl(this.house.longitud),
+      /* imagen2: new FormControl(this.house.imagen2, [Validators.required]),
+      imagen3: new FormControl(this.house.imagen3, [Validators.required]),
+      imagen4: new FormControl(this.house.imagen4, [Validators.required]),
+      imagen5: new FormControl(this.house.imagen5, [Validators.required]), */
     });
-    /*  } */
+    this.formEditPhoto = new FormGroup({
+      file1: new FormControl(''),
+      file2: new FormControl(''),
+      file3: new FormControl(''),
+      file4: new FormControl(''),
+      file5: new FormControl(''),
+    })
+    this.image1 = true;
+    this.image2 = true;
+    this.image3 = true;
+    this.image4 = true;
+    this.image5 = true;
 
     if (this.house == null) {
       this.showBtn = true;
@@ -184,7 +220,50 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/user']);
     this.showInputs = true;
     this.showParagraph = false;
-    console.log(this.house, 'changes');
+    //console.log(this.house, 'changes');
+  }
+
+  async onSubmitImage(pIdHouse) {
+    this.image1 = true;
+    this.image2 = true;
+    this.image3 = true;
+    this.image4 = true;
+    this.image5 = true;
+    pIdHouse = this.house.id;
+    //console.log(this.house.imagen1)
+    const fd = new FormData();
+    //console.log(this.files)
+    for (let index = 0; index < this.files.length; index++) {
+      console.log(this.files[index])
+      fd.append('imagen', this.files[index][0], `nuevaCasa${index}.jpg`);
+
+    }
+    Object.keys(this.formEditPhoto.value).forEach(key => {
+      fd.append(key, this.formEditPhoto.value[key]);
+    });
+    const req = new HttpRequest(
+      'PUT',
+      `http://localhost:3000/api/houses/image1/${pIdHouse}`,
+      fd
+    );
+    this.http
+      .request(req)
+      .toPromise()
+      .then(result => {
+        console.log(result);
+        /* this.showLoading = false */
+        this.router.navigate(['/user']);
+      });
+
+    await this.houseService.editImageById(pIdHouse, this.formEditPhoto.value)
+    //console.log(this.house.imagen1)
+    const idUsuario = this.usuarioService.getLocalStore('id')
+    setTimeout(async () => {
+      this.house = await this.houseService.getByFk(idUsuario)
+      console.log(this.house)
+    }, 5000)
+    console.log('paso por aqui')
+
   }
 
   async deleteHouse(pIdHouse) {
@@ -193,6 +272,36 @@ export class UserComponent implements OnInit {
       pIdHouse = this.idHouse;
       await this.houseService.deleteHousebyId(pIdHouse);
       this.router.navigate(['/home']);
+    }
+  }
+
+
+  onChange($event) {
+    this.files.push($event.target.files)
+  }
+
+  async editPhoto($event) {
+    switch ($event.target.id) {
+      case '1':
+        this.image1 = false
+        this.btnPhoto = true
+        break;
+      case '2':
+        this.image2 = false
+        this.btnPhoto = true
+        break;
+      case '3':
+        this.image3 = false
+        this.btnPhoto = true
+        break;
+      case '4':
+        this.image4 = false
+        this.btnPhoto = true
+        break;
+      case '5':
+        this.image5 = false
+        this.btnPhoto = true
+        break;
     }
   }
 
