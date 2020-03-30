@@ -8,7 +8,6 @@ import { HouseService } from "../house.service";
 
 import { groupBy, mergeMap, toArray } from "rxjs/operators";
 import { from } from "rxjs";
-import { setTimeout } from "timers";
 
 @Component({
   selector: "app-user",
@@ -326,13 +325,11 @@ export class UserComponent implements OnInit {
   }
 
   PonerTextArea(e) {
-    console.log(e);
     this.recepId = e.target.id;
     this.display = !this.display;
-    console.log(this.recepId);
   }
 
-  async save() {
+  async save(e) {
     const emi = this.usuarioService.getLocalStore("id");
     const nombre = this.usuarioService.getLocalStore("nombre");
     const recep = this.recepId;
@@ -341,7 +338,7 @@ export class UserComponent implements OnInit {
     await this.contactService.insertComent(this.comentRes, recep, emi, nombre);
     this.getComents("ts");
   }
-  goHouse() {
-    this.router.navigate(["/house/detail", this.recepId]);
+  goHouse(e) {
+    this.router.navigate(["/house/detail", e.target.id]);
   }
 }

@@ -1,4 +1,4 @@
-import { ObservablesService } from './../observables.service';
+import { ObservablesService } from "./../observables.service";
 import {
   Component,
   OnInit,
@@ -6,21 +6,21 @@ import {
   Input,
   Output,
   EventEmitter
-} from '@angular/core';
+} from "@angular/core";
 
 declare var google;
 
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.css']
+  selector: "app-maps",
+  templateUrl: "./maps.component.html",
+  styleUrls: ["./maps.component.css"]
 })
 export class MapsComponent implements OnInit {
   @Input() modoInput: boolean;
   @Input() modoMap: boolean;
   @Output() envioDireccion: EventEmitter<any>;
 
-  @ViewChild('googleMap', null)
+  @ViewChild("googleMap", null)
   gMap: any;
   map: any;
   directionsService: any;
@@ -45,7 +45,7 @@ export class MapsComponent implements OnInit {
         this.showError
       );
     } else {
-      console.log('La hemos liado con la geolocalizacion');
+      console.log("La hemos liado con la geolocalizacion");
     }
 
     this.autocompletadoGoogle();
@@ -73,7 +73,7 @@ export class MapsComponent implements OnInit {
         position.coords.latitude,
         position.coords.longitude
       ),
-      zoom: 17,
+      zoom: 1,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gMap.nativeElement, propsMap);
@@ -83,7 +83,7 @@ export class MapsComponent implements OnInit {
     const marker = new google.maps.Marker({
       position: propsMap.center,
       map: this.map,
-      title: 'Usted se encuentra aqui!'
+      title: "Usted se encuentra aqui!"
     });
     this.markers.push(marker);
     this.loading = false;
@@ -91,12 +91,12 @@ export class MapsComponent implements OnInit {
 
   // Carga el autompletado del input al iniciar la pagina.
   autocompletadoGoogle() {
-    const input = document.getElementById('inputPlace');
+    const input = document.getElementById("inputPlace");
     const autoComplete = new google.maps.places.Autocomplete(input);
 
-    autoComplete.setFields(['address_components', 'geometry', 'icon', 'name']);
+    autoComplete.setFields(["address_components", "geometry", "icon", "name"]);
 
-    autoComplete.addListener('place_changed', () => {
+    autoComplete.addListener("place_changed", () => {
       const place = autoComplete.getPlace();
       if (place.geometry === undefined) {
         this.objAdress = { activo: true };
@@ -104,7 +104,6 @@ export class MapsComponent implements OnInit {
       } else {
         const lat = place.geometry.location.lat();
         const lng = place.geometry.location.lng();
-
 
         switch (place.address_components.length) {
           case 4:
@@ -187,7 +186,7 @@ export class MapsComponent implements OnInit {
     const m = new google.maps.Marker({
       position: new google.maps.LatLng(this.lat, this.lng),
       map: this.map,
-      title: 'Nuevo punto'
+      title: "Nuevo punto"
     });
     this.markers.push(m);
   }
@@ -197,19 +196,19 @@ export class MapsComponent implements OnInit {
     console.log(error);
     switch (error.code) {
       case error.PERMISSION_DENIED:
-        console.log('El usuario no quiere ser localizado');
+        console.log("El usuario no quiere ser localizado");
         break;
 
       case error.POSITION_UNAVAILABLE:
-        console.log('No se ha podido recuperar la posición');
+        console.log("No se ha podido recuperar la posición");
         break;
 
       case error.TIMEOUT:
-        console.log('Se ha tardado demasiado en recuperar la localización');
+        console.log("Se ha tardado demasiado en recuperar la localización");
         break;
 
       case error.UNKNOWN_ERROR:
-        console.log('Error desconocido');
+        console.log("Error desconocido");
         break;
     }
   }

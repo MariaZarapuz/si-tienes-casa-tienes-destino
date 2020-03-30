@@ -20,9 +20,7 @@ label {
   margin-top: 30px;
 }
 
-.sangria {
-  margin-left: 100px;
-}
+
 
 .userimage {
   background-image: url('../../assets/images/user.png');
@@ -163,6 +161,16 @@ label {
   background-color: #220e2a;
   color: #8bc5ce;
   border: 1px solid #8bc5ce;
+  position: absolute;
+  right: 0px;
+  padding: 2px;
+
+}
+
+.look:hover {
+  background-color: #8bc5ce;
+  color: #220e2a;
+
 }
 
 .header-sms {
@@ -177,6 +185,104 @@ label {
 }
 
 .name {
+  color: #220e2a;
+  ;
   font-size: 30px;
   font-weight: bold;
+}
+
+.emi {
+  color: #220e2a;
+  font-weight: 900;
+  font-size: 19px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.sms {
+  padding: 6px;
+  margin-top: 4px;
+}
+
+.time {
+  font-size: 10px;
+  margin-left: 89%;
+  color: black;
+}
+
+
+.wrapperSms {
+  border-radius: 21px;
+  border: 1px solid lightblue;
+  padding: 5px;
+  margin-bottom: 19px;
+  background-color: #8bc5ce;
+  margin-right: 100px;
+  border-top-left-radius: 0px;
+
+}
+
+.sangria {
+  border-radius: 21px;
+  margin-left: 100px;
+  margin-right: 0px;
+  background-color: white;
+  border-top-right-radius: 0px;
+}
+
+.planet i {
+  color: white;
+  font-size: 25px;
+  margin: 0px;
+  padding-top: 15%;
+  padding-bottom: 15%;
+
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 18px;
+  background-color: #220e2a;
+
+}
+
+.flex .texarea {
+  width: 85%;
+
+}
+
+.flex .boton {
+  width: 15%;
+  padding: 10px;
+
+
+}
+
+.flex .boton .planet {
+  cursor: pointer;
+  text-align: center;
+  background-color: #8bc5ce;
+  border-radius: 50%;
+
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 450px;
+
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.top {
+  margin-top: 5px !important;
+  cursor: pointer;
+}
+
+.namelist {
+  padding-bottom: 20px;
+
 }

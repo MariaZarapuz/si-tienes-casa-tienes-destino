@@ -13,13 +13,13 @@
           <i id="2" *ngIf="card1" class="fas fa-home" (click)="changeCard($event)"></i>
         </div>
       </div>
-
+      <div type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">
+        <i id="1" (click)="getComents('html')" *ngIf="card1" class="fas fa-envelope" data-toggle="modal"
+          data-target="#exampleModalCenter"></i>
+      </div>
       <div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
-          <i id="1" (click)="getComents('html')" *ngIf="card1" class="fas fa-envelope" data-toggle="modal"
-            data-target="#exampleModalCenter"></i>
-        </button>
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -27,39 +27,66 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
 
-              <div class="modal-header header-sms">
+              <div class="modal-header header-sms" *ngIf=display>
                 <h3 class="">Mensajes Recibidos</h3>
                 <button type="button" class="close x-cerrar" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              <div class="modal-header header-sms" *ngIf=!display>
+                <h3 class="">Chat</h3>
+                <button type="button" class="close x-cerrar " data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
 
-              <div class="modal-body">
-                <div class="col-12" *ngIf=display>
+              <div class="modal-body wrapper">
+                <div class="" *ngIf=display>
+
                   <div *ngFor="let comentario of userComentari">
-                    <div class="row">
-                      <div class="col-6">
-                        <p class=" name">{{comentario[0].nombre_emi}}</p>
+                    <div class="row namelist">
+
+                      <div class="row col-6">
+                        <p class="name col-9">{{comentario[0].nombre_emi}}</p>
+                        <div class="col-3">
+                          <i class="fas fa-home top" data-dismiss="modal" [id]="comentario[0].user_emit"
+                            (click)="goHouse($event)"></i></div>
+
                       </div>
                       <div class="col-6 justify-content-end">
                         <button class=" btn look col-6 " [id]="comentario[0].user_emit"
                           (click)="PonerTextArea($event)">Ver</button>
                       </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="!display">
+                  <div class="scroll">
+                    <div class="wrapperSms" *ngFor="let comentario of arrayGeneral"
+                      [ngClass]="{'sangria': comentario.user_emit!==id  }">
+
+                      <p class="emi">{{comentario.nombre_emi}} </p>
+
+                      <p class="sms">{{comentario.comentario}}</p><span
+                        class="time">{{comentario.fecha_envio|date:' HH:mm'}}</span><br>
                     </div>
 
                   </div>
                 </div>
-                <div *ngIf="!display">
-                  <div *ngFor="let comentario of arrayGeneral" [ngClass]="{'sangria': comentario.user_emit!==id  }">
-                    <p>{{comentario.user_emit!==id }}</p>
-                    <p>{{comentario.nombre_emi}} </p>
-                    <p>{{comentario.comentario}}</p><span>{{comentario.fecha_envio|date:'d/M/y HH:mm.ss'}}</span><br>
+
+              </div>
+              <div *ngIf="!display" class="">
+                <div class="flex">
+                  <div class="texarea">
+                    <textarea class="form-control  " [(ngModel)]="comentRes"></textarea>
+                  </div>
+                  <div class="boton">
+                    <div type="button" (click)="save()" class=" planet"><i class="fab fa-telegram-plane"></i></div>
                   </div>
                 </div>
-                <div *ngIf="!display" class="col-12">
-                  <textarea class="col-12" [(ngModel)]="comentRes"></textarea>
-                  <button type="button" (click)="save()" class="btn btn-primary">Enviar</button>
-                </div>
+
               </div>
             </div>
 
