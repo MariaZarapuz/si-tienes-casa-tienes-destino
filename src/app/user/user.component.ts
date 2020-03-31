@@ -435,7 +435,8 @@ export class UserComponent implements OnInit {
     console.log(
       e.srcElement.parentNode.parentNode.children[0].children[1].children[0].id
     );
-    this.recepId = e;
+    this.recepId =
+      e.srcElement.parentNode.parentNode.children[0].children[1].children[0].id;
     this.idMensaje = e.target.id;
     console.log(this.idMensaje);
     this.display = !this.display;
@@ -450,6 +451,7 @@ export class UserComponent implements OnInit {
     console.log(this.comentRes, recep, emi);
     await this.contactService.insertComent(this.comentRes, recep, emi, nombre);
     this.getComents("ts");
+    this.comentRes = "";
   }
   goHouse(e) {
     this.router.navigate(["/house/detail", e.target.id]);
