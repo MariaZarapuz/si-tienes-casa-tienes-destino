@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   signOff() {
     //console.log("LLego");
     localStorage.clear();
+    this.router.navigate(["/home"])
   }
 
   searchFilter(e) {

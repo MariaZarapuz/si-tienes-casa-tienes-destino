@@ -211,31 +211,49 @@
             </div>
           </div>
           <!--insertar foto-->
-          <div>
-            <input class="form-control-file" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file1" required>
+          <div class="row">
+
+            <div class="custom-file col-6 mt-2 pl-5 pr-5">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="file1" required
+                (change)="onChange($event)">
+              <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+              <div class="invalid-feedback">Debes introducir todas las fotos</div>
+            </div>
+
+
+            <div class="custom-file col-6 mt-2">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="file2" required
+                (change)="onChange($event)">
+              <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+              <div class="invalid-feedback">Debes introducir todas las fotos</div>
+            </div>
+
+
+            <div class="custom-file col-6 mt-2">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="file3" required
+                (change)="onChange($event)">
+              <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+              <div class="invalid-feedback">Debes introducir todas las fotos</div>
+            </div>
+
+
+            <div class="custom-file col-6 mt-2">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="file4" required
+                (change)="onChange($event)">
+              <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+              <div class="invalid-feedback">Debes introducir todas las fotos</div>
+            </div>
+
+
+            <div class="custom-file col-6 mt-2">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" formControlName="file5" required
+                (change)="onChange($event)">
+              <label class="custom-file-label" for="validatedCustomFile">Elige una foto</label>
+              <div class="invalid-feedback">Debes introducir todas las fotos</div>
+            </div>
 
           </div>
-          <div>
-            <input class="form-control-file" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file2" required>
 
-          </div>
-          <div>
-            <input class="form-control-file" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file3" required>
-
-          </div>
-          <div>
-            <input class="form-control-file" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file4" required>
-
-          </div>
-          <div>
-            <input class="form-control-file" type="file" name="foto_usuario" (change)="onChange($event)"
-              formControlName="file5" required>
-
-          </div>
           <div class="col-12">
             <div class="row">
               <div class="col-6">

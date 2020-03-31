@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,14 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   slide: string;
+  showBtn: boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private usuariosService: UsuariosService,
   ) {
     this.slide = 'slide1';
+    this.showBtn = false;
   }
 
   ngOnInit() {
@@ -26,6 +30,10 @@ export class HomeComponent implements OnInit {
         this.slide = 'slide1';
       }
     }, 10000);
+    const token = this.usuariosService.getLocalStore('token')
+    if (token == null) {
+      this.showBtn = true;
+    }
   }
 
   searchFilter(e) {

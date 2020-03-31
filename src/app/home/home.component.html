@@ -8,7 +8,7 @@
     [ngClass]="{ 'slide1': (slide === 'slide1') , 'slide2': (slide === 'slide2') , 'slide3': (slide === 'slide3') }">
     <div class="join row">
       <p class="col-12">Únete a nuestra comunidad <span class="d-none d-md-block">de intercambio de casas</span></p>
-      <div class="button col-12">
+      <div class="button col-12" *ngIf="showBtn">
         <button class="btn btn-outline-secondary" [routerLink]="['/user/register']" type="submit"> ÚNETE </button>
       </div>
     </div>
@@ -18,39 +18,43 @@
 <!-- SECTIONS -->
 <div class="container">
   <div class="row">
-    <div class="info offset-1 col-10">
+    <div class="info offset-1 col-10 mb-5">
       <div class="row">
 
-        <div class="col-12 section">
+        <div class="col-12 section mt-sm-3 mt-md-0">
           <div class="row">
-            <div class="col-6">
+            <div class="col-7 d-none d-sm-block">
               <img src="../../assets/images/save.svg" alt="">
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-5 align-self-center">
               <h3>Ahorra dinero</h3>
-              <p>Ya que al usar este método, puedes olvidarte de los gastos de alojamiento</p>
+              <p class="d-sm-none d-md-block">Ya que al usar este método, puedes olvidarte de los gastos de alojamiento
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="col-12 section">
+        <div class="col-12 section mt-sm-5">
           <div class="row">
-            <div class="col-6">
-              <h3>Conoce mundo</h3>
-              <p>Puedes viajar a lugares del mundo a los que nunca habrías imaginado ir</p>
+            <div class="col-12 col-sm-5 align-self-center">
+              <h3 class="mb-2">Conoce mundo</h3>
+              <p class="d-sm-none d-md-block">Puedes viajar a lugares del mundo a los que nunca habrías imaginado ir</p>
             </div>
-            <img class="col-6" src="../../assets/images/travel2.svg" alt="">
+            <div class="col-7 d-none d-sm-block">
+              <img class="col-6" src="../../assets/images/travel2.svg" alt="">
+            </div>
+
           </div>
         </div>
 
-        <div class="col-12 section">
+        <div class="col-12 section mt-sm-5">
           <div class="row">
-            <div class="col-6">
+            <div class="col-7 d-none d-sm-block">
               <img src="../../assets/images/likehome.svg" alt="">
             </div>
-            <div class="col-6">
+            <div class="col-12  col-sm-5 align-self-center">
               <h3>Siéntete como en casa</h3>
-              <p>Puedes sentirte tan agusto como si estuvieras en tu propia casa</p>
+              <p class="d-sm-none d-md-block">Puedes sentirte tan agusto como si estuvieras en tu propia casa</p>
             </div>
           </div>
         </div>

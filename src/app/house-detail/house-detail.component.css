@@ -121,3 +121,7 @@ label {
   color: white;
   text-decoration: underline
 }
+.alto{
+  max-height: 200px;
+}
+

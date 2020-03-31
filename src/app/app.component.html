@@ -11,13 +11,17 @@
       </div>
       <div class="buttons col-10 col-md-5 ">
         <button *ngIf="!usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
-          [routerLink]="['/user/register']">Regístrate</button>
+          [routerLink]="['/user/register']">
+          Regístrate</button>
         <button *ngIf="!usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
           [routerLink]="['/login']">Inicia sesión</button>
         <button *ngIf="usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
-          [routerLink]="['/user']">Perfil</button>
+          (click)="signOff()" [routerLink]="['/home']"><i class="fas fa-power-off d-block d-sm-none"></i><span
+            class="d-none d-sm-block">Cerrar sesión</span></button>
         <button *ngIf="usuariosService.getLocalStore('token')" type="button" class="btn btn-outline-secondary"
-          (click)="signOff()" [routerLink]="['/home']">Cerrar sesión</button>
+          [routerLink]="['/user']"><i class="fas fa-user d-block d-sm-none"></i><span
+            class="d-none d-sm-block">Perfil</span></button>
+
       </div>
     </nav>
   </div>
